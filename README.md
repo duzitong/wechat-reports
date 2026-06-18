@@ -21,4 +21,4 @@
 
    首次运行会在终端显示二维码，用微信扫码登录。
 3. 在微信里给 bot 发消息让它写报告，例如「帮我规划 3 天东京行程」。它会按 [AGENTS.md](AGENTS.md) 在 `reports/` 下生成 HTML 并自动 commit、push。
-4. 在「GitHub HTML 查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
+4. 在「GH HTML 查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
