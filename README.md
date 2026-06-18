@@ -1,6 +1,6 @@
 # wechat-reports
 
-一个用来生成**可以在手机上阅读的 HTML 报告**的起始仓库，配合微信「GitHub HTML 查看器」小程序查看。
+一个用来生成**可以在手机上阅读的 HTML 报告**的起始仓库，配合微信「GH HTML 查看器」小程序查看。
 
 你在这个仓库里跟 AI 编程助手对话（「帮我规划 3 天东京行程」「把这些笔记整理成一页」），它会在 `reports/` 下写一个自包含的 `.html` 报告，然后 commit 并 push。因为报告对小程序用来渲染 HTML 的 [mp-html](https://github.com/jin-yufeng/mp-html) 组件是安全的，所以在浏览器和小程序里都能正确显示。
 
