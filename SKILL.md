@@ -12,7 +12,7 @@ Author a single self-contained `.html` file that renders in the miniapp's `mp-ht
 - **One self-contained file.** All CSS in a `<style>` in `<head>`, placed BEFORE the elements it styles (the plugin matches top-down).
 - **Literal values only** — no `var()` / custom properties (not resolved). No `@media`, `@keyframes`, `@font-face`, `@import` (all dropped).
 - **Supported selectors:** tag, `.class`, `#id`, intersection (`.a.b`), descendant (`.a .b`), child (`.a > b`), grouping (`a, b`), `:before` / `:after`. Dropped: `*`, `[attr]`, `:hover` / `:nth-child` / other pseudo-classes, `~`, `+`.
-- **Set `background` + `color` on a wrapper** that holds all content — otherwise it falls back to the device default (white bg / black text). This is the usual "白色背景" bug.
+- **Set `background` + `color` on a wrapper** that holds all content — otherwise it falls back to the device default (white bg / black text).
 - **No interactivity** — `<script>`, `<canvas>`, `<iframe>`, forms, animations and transitions don't work.
 - **Images:** use `<img>` with a same-repo relative path (the viewer inlines it) or an absolute `https://` URL — not CSS `background-image:url()`. Use a system font stack (no web fonts). mp-html caps images at `max-width:100%`.
 
