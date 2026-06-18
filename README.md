@@ -12,7 +12,13 @@
 
 ## 怎么用
 
-1. 在 AI 编辑器里打开这个仓库。
-2. 让它写一份报告。
-3. 让它把报告存到 `reports/` 下并 push。
-4. 在小程序里指向这个 GitHub 仓库，打开报告。
+1. **Clone 这个仓库**，建议 push 到你自己的 GitHub 账号并设为 **private**，这样报告不会公开。
+2. 用 **[wechat-acp](https://github.com/formulahendry/wechat-acp)** 把微信和本机的 AI agent 连起来，`--cwd` 指向你 clone 下来的这个仓库，让 agent「在这个项目里」工作：
+
+   ```
+   npx -y wechat-acp@latest --agent copilot --cwd <你clone的仓库路径>
+   ```
+
+   首次运行会在终端显示二维码，用微信扫码登录。
+3. 在微信里给 bot 发消息让它写报告，例如「帮我规划 3 天东京行程」。它会按 [AGENTS.md](AGENTS.md) 在 `reports/` 下生成 HTML 并自动 commit、push。
+4. 在「GitHub HTML 查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
