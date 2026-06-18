@@ -1,6 +1,6 @@
 ---
 name: mp-html-page
-description: Generate or convert a self-contained HTML page that renders correctly in the WeChat mp-html viewer (the miniapp-github-html-viewer mini program, which bundles only the mp-html `style` plugin). Use when the user wants to author a new HTML page for the GitHub HTML viewer miniapp, convert an existing webpage/HTML into mp-html-safe markup, or fix a page that renders wrong in the miniapp (white background, missing styles, broken layout).
+description: Generate or convert a self-contained HTML page that renders correctly in the WeChat mp-html viewer (the miniapp-github-html-viewer mini program, which bundles only the mp-html `style` plugin). Use when the user wants to author a new HTML page for the GH HTML viewer miniapp, convert an existing webpage/HTML into mp-html-safe markup, or fix a page that renders wrong in the miniapp (white background, missing styles, broken layout).
 ---
 
 # mp-html Page Generator
