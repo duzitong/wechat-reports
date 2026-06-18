@@ -1,6 +1,6 @@
 # wechat-reports
 
-一个用来生成**可以在手机上阅读的 HTML 报告**的起始仓库，配合微信「GH HTML查看器」小程序查看。
+一个用来生成**可以在手机上阅读的 HTML 报告**的起始仓库，配合微信「GH HTML 查看器」小程序查看。
 
 你在这个仓库里跟 AI 编程助手对话（「帮我规划 3 天东京行程」「把这些笔记整理成一页」），它会在 `reports/` 下写一个自包含的 `.html` 报告，然后 commit 并 push。因为报告对小程序用来渲染 HTML 的 [mp-html](https://github.com/jin-yufeng/mp-html) 组件是安全的，所以在浏览器和小程序里都能正确显示。
 
@@ -21,7 +21,7 @@
 
    首次运行会在终端显示二维码，用微信扫码登录。
 3. 在微信里给 bot 发消息让它写报告，例如「帮我规划 3 天东京行程」。它会按 [AGENTS.md](AGENTS.md) 在 `reports/` 下生成 HTML 并自动 commit、push。
-4. 在「GH HTML查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
+4. 在「GH HTML 查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
 
    小程序需要一个 **GitHub Fine-grained PAT** 才能访问仓库（尤其是 private 仓库）。生成步骤：
    - 登录 GitHub → 右上角头像 → **Settings** → 左侧 **Developer settings** → **Personal access tokens** → **Fine-grained tokens**
