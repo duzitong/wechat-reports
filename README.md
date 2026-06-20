@@ -10,6 +10,12 @@
 - **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 `style` 插件能力范围内的技能。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
 - **`reports/`** 存放生成的页面。[reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html) 是一个示例。
 
+## 作为个人知识库（LLM Wiki）
+
+`main` 分支适合写**一次性报告**。如果你想把这个仓库当成一个**持续积累的个人知识库**，可以用 **`llm-wiki` 分支**——它沿用 [Karpathy 的 LLM Wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)：你往 `raw/` 丢原始资料（文章、笔记、PDF、图片），AI 读完后在 `wiki/` 里维护一套互相链接的页面，并随每条新资料更新索引、交叉引用和日志。区别在于 `wiki/` 里的页面是用 mp-html-page 技能生成的 **HTML**（而不是 Karpathy 原版的 Markdown），所以同样能在「GH HTML 查看器」小程序里直接浏览。
+
+要这么用，切到 `llm-wiki` 分支，按那边的 [AGENTS.md](https://github.com/duzitong/wechat-reports/blob/llm-wiki/AGENTS.md) 配置即可。
+
 ## 怎么用
 
 1. **Clone 这个仓库**，建议 push 到你自己的 GitHub 账号并设为 **private**，这样报告不会公开。
