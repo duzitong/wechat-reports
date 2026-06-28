@@ -39,27 +39,7 @@ Recipe (per file that exceeds the target):
 3. **Hold quality in a good band (q ≈ 72–85); shrink resolution to fit.** Find the *largest* scale at which some quality in that band still lands ≤ 250 KB — that maximizes resolution while keeping quality decent. Save JPEG with `optimize=True, progressive=True`.
 4. **Keep filenames unchanged** so the page's `<img src>` references stay valid (no HTML edits needed).
 
-Reference (Python / Pillow):
-
-```python
-from PIL import Image, ImageOps
-import io
-TARGET = 250_000
-im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
-w, h = im.size
-for s in [1.0, .9, .8, .7, .62, .55, .5]:          # largest scale first
-    work = im if s == 1 else im.resize((round(w*s), round(h*s)), Image.LANCZOS)
-    for q in range(85, 71, -1):                    # highest quality that fits
-        buf = io.BytesIO()
-        work.save(buf, "JPEG", quality=q, optimize=True, progressive=True)
-        if buf.tell() <= TARGET:
-            open(path, "wb").write(buf.getvalue()); break
-    else:
-        continue
-    break
-```
-
-After recompressing, verify each file is valid and ≤ 250 KB (e.g. `Image.open(p).verify()` + size check), then commit with filenames unchanged.
+After recompressing, verify each file is valid and ≤ 250 KB, then commit with filenames unchanged.
 
 ## Output
 
