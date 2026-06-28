@@ -18,15 +18,15 @@ Author a single self-contained `.html` file that renders in the miniapp's `mp-ht
 
 ## Viewer runtime limits (from the miniapp's code)
 
-The viewer resolves a page via the viewer mini-program's `config/index.js`. For a **private** repo it runs in `dataUri` mode — each repo-relative asset is fetched through the GitHub Contents API and inlined as base64. That imposes hard caps; design pages to stay under them:
+The viewer resolves a page via the viewer mini-program's `config/index.js`. For a **private** repo it runs in `dataUri` mode — each repo-relative asset is fetched through the GitHub Contents API, then **saved to an on-device cache file** whose local path is handed to the `<img>` (no longer inlined as a base64 data URI; that's only a write-failure fallback). Some hard caps still apply; design pages to stay under them:
 
-- **≤ 120 relative images per page.** Only the first `images.maxInline` (currently **120**) repo-relative `<img>` are inlined; any beyond that keep an unresolved relative `src` and render **blank**. Absolute `https://` images load directly and do **not** count toward this cap.
-- **Each relative image must be < 1 MB — aim for ≤ 250 KB.** `dataUri` mode uses the Contents API, which only returns base64 `content` for files **≤ 1 MB**; a larger file comes back empty and the image stays blank. 1 MB is the hard ceiling, but **target ≤ 250 KB per photo**: base64 inflates bytes ~33% in memory, and a page of sub-250 KB images inlines far faster and scrolls smoother. See the recompression recipe below.
-- **Mind the total inlined payload.** Every relative image is one API call and is held in memory as base64 all at once; a very large total can make the webview sluggish or crash. Keep image-heavy pages reasonable.
+- **≤ 120 relative images per page.** Only the first `images.maxInline` (currently **120**) repo-relative `<img>` are fetched; any beyond that keep an unresolved relative `src` and render **blank**. Absolute `https://` images load directly and do **not** count toward this cap.
+- **Each relative image must be < 1 MB — aim for ≤ 250 KB.** The fetch still uses the Contents API, which only returns `content` for files **≤ 1 MB**; a larger file comes back empty and the image stays blank — 1 MB is the hard ceiling. **Target ≤ 250 KB per photo anyway**: first-load downloads run only a few at a time (concurrency-limited), so smaller files mean a faster first paint and a smaller on-device cache. Absolute `https://` images skip the API entirely. See the recompression recipe below.
+- **Images are cached on-device, not held in memory.** Each downloaded image is written to a local cache file and the `<img>` points at that path; the cache **persists across restarts** and only refreshes via the viewer's **“清缓存”** button. With lazy-loading on, image-heavy pages are far lighter than the old base64-inline approach — but every image must still clear the per-image cap above on its first download.
 - **≤ 8 relative stylesheets per page.** Only the first `css.maxStylesheets` (currently **8**) same-repo `<link rel="stylesheet">` files are fetched and inlined. Inline `<style>` blocks have **no** cap and are always parsed — **prefer inline `<style>`**.
 - **`raw` mode (no caps) is public-repo only.** It rewrites images to `raw.githubusercontent.com` with no API calls or caps, but only works for public repos. A private repo must use `dataUri`, so the caps above apply.
 
-> Source of truth: the viewer's `config/index.js` (`images.mode` / `images.maxInline` / `css.inlineExternal` / `css.maxStylesheets`). If those change, update this note.
+> Source of truth: the viewer's `config/index.js` (`images.mode` / `images.maxInline` / `images.concurrency` / `css.inlineExternal` / `css.maxStylesheets`). If those change, update this note.
 
 ## Recompressing photos (≤ 250 KB, keep quality)
 
