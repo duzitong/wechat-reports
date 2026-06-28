@@ -26,8 +26,6 @@ The viewer resolves a page via the viewer mini-program's `config/index.js`. For 
 - **≤ 8 relative stylesheets per page.** Only the first `css.maxStylesheets` (currently **8**) same-repo `<link rel="stylesheet">` files are fetched and inlined. Inline `<style>` blocks have **no** cap and are always parsed — **prefer inline `<style>`**.
 - **`raw` mode (no caps) is public-repo only.** It rewrites images to `raw.githubusercontent.com` with no API calls or caps, but only works for public repos. A private repo must use `dataUri`, so the caps above apply.
 
-> Source of truth: the viewer's `config/index.js` (`images.mode` / `images.maxInline` / `images.concurrency` / `css.inlineExternal` / `css.maxStylesheets`). If those change, update this note.
-
 ## Recompressing photos (≤ 250 KB, keep quality)
 
 To hit ≤ 250 KB without making photos look soft, **prefer dropping resolution over crushing JPEG quality**. Squeezing a full-res phone photo (~1280×2275) under 250 KB can force quality ~50 (blocky/smeared); the same 250 KB looks much better at a slightly smaller size with quality ~75. On-screen the viewer caps images at `max-width:100%` and phones are only ~1080–1280 px wide, so downscaling tall photos to ~800–1200 px wide is visually lossless.
