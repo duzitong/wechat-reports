@@ -11,20 +11,6 @@
 - **一次性报告**（`main` 分支）：行程规划、攻略、读书笔记，随用随生成。
 - **个人知识库 / LLM Wiki**（`llm-wiki` 分支）：持续积累、互相链接的 HTML 笔记——相当于一个**免费的 Obsidian 多端同步**。
 
-## 工作原理
-
-- **[AGENTS.md](AGENTS.md)** 告诉 AI 怎么写报告。
-- **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 `style` 插件能力范围内的技能。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
-- **`reports/`** 存放生成的页面。[reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html) 是一个示例。
-
-## 作为个人知识库（LLM Wiki）
-
-`main` 分支适合写**一次性报告**。如果你想把这个仓库当成一个**持续积累的个人知识库**，可以用 **`llm-wiki` 分支**——它沿用 [Karpathy 的 LLM Wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)：你往 `raw/` 丢原始资料（文章、笔记、PDF、图片），AI 读完后在 `wiki/` 里维护一套互相链接的页面，并随每条新资料更新索引、交叉引用和日志。区别在于 `wiki/` 里的页面是用 mp-html-page 技能生成的 **HTML**（而不是 Karpathy 原版的 Markdown），所以同样能在「GH HTML 查看器」小程序里直接浏览。
-
-要这么用，切到 `llm-wiki` 分支，按那边的 [AGENTS.md](https://github.com/duzitong/wechat-reports/blob/llm-wiki/AGENTS.md) 配置即可。
-
-换个角度看，这套方案相当于一个**免费的 Obsidian 多端同步**：用 Git 仓库存放并同步你的知识库，用「GH HTML 查看器」小程序在手机微信里随时阅读——省掉了 Obsidian Sync 的订阅费，还能让 AI 直接帮你维护内容。
-
 ## 怎么用
 
 1. **Clone 这个仓库**，建议 push 到你自己的 GitHub 账号并设为 **private**，这样报告不会公开。
@@ -50,3 +36,13 @@
    - 登录 GitHub → 右上角头像 → **Settings** → 左侧 **Developer settings** → **Personal access tokens** → **Fine-grained tokens**
    - 点 **Generate new token**，**Resource owner** 选自己，**Repository access** 选「Only select repositories」并选中这个仓库，**Permissions** 里把 **Contents** 设为 `Read-only`，设好有效期，生成后**立即复制**（只显示一次）。
    - 在小程序设置里粘贴这个 token 即可。
+
+## 工作原理
+
+- **[AGENTS.md](AGENTS.md)** 告诉 AI 怎么写报告。
+- **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 `style` 插件能力范围内的技能。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
+- **`reports/`** 存放生成的页面。[reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html) 是一个示例。
+
+## 作为个人知识库（LLM Wiki）
+
+`main` 分支适合写**一次性报告**；想把仓库当成**持续积累的个人知识库**，就切到 **`llm-wiki` 分支**，按那边的 [AGENTS.md](https://github.com/duzitong/wechat-reports/blob/llm-wiki/AGENTS.md) 配置。它沿用 [Karpathy 的 LLM Wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)：你往 `raw/` 丢原始资料（文章、笔记、PDF、图片），AI 读完后在 `wiki/` 里维护一套互相链接的页面，并随每条新资料更新索引、交叉引用和日志。区别在于 `wiki/` 里的页面是用 mp-html-page 技能生成的 **HTML**（而不是原版的 Markdown），同样能在「GH HTML 查看器」小程序里直接浏览——配上 Git 同步，相当于一个**免费的 Obsidian 多端同步**，省掉订阅费，还能让 AI 直接帮你维护内容。
