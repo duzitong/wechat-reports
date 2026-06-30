@@ -19,13 +19,19 @@
 ## 怎么用
 
 1. **Clone 这个仓库**，建议 push 到你自己的 GitHub 账号并设为 **private**，这样报告不会公开。
-2. 用 **[wechat-acp](https://github.com/formulahendry/wechat-acp)** 把微信和本机的 AI agent 连起来，`--cwd` 指向你 clone 下来的这个仓库，让 agent「在这个项目里」工作：
+2. **把微信和 AI agent 连起来**，让 agent「在这个仓库里」工作——这样生成和查看都在微信里完成。两种连接方式：
 
-   ```
-   npx -y wechat-acp@latest --agent copilot --cwd <你clone的仓库路径>
-   ```
+   - **[wechat-acp](https://github.com/formulahendry/wechat-acp)**（推荐，体验最佳）：把微信和本机的 AI agent 连起来，`--cwd` 指向你 clone 下来的这个仓库：
 
-   首次运行会在终端显示二维码，用微信扫码登录。
+     ```
+     npx -y wechat-acp@latest --agent copilot --cwd <你clone的仓库路径>
+     ```
+
+     首次运行会在终端显示二维码，用微信扫码登录。
+
+   - **[微信 OpenClaw](https://docs.openclaw.ai/zh-CN/channels/wechat)**：通过腾讯的 `@tencent-weixin/openclaw-weixin` 渠道插件把微信接到 OpenClaw 的 agent，并把工作目录指向这个仓库；同样在微信里扫码登录后发消息即可，获得微信内的生成与查看体验。
+
+   其他工具（Claude Code、Codex、Cursor、GitHub Copilot 等）也可以直接在电脑上用来往这个仓库写报告；但要获得微信内的生成与查看体验，建议通过 wechat-acp 连接。
 3. 在微信里给 bot 发消息让它写报告，例如「帮我规划 3 天东京行程」。它会按 [AGENTS.md](AGENTS.md) 在 `reports/` 下生成 HTML 并自动 commit、push。
 4. 在「GH HTML 查看器」小程序里指向这个仓库，打开 `reports/` 下的报告。
 
