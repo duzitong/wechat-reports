@@ -4,7 +4,7 @@
 
 **微信发消息 → AI 写好 HTML 报告并自动 push → 「GH HTML 查看器」小程序里打开。**
 
-比如发一句「帮我规划 3 天东京行程」或「把这些笔记整理成一页」，AI 就在 `reports/` 下生成一个自包含的 `.html`，然后 commit、push。报告对小程序渲染 HTML 用的 [mp-html](https://github.com/jin-yufeng/mp-html) 组件是安全的，所以浏览器和小程序里都能正确显示。
+比如发一句「帮我规划 3 天东京行程」或「把这些笔记整理成一页」，AI 就在 `reports/` 下生成一个自包含的 `.html` 并自动 commit、push；几秒后你就能在「GH HTML 查看器」小程序里打开它，直接读到排好版的行程或笔记。
 
 **能用来做什么**
 
@@ -40,7 +40,7 @@
 ## 工作原理
 
 - **[AGENTS.md](AGENTS.md)** 告诉 AI 怎么写报告。
-- **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 `style` 插件能力范围内的技能。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
+- **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 [mp-html](https://github.com/jin-yufeng/mp-html) 组件 `style` 插件能力范围内的技能，保证浏览器和小程序里都能正确显示。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
 - **`reports/`** 存放生成的页面。[reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html) 是一个示例。
 
 ## 作为个人知识库（LLM Wiki）
