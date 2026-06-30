@@ -16,6 +16,8 @@
 
 要这么用，切到 `llm-wiki` 分支，按那边的 [AGENTS.md](https://github.com/duzitong/wechat-reports/blob/llm-wiki/AGENTS.md) 配置即可。
 
+换个角度看，这套方案相当于一个**免费的 Obsidian 多端同步**：用 Git 仓库存放并同步你的知识库，用「GH HTML 查看器」小程序在手机微信里随时阅读——省掉了 Obsidian Sync 的订阅费，还能让 AI 直接帮你维护内容。
+
 ## 怎么用
 
 1. **Clone 这个仓库**，建议 push 到你自己的 GitHub 账号并设为 **private**，这样报告不会公开。
