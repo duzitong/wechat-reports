@@ -33,6 +33,7 @@
   .ideas-h { font-size: 15px; font-weight: 700; margin: 0 0 10px; color: #24292f; }
   .chip { display: inline-block; background: #f3f0ff; color: #6639ba; border: 1px solid #e2d9ff; border-radius: 16px; padding: 6px 12px; font-size: 13px; margin: 0 6px 8px 0; }
   .foot { color: #656d76; font-size: 12px; margin: 26px 0 0; text-align: center; }
+  .foot-link { color: #0969da; text-decoration: underline; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -51,14 +52,6 @@
     <div class="d">「GH HTML 查看器」指向你自己的 repo，点开 AI 刚写的那篇报告。</div>
   </div>
 
-  <div class="note" id="prep">
-    <b>第一次要做的准备</b><span class="hint">（可以直接发给你的 AI 帮你做）</span>：<br>
-    ① Clone <a class="jump2" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己的账号下并设为 private。<br>
-    ② 用 <code>wechat-acp</code> 把微信连到本机 agent（<code>--agent</code> 换成你喜欢的）：<br>
-    <code>npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</code><br>
-    ③ 小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存本机。
-  </div>
-
   <div class="ideas">
     <div class="ideas-h">💡 可以让它写点啥</div>
     <div class="chip">规划旅游</div>
@@ -71,7 +64,15 @@
     <div class="chip">健身计划</div>
   </div>
 
-  <p class="foot">仓库：duzitong/wechat-reports ✨</p>
+  <div class="note" id="prep">
+    <b>第一次要做的准备</b><span class="hint">（可以直接发给你的 AI 帮你做）</span>：<br>
+    ① Clone <a class="jump2" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己的账号下并设为 private。<br>
+    ② 用 <a class="jump2" href="https://github.com/formulahendry/wechat-acp">wechat-acp</a> 把微信连到本机 agent（<code>--agent</code> 换成你喜欢的）：<br>
+    <code>npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</code><br>
+    ③ 小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存本机。
+  </div>
+
+  <p class="foot">⭐ 觉得好用就给 <a class="foot-link" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a> 点个 Star ✨</p>
 </div>
 </body>
 </html>
