@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 前沿速览 · 7月3日</title>
 <style>
-  body { margin: 0; background: #0e1116; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
-  .page { max-width: 760px; margin: 0 auto; background: #f5f6f8; color: #1f2328; padding: 0 0 40px; line-height: 1.7; }
+  body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 760px; margin: 0 auto; background: #f4f1ea; color: #26231d; padding: 0 0 42px; line-height: 1.72; }
 
-  .hero { background: #3b34c0; color: #ffffff; padding: 26px 22px 22px; }
-  .hero .upd { margin: 0 0 11px; color: #ffd24d; font-weight: 700; font-size: 13px; }
-  .hero .tag { display: inline-block; background: #ffd24d; color: #4a3a00; font-size: 12px; font-weight: 700; padding: 3px 11px; border-radius: 20px; margin: 0 0 12px; }
-  .hero h1 { font-size: 25px; margin: 0 0 8px; }
-  .hero p { margin: 0; color: #dcd9f7; font-size: 14px; }
+  .hero { background: #ece5d7; color: #26231d; padding: 30px 22px 22px; border-bottom: 1px solid #ddd4c2; }
+  .hero .upd { margin: 0 0 14px; color: #bf5b3e; font-weight: 700; font-size: 12.5px; letter-spacing: 0.06em; }
+  .hero .tag { display: inline-block; background: #ecd8cb; color: #9a4a2e; font-size: 12px; font-weight: 700; padding: 3px 11px; border-radius: 3px; margin: 0 0 13px; letter-spacing: 0.04em; }
+  .hero h1 { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 31px; font-weight: 700; letter-spacing: 0.01em; margin: 0 0 10px; color: #201d17; }
+  .hero p { margin: 0; color: #6f6858; font-size: 14px; }
 
-  .strip { background: #2f2a9e; color: #e3e1fb; font-size: 13px; padding: 11px 22px; }
-  .strip b { color: #ffd24d; }
+  .strip { background: #f4f1ea; color: #3d392f; font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-style: italic; font-size: 15px; padding: 6px 0 6px 15px; border-left: 3px solid #bf5b3e; margin: 18px 18px 2px; }
+  .strip b { color: #a8482c; font-style: normal; }
 
   .wrap { padding: 0 18px; }
-  .section-title { font-size: 18px; font-weight: 700; margin: 24px 0 4px; color: #3b34c0; }
-  .section-sub { color: #6b7480; font-size: 13px; margin: 0 0 14px; }
+  .section-title { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 20px; font-weight: 700; margin: 26px 0 3px; color: #26231d; }
+  .section-sub { color: #8b8578; font-size: 13px; margin: 0 0 15px; }
 
-  .card { background: #ffffff; border: 1px solid #e4e7ec; border-left: 4px solid #3b34c0; border-radius: 11px; padding: 14px 16px 15px; margin: 0 0 13px; }
-  .who { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 6px; margin: 0 0 9px; }
-  .who.ant { background: #f6ecdf; color: #9a5b12; }
-  .who.oai { background: #e4f3ec; color: #0a7d55; }
-  .who.mix { background: #ecebfb; color: #3b34c0; }
-  .card h3 { font-size: 16.5px; margin: 0 0 7px; color: #1f2328; line-height: 1.5; }
-  .card p { margin: 0 0 9px; font-size: 14px; color: #3a424c; }
-  .card .why { border-left: 3px solid #cfd0ef; padding-left: 11px; color: #333a44; font-size: 13.5px; margin: 0 0 9px; }
-  .card .src { font-size: 12px; color: #8a929b; margin: 0; }
-  .card .src a { color: #5a63d6; text-decoration: none; }
+  .card { background: #fbfaf5; border: 1px solid #e4ddcc; border-left: 3px solid #cc785c; border-radius: 5px; padding: 15px 17px 16px; margin: 0 0 14px; }
+  .who { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 10px; border-radius: 3px; margin: 0 0 10px; letter-spacing: 0.03em; }
+  .who.ant { background: #efd7c9; color: #9a4a2e; }
+  .who.oai { background: #e5e0d1; color: #58533f; }
+  .who.mix { background: #bf5b3e; color: #f4f1ea; }
+  .card h3 { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 18px; font-weight: 700; margin: 0 0 8px; color: #26231d; line-height: 1.5; }
+  .card p { margin: 0 0 9px; font-size: 14px; color: #3d392f; }
+  .card .why { border-left: 3px solid #e0c4b4; padding-left: 12px; color: #4a463b; font-size: 13.5px; margin: 0 0 9px; }
+  .card .src { font-size: 12px; color: #9a9484; margin: 0; }
+  .card .src a { color: #bf5b3e; text-decoration: none; }
 
-  .card.key { border-left-color: #d9821a; background: #fff8ec; }
-  .card.key h3 { color: #8a5a12; }
+  .card.key { border-left-color: #bf5b3e; background: #f3e6dc; }
+  .card.key h3 { color: #8a4327; }
 
-  .foot { color: #97a0a9; font-size: 12px; text-align: center; margin: 24px 18px 0; line-height: 1.6; }
+  .cta { background: #ece0d5; border: 1px solid #e0ccbc; border-radius: 5px; padding: 13px 15px; margin: 12px 0 2px; font-size: 13.5px; color: #8a4a32; text-align: center; line-height: 1.6; }
+  .cta b { color: #a8482c; }
 
-  .cta { background: #ecebfb; border: 1px solid #cfd0ef; border-radius: 11px; padding: 12px 15px; margin: 10px 0 2px; font-size: 13.5px; color: #3b34c0; text-align: center; line-height: 1.6; }
-  .cta b { color: #2f2a9e; }
+  .foot { color: #9a9484; font-size: 12px; text-align: center; margin: 24px 18px 0; line-height: 1.6; }
 </style>
 </head>
 <body>
