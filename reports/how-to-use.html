@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使用流程图 · wechat-reports</title>
+<style>
+  body { margin: 0; background: #eef1f5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 680px; margin: 0 auto; background: #ffffff; color: #1f2328; padding: 26px 20px 48px; }
+  .title { font-size: 24px; font-weight: 700; margin: 0 0 4px; text-align: center; }
+  .subtitle { color: #656d76; margin: 0 0 26px; text-align: center; font-size: 14px; }
+
+  .card { border-radius: 14px; padding: 18px 18px 16px; margin: 0 auto; max-width: 460px; color: #ffffff; }
+  .card .ico { font-size: 34px; line-height: 1; }
+  .card .h { font-size: 18px; font-weight: 700; margin: 8px 0 4px; }
+  .card .d { font-size: 13px; line-height: 1.6; opacity: 0.95; }
+  .c1 { background: #1f883d; }
+  .c2 { background: #0969da; }
+  .c3 { background: #8250df; }
+  .c4 { background: #bc4c00; }
+
+  .arrow { text-align: center; color: #9aa4af; font-size: 26px; line-height: 1.1; margin: 8px 0; }
+
+  .badge { display: inline-block; background: #ffffff; color: #24292f; font-size: 12px; font-weight: 700; border-radius: 20px; width: 24px; height: 24px; line-height: 24px; text-align: center; margin-bottom: 6px; }
+
+  .note { background: #ddf4ff; border-left: 4px solid #0969da; border-radius: 8px; padding: 12px 14px; margin: 30px auto 0; max-width: 460px; font-size: 13px; line-height: 1.7; color: #0550ae; }
+  .note b { color: #0a3069; }
+  code { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; font-size: 12px; color: #1f2328; }
+  .foot { color: #656d76; font-size: 12px; margin: 26px 0 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="title">怎么用 · 一图看懂 🗺️</div>
+  <div class="subtitle">生成和查看，全程不出微信</div>
+
+  <div class="card c1">
+    <div class="badge">1</div>
+    <div class="ico">💬</div>
+    <div class="h">微信里发一句话</div>
+    <div class="d">对着 AI bot 说「帮我规划 3 天东京行程」。</div>
+  </div>
+
+  <div class="arrow">⬇</div>
+
+  <div class="card c2">
+    <div class="badge">2</div>
+    <div class="ico">🤖</div>
+    <div class="h">AI 写好 HTML 报告</div>
+    <div class="d">按 AGENTS.md 在 <code>reports/</code> 下生成一个自包含网页。</div>
+  </div>
+
+  <div class="arrow">⬇</div>
+
+  <div class="card c3">
+    <div class="badge">3</div>
+    <div class="ico">🚀</div>
+    <div class="h">自动 push 到 GitHub</div>
+    <div class="d">commit + push 全自动，你什么都不用管。</div>
+  </div>
+
+  <div class="arrow">⬇</div>
+
+  <div class="card c4">
+    <div class="badge">4</div>
+    <div class="ico">📱</div>
+    <div class="h">小程序里打开阅读</div>
+    <div class="d">用「GH HTML 查看器」指向本仓库，点开 <code>reports/</code> 下的报告。</div>
+  </div>
+
+  <div class="note">
+    <b>第一次要做的准备：</b><br>
+    ① Clone 本仓库并设为 private。<br>
+    ② 用 <code>wechat-acp</code> 把微信连到本机 agent：<br>
+    <code>npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</code><br>
+    ③ 小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存本机。
+  </div>
+
+  <p class="foot">仓库：duzitong/wechat-reports ✨</p>
+</div>
+</body>
+</html>
