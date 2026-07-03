@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 前沿速览 · 7月3日</title>
+<style>
+  body { margin: 0; background: #0e1116; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 760px; margin: 0 auto; background: #f5f6f8; color: #1f2328; padding: 0 0 40px; line-height: 1.7; }
+
+  .hero { background: #3b34c0; color: #ffffff; padding: 26px 22px 22px; }
+  .hero .upd { margin: 0 0 11px; color: #ffd24d; font-weight: 700; font-size: 13px; }
+  .hero .tag { display: inline-block; background: #ffd24d; color: #4a3a00; font-size: 12px; font-weight: 700; padding: 3px 11px; border-radius: 20px; margin: 0 0 12px; }
+  .hero h1 { font-size: 25px; margin: 0 0 8px; }
+  .hero p { margin: 0; color: #dcd9f7; font-size: 14px; }
+
+  .strip { background: #2f2a9e; color: #e3e1fb; font-size: 13px; padding: 11px 22px; }
+  .strip b { color: #ffd24d; }
+
+  .wrap { padding: 0 18px; }
+  .section-title { font-size: 18px; font-weight: 700; margin: 24px 0 4px; color: #3b34c0; }
+  .section-sub { color: #6b7480; font-size: 13px; margin: 0 0 14px; }
+
+  .card { background: #ffffff; border: 1px solid #e4e7ec; border-left: 4px solid #3b34c0; border-radius: 11px; padding: 14px 16px 15px; margin: 0 0 13px; }
+  .who { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 6px; margin: 0 0 9px; }
+  .who.ant { background: #f6ecdf; color: #9a5b12; }
+  .who.oai { background: #e4f3ec; color: #0a7d55; }
+  .who.mix { background: #ecebfb; color: #3b34c0; }
+  .card h3 { font-size: 16.5px; margin: 0 0 7px; color: #1f2328; line-height: 1.5; }
+  .card p { margin: 0 0 9px; font-size: 14px; color: #3a424c; }
+  .card .why { border-left: 3px solid #cfd0ef; padding-left: 11px; color: #333a44; font-size: 13.5px; margin: 0 0 9px; }
+  .card .src { font-size: 12px; color: #8a929b; margin: 0; }
+  .card .src a { color: #5a63d6; text-decoration: none; }
+
+  .card.key { border-left-color: #d9821a; background: #fff8ec; }
+  .card.key h3 { color: #8a5a12; }
+
+  .foot { color: #97a0a9; font-size: 12px; text-align: center; margin: 24px 18px 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <p class="upd">🌅 每天早上 8:00 更新</p>
+    <span class="tag">AI × 前端 · 每日观察</span>
+    <h1>AI 前沿速览 🧠</h1>
+    <p>只挑最能刷新认知的几条 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 当前焦点：AI 直接产出可用网页 / 前端 · 7月3日 · 创刊号</p>
+  </div>
+  <div class="strip">今天的主线：<b>“做一个能用的网页 / 小工具”，正在从「写代码」变成「把想法说清楚」</b> —— 两家都在把它压进一次对话里。</div>
+
+  <div class="wrap">
+
+    <div class="section-title">今日速览 · 3 条</div>
+    <div class="section-sub">每条讲清「是什么 + 为什么颠覆认知」· 来源均为公开报道，链接指向原文</div>
+
+    <div class="card">
+      <span class="who ant">Anthropic · Claude</span>
+      <h3>编码会话，直接变成一个「实时、可分享的网页」</h3>
+      <p>Claude 的 Artifacts 现在能把一段对话或一次编码过程，直接产出成一个可交互的网页应用；2026 年 6 月的 Claude Code Artifacts 更进一步——工程团队的实时编码会话可以一键变成持续更新、可分享的浏览器页面（事故时间线、架构图、仪表盘等），以沙盒 HTML 托管在 claude.ai 上。</p>
+      <div class="why">刷新点：过去「把内部工具做成一个网页」要开项目、配环境、找前端；现在是聊天里描述、即时出页面、发个链接就能给同事用。分享后由访问者用自己的账号承担用量，作者不背成本。</div>
+      <p class="src">来源：Claude 官方博客 · VentureBeat / TechTimes · 2026 年 6 月</p>
+    </div>
+
+    <div class="card">
+      <span class="who oai">OpenAI · ChatGPT</span>
+      <h3>用大白话描述，就能部署并托管一个网页应用</h3>
+      <p>2026 年 6 月的「OpenAI Sites for Codex」让你用自然语言描述一个内部工具（如「带任务状态和优先级筛选的团队看板」），Codex 就把它建好、托管好、给你一个可分享链接，还自带「用 ChatGPT 登录」鉴权。配合 Canvas 里 React/HTML 的实时沙盒预览，改一句、页面就跟着变。</p>
+      <div class="why">刷新点：从「生成一段代码」升级到「生成 + 部署 + 上线一个能登录能用的应用」，中间那段最劝退普通人的运维环节被吃掉了。不会编程的人，也能把脑中的小仪表盘几分钟内变成真能打开的网址。</div>
+      <p class="src">来源：OpenAI 官方 · buildfastwithai / OpenAI Academy · 2026 年 6 月</p>
+    </div>
+
+    <div class="card key">
+      <span class="who mix">一句话小结</span>
+      <h3>“会不会写代码” 正在让位给 “能不能把需求说清楚”</h3>
+      <p>把上面两条放一起看：Anthropic 和 OpenAI 不约而同，都在把「想法 → 可用网页」压成一次对话——生成、预览、部署、分享连成一条龙。对大多数人来说，值得更新的认知是：一个自用的小工具 / 展示页 / 数据看板，今天更像是「描述清楚」的事，而不再是「找人开发」的事。</p>
+      <p class="src">综合上两条公开报道整理 · 观点归原作者</p>
+    </div>
+
+    <p class="foot">本页为「AI 前沿速览」创刊号，之后每天早上 8:00 自动刷新。<br>内容由 AI 自动整理自公开信息，可能有延迟或遗漏，仅供快速了解、不构成投资或专业建议；观点归原作者，链接指向公开报道。</p>
+
+  </div>
+
+</div>
+</body>
+</html>
