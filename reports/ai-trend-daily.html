@@ -45,9 +45,9 @@
     <p class="upd">🌅 每天早上 8:00 更新</p>
     <span class="tag">AI × 前端 · 每日观察</span>
     <h1>AI 前沿速览 🧠</h1>
-    <p>只挑最能刷新认知的几条 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 当前焦点：AI 直接产出可用网页 / 前端 · 7月3日 · 创刊号</p>
+    <p>只挑最能刷新认知的几条 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 当前焦点：AI 直接产出可用网页 / 前端 · 7月3日</p>
   </div>
-  <div class="strip">今天的主线：<b>“做一个能用的网页 / 小工具”，正在从「写代码」变成「把想法说清楚」</b> —— 两家都在把它压进一次对话里。</div>
+  <div class="strip">今天的主线：<b>模型开始「自己验收」自己做的网页</b> —— 不到 48 小时，OpenAI 与 Anthropic 都把旗舰往「做完自己检查、改到对」推。</div>
 
   <div class="wrap">
 
@@ -55,29 +55,29 @@
     <div class="section-sub">每条讲清「是什么 + 为什么颠覆认知」· 来源均为公开报道，链接指向原文</div>
 
     <div class="card">
-      <span class="who ant">Anthropic · Claude</span>
-      <h3>编码会话，直接变成一个「实时、可分享的网页」</h3>
-      <p>Claude 的 Artifacts 现在能把一段对话或一次编码过程，直接产出成一个可交互的网页应用；2026 年 6 月的 Claude Code Artifacts 更进一步——工程团队的实时编码会话可以一键变成持续更新、可分享的浏览器页面（事故时间线、架构图、仪表盘等），以沙盒 HTML 托管在 claude.ai 上。</p>
-      <div class="why">刷新点：过去「把内部工具做成一个网页」要开项目、配环境、找前端；现在是聊天里描述、即时出页面、发个链接就能给同事用。分享后由访问者用自己的账号承担用量，作者不背成本。</div>
-      <p class="src">来源：Claude 官方博客 · VentureBeat / TechTimes · 2026 年 6 月</p>
+      <span class="who oai">OpenAI · GPT-5.4</span>
+      <h3>OpenAI 专门把新旗舰练成「前端设计师」：网页做完，它自己开浏览器验收</h3>
+      <p>7 月 2 日 OpenAI 面向开发者的指南直说：新旗舰 GPT-5.4「比前几代更会做网页」，是被专门针对 UI 与配图能力训练出来的，能产出「接近可上线」的前端，还会自己调用图像生成工具先做情绪板、再挑最终配图。更关键的是，它是 OpenAI 首个「会用电脑」的主线模型——能用 Playwright 打开自己刚做的页面，在不同屏幕尺寸下逐一检查、发现问题再改。</p>
+      <div class="why">刷新点：AI 做网页，正从「给你一段代码、能不能跑你自己看」，变成「自己打开浏览器验收、改到对为止」。官方原话是：过去你以为做不出来的游戏和复杂交互，如今「一两轮就能成」。</div>
+      <p class="src">来源：OpenAI Developers 官方博客 · 7/2 · <a href="https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4">developers.openai.com</a></p>
     </div>
 
     <div class="card">
-      <span class="who oai">OpenAI · ChatGPT</span>
-      <h3>用大白话描述，就能部署并托管一个网页应用</h3>
-      <p>2026 年 6 月的「OpenAI Sites for Codex」让你用自然语言描述一个内部工具（如「带任务状态和优先级筛选的团队看板」），Codex 就把它建好、托管好、给你一个可分享链接，还自带「用 ChatGPT 登录」鉴权。配合 Canvas 里 React/HTML 的实时沙盒预览，改一句、页面就跟着变。</p>
-      <div class="why">刷新点：从「生成一段代码」升级到「生成 + 部署 + 上线一个能登录能用的应用」，中间那段最劝退普通人的运维环节被吃掉了。不会编程的人，也能把脑中的小仪表盘几分钟内变成真能打开的网址。</div>
-      <p class="src">来源：OpenAI 官方 · buildfastwithai / OpenAI Academy · 2026 年 6 月</p>
+      <span class="who ant">Anthropic · Claude Sonnet 5</span>
+      <h3>「自己写测试、自己修好」的顶配能力，被塞进了免费默认模型</h3>
+      <p>6 月 30 日 Anthropic 发布 Claude Sonnet 5，称是「迄今最能自主干活的 Sonnet」：性能逼近贵得多的 Opus 4.8，却成了 Free / Pro 用户的默认模型，也进了 Claude Code。早期测试者描述：让它查一个 bug，它没被要求就先写了一个能复现的测试、再改代码、然后回滚确认 bug 真的消失——一次通过。做「一句话生成网页 / 应用」的平台 Lovable 等已把它接入。</p>
+      <div class="why">刷新点：会「端到端把活干完、还顺手自我验收」的模型，过去是最贵那一档的专属；现在下沉到人人可用的免费默认档。让 AI 搭个小工具，越来越像交给一个会自己检查作业的实习生，而不是甩给你一坨要自己 debug 的代码。</div>
+      <p class="src">来源：Anthropic 官方博客 · 6/30 · <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com/news</a></p>
     </div>
 
     <div class="card key">
       <span class="who mix">一句话小结</span>
-      <h3>“会不会写代码” 正在让位给 “能不能把需求说清楚”</h3>
-      <p>把上面两条放一起看：Anthropic 和 OpenAI 不约而同，都在把「想法 → 可用网页」压成一次对话——生成、预览、部署、分享连成一条龙。对大多数人来说，值得更新的认知是：一个自用的小工具 / 展示页 / 数据看板，今天更像是「描述清楚」的事，而不再是「找人开发」的事。</p>
+      <h3>不到 48 小时，两家都在卷同一件事：让模型自己把网页做「对」</h3>
+      <p>把上面两条并排看：6 月 30 日到 7 月 2 日这几天，OpenAI 和 Anthropic 旗舰更新的共同关键词，都不是「写得更快」，而是「自己收尾」——模型能打开浏览器或终端，检查自己刚做出来的东西，发现不对再改。值得更新的认知是：AI 产出网页 / 应用的瓶颈，正从「能不能写出来」，转向「能不能自己判断做得对不对、好不好看」——而这一步，也在被快速跨过。</p>
       <p class="src">综合上两条公开报道整理 · 观点归原作者</p>
     </div>
 
-    <p class="foot">本页为「AI 前沿速览」创刊号，之后每天早上 8:00 自动刷新。<br>内容由 AI 自动整理自公开信息，可能有延迟或遗漏，仅供快速了解、不构成投资或专业建议；观点归原作者，链接指向公开报道。</p>
+    <p class="foot">本页每天早上 8:00 自动刷新。<br>内容由 AI 自动整理自公开信息，可能有延迟或遗漏，仅供快速了解、不构成任何投资或专业建议；观点归原作者，链接指向公开报道。</p>
 
   </div>
 
