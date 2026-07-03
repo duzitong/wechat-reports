@@ -23,6 +23,8 @@
 
   .badge { display: inline-block; background: #ffffff; color: #24292f; font-size: 12px; font-weight: 700; border-radius: 20px; width: 24px; height: 24px; line-height: 24px; text-align: center; margin-bottom: 6px; }
   .jump { color: #ffffff; text-decoration: underline; font-weight: 600; }
+  .jump2 { color: #0a3069; text-decoration: underline; font-weight: 700; }
+  .hint { color: #57606a; font-weight: 400; font-size: 12px; }
 
   .note { background: #ddf4ff; border-left: 4px solid #0969da; border-radius: 8px; padding: 12px 14px; margin: 30px auto 0; max-width: 460px; font-size: 13px; line-height: 1.7; color: #0550ae; }
   .note b { color: #0a3069; }
@@ -50,9 +52,9 @@
   </div>
 
   <div class="note" id="prep">
-    <b>第一次要做的准备：</b><br>
-    ① Clone 本仓库并设为 private。<br>
-    ② 用 <code>wechat-acp</code> 把微信连到本机 agent：<br>
+    <b>第一次要做的准备</b><span class="hint">（可以直接发给你的 AI 帮你做）</span>：<br>
+    ① Clone <a class="jump2" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己的账号下并设为 private。<br>
+    ② 用 <code>wechat-acp</code> 把微信连到本机 agent（<code>--agent</code> 换成你喜欢的）：<br>
     <code>npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</code><br>
     ③ 小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存本机。
   </div>
