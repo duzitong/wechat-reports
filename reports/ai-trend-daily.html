@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 前沿速览 · 7月3日</title>
+<title>AI 前沿速览 · 7月4日</title>
 <style>
   body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
   .page { max-width: 760px; margin: 0 auto; background: #f4f1ea; color: #26231d; padding: 0 0 42px; line-height: 1.72; }
@@ -48,9 +48,9 @@
     <p class="upd">🌅 每天早上 8:00 更新</p>
     <span class="tag">AI 前沿 · 每日观察</span>
     <h1>AI 前沿速览 🧠</h1>
-    <p>每天只挑几条要紧的 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 7月3日</p>
+    <p>每天只挑几条要紧的 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 7月4日</p>
   </div>
-  <div class="strip">今天的主线：<b>模型开始「自己验收」自己做的网页</b> —— 不到 48 小时，OpenAI 与 Anthropic 都把旗舰往「做完自己检查、改到对」推。</div>
+  <div class="strip">今天的主线：<b>AI 开始被当成「战略物资」来管</b> —— 新旗舰强到被政府临时管制、又要和政府合作着用；两家掌门人则公开拿电力和核能来给它找监管参照。</div>
 
   <div class="wrap">
 
@@ -58,26 +58,34 @@
     <div class="section-sub">每条讲清「是什么 + 为什么值得注意」· 来源均为公开报道，链接指向原文</div>
 
     <div class="card">
-      <span class="who oai">OpenAI · GPT-5.4</span>
-      <h3>OpenAI 专门把新旗舰练成「前端设计师」：网页做完，它自己开浏览器验收</h3>
-      <p>7 月 2 日 OpenAI 面向开发者的指南直说：新旗舰 GPT-5.4「比前几代更会做网页」，是被专门针对 UI 与配图能力训练出来的，能产出「接近可上线」的前端，还会自己调用图像生成工具先做情绪板、再挑最终配图。更关键的是，它是 OpenAI 首个「会用电脑」的主线模型——能用 Playwright 打开自己刚做的页面，在不同屏幕尺寸下逐一检查、发现问题再改。</p>
-      <div class="why">看点：AI 做网页，正从「给你一段代码、能不能跑你自己看」，变成「自己打开浏览器验收、改到对为止」。官方原话是：过去你以为做不出来的游戏和复杂交互，如今「一两轮就能成」。</div>
-      <p class="src">来源：OpenAI Developers 官方博客 · 7/2 · <a href="https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4">developers.openai.com</a></p>
+      <span class="who ant">Anthropic · Claude Fable 5 / Mythos 5</span>
+      <h3>Anthropic 迄今最强的新模型，一度被美国临时管制；如今「解禁」版和政府合作做网络防御</h3>
+      <p>7 月 1 日，Anthropic 重新上线了迄今最强的模型 Claude Fable 5，官方称它「能力超过我们以往任何公开发布的模型」，在软件工程、科研、视觉等几乎所有测评上都属顶尖；任务越长越复杂，它领先得越多。因为在网络攻防等方面太强、怕被滥用，公司给普通版加了护栏——敏感问题会自动改由上一代 Opus 4.8 来回答。把护栏拿掉的同款模型 Mythos 5，被官方称为「全球网络安全能力最强的模型」，正通过「Project Glasswing」项目与美国政府合作，用于守护关键软件。</p>
+      <div class="why">看点：这不是一次普通的模型更新。它此前一度被美国以国家安全为由临时出口管制、暂停发布，7 月 1 日才「解禁」重新上线——一个聊天 AI 的新版本，正被当成需要分级授权的敏感能力来对待。早期用户 Stripe 说，它在一个 5000 万行的老代码库里，一天就完成了原本一个团队要两个多月的整体迁移。</div>
+      <p class="src">来源：Anthropic 官方博客 · 7/1 · <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">anthropic.com/news</a></p>
     </div>
 
     <div class="card">
-      <span class="who ant">Anthropic · Claude Sonnet 5</span>
-      <h3>「自己写测试、自己修好」的顶配能力，被塞进了免费默认模型</h3>
-      <p>6 月 30 日 Anthropic 发布 Claude Sonnet 5，称是「迄今最能自主干活的 Sonnet」：性能逼近贵得多的 Opus 4.8，却成了 Free / Pro 用户的默认模型，也进了 Claude Code。早期测试者描述：让它查一个 bug，它没被要求就先写了一个能复现的测试、再改代码、然后回滚确认 bug 真的消失——一次通过。做「一句话生成网页 / 应用」的平台 Lovable 等已把它接入。</p>
-      <div class="why">看点：会「端到端把活干完、还顺手自我验收」的模型，过去是最贵那一档的专属；现在下沉到人人可用的免费默认档。让 AI 搭个小工具，越来越像交给一个会自己检查作业的实习生，而不是甩给你一坨要自己 debug 的代码。</div>
-      <p class="src">来源：Anthropic 官方博客 · 6/30 · <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com/news</a></p>
+      <span class="who oai">OpenAI · Sam Altman</span>
+      <h3>Altman 公开撰文：AI 对人类生活的重塑，「自人类驯服电力以来，没有哪项技术能及」</h3>
+      <p>7 月 2 日，OpenAI CEO 山姆·奥特曼在《金融时报》撰文说，人工智能「将以自人类驯服电力以来、任何技术都未曾达到的规模，重塑人类生活的物质条件，甚至可能更甚于此」；他预计「再过一两年」就会造出「拥有惊人力量」的系统。他借此呼吁成立一个「美国主导的国际论坛」来给全行业定标准，并把它类比成监管核能的国际原子能机构（IAEA）。</p>
+      <div class="why">看点：连造 AI 的人自己，都开始拿「电力」和「核能」来形容它、并主动请政府来管。Anthropic 的 Dario Amodei 更进一步，主张仿照美国航空管理局（FAA）来监管，甚至给政府「在第三方测试显示风险不可接受时叫停一个模型发布」的权力。背景是：美国政府近期已要求 OpenAI 把新一代 GPT-5.6 先只给报备过名单的「可信伙伴」使用。</div>
+      <p class="src">来源：Financial Times 奥特曼署名文章，据 Business Insider 报道 · 7/2 · <a href="https://www.businessinsider.com/sam-altman-ai-reshape-material-conditions-human-life-2026-7">businessinsider.com</a></p>
+    </div>
+
+    <div class="card">
+      <span class="who oai">OpenAI · 里程碑回顾（5月）</span>
+      <h3>一个通用 AI 模型，独立做出了困住数学界近 80 年的一道难题</h3>
+      <p>这不是今天的新闻，而是最近一次很值得回看的里程碑：早在 5 月 20 日，OpenAI 就公布，一个内部模型自主推翻了组合几何里著名的「单位距离猜想」（由数学家埃尔德什 1946 年提出、悬置近 80 年），给出一个此前无人想到、能带来多项式级改进的新构造。更关键的是，它用的不是专为数学训练的系统，而是一个通用推理模型；结论已由外部数学家独立复核，并另写了一篇论文加以佐证。</p>
+      <div class="why">看点：AI 不只是在整理已知知识——这是第一次由 AI 自主解决一个数学分支里的著名公开难题，做出了很多顶尖学者试过却没做出来的新结果。菲尔兹奖得主 Tim Gowers 称它是「AI 数学的一个里程碑」；数论学家 Arul Shankar 说，如今的 AI「已不只是人类数学家的助手——它们能提出原创而精妙的想法，并把它一路做到底」。</div>
+      <p class="src">来源：OpenAI 官方 · 5/20（附外部数学家佐证论文）· <a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">openai.com/index</a></p>
     </div>
 
     <div class="card key">
       <span class="who mix">一句话小结</span>
-      <h3>不到 48 小时，两家都在卷同一件事：让模型自己把网页做「对」</h3>
-      <p>把上面两条并排看：6 月 30 日到 7 月 2 日这几天，OpenAI 和 Anthropic 旗舰更新的共同关键词，都不是「写得更快」，而是「自己收尾」——模型能打开浏览器或终端，检查自己刚做出来的东西，发现不对再改。值得注意的是：AI 产出网页 / 应用的瓶颈，正从「能不能写出来」，转向「能不能自己判断做得对不对、好不好看」——而这一步，也在被快速跨过。</p>
-      <p class="src">综合上两条公开报道整理 · 观点归原作者</p>
+      <h3>这几天的共同信号：AI 正从「好用的工具」，变成「政府必须认真对待的能力」</h3>
+      <p>把上面几条并到一起看：新一代模型强到要被临时出口管制、要和政府合作部署，两家掌门人主动拿电力、核能、民航来给它找监管参照，而一个通用模型已经能做出连顶尖数学家都没做出的新结果。这些不是同一件事，却指向同一个方向——AI 的门槛，正从「能不能做出来」，越过到「做出来之后，社会要怎么接住它」。</p>
+      <p class="src">综合上述公开报道整理 · 观点归原作者</p>
     </div>
 
     <div class="cta">📱 这页正是用「<b>GH HTML 查看器</b>」小程序在微信里打开的 —— 用它就能把 GitHub 上的 HTML 报告直接读出来，觉得有用就转发给朋友。</div>
