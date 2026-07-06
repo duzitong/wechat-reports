@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 前沿速览 · 7月5日</title>
+<title>AI 前沿速览 · 7月6日</title>
 <style>
   body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
   .page { max-width: 760px; margin: 0 auto; background: #f4f1ea; color: #26231d; padding: 0 0 42px; line-height: 1.72; }
@@ -48,43 +48,43 @@
     <p class="upd">🌅 每天早上 8:00 更新</p>
     <span class="tag">AI 前沿 · 每日观察</span>
     <h1>AI 前沿速览 🧠</h1>
-    <p>每天只挑几条要紧的 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 7月5日</p>
+    <p>每天只挑几条要紧的 · 主要看 Anthropic 与 OpenAI 的人怎么说 · 7月6日</p>
   </div>
-  <div class="strip">今天的主线：<b>AI 从「能聊的工具」变成「能上手干活的基础设施」</b> —— 它能独立跑完一段科研、自己开一个智能体团队分工，还开始像水电一样被公司按量计费。</div>
+  <div class="strip">今天的主线：<b>前沿 AI 正被当成「受管制的战略技术」</b> —— 政府一度叫停了最强的 Claude，重新上线时已套上更严的安全审查；另一边，模型在专家级科研判断上的得分，一年内从几乎为零涨到近三成。</div>
 
   <div class="wrap">
 
     <div class="section-title">今日速览 · 3 条</div>
     <div class="section-sub">每条讲清「是什么 + 为什么值得注意」· 来源均为公开报道，链接指向原文</div>
 
-    <div class="card">
-      <span class="who ant">Anthropic · Claude Science</span>
-      <h3>Anthropic 把 Claude 变成「科学家的工作台」：能自己跑基因组分析、折叠蛋白质，一直做到写出可发表的图表</h3>
-      <p>6 月 30 日，Anthropic 发布 Claude Science——一个给科学家用的「AI 工作台」，官方称这是其生命科学方向「迄今最重要的一次扩展」。它把原本散落在几十个数据库、Jupyter、R、集群终端里的科研流程收进一个环境：你用大白话提问，它就去查 60 多个专业科学数据库、折叠蛋白质、在你自己的集群或按需 GPU 上跑基因组流水线，最后生成可发表的图表和手稿——每张图都附上生成它的确切代码和完整过程，方便复现；还有一个「审稿 agent」自动核对引用与数字，发现错误会自己改。</p>
-      <div class="why">看点：这已经不只是「问 AI 一个问题」，而是让它把整段研究做完。生物医药公司 Manifold Bio 就用它端到端地为新实验挑选药物靶点——逐个评估表达、分布与安全性，再按公司自有数据学到的标准排序。AI 正从「查资料的助手」，变成「能上手做实验的研究员」。</div>
-      <p class="src">来源：Anthropic 官方博客 · 6/30 · <a href="https://www.anthropic.com/news/claude-science-ai-workbench">anthropic.com/news</a></p>
+    <div class="card key">
+      <span class="who ant">Anthropic · 国家安全</span>
+      <h3>政府把最强的 Claude 当「战略物资」管起来：一度全球下线，加装安全审查后才放行</h3>
+      <p>6 月 12 日，美国政府对 Anthropic 最新的 Claude Fable 5、Mythos 5 实施出口管制，要求限制外国人使用；因为无法实时核验国籍，Anthropic 索性对所有人暂停了这两个模型。经过两周复核、训练出新的安全过滤器、并接受政府的发布前测试，7 月 1 日 Fable 5 才在全球重新开放。起因是有研究者诱导模型去找软件漏洞、还在一个案例里写出了利用代码——尽管 Anthropic 复测发现，好几个更弱的模型（含 GPT-5.5）也能做到同样的事。</p>
+      <div class="why">看点：AI 被正式放进了「战略技术」的框——政府会像管芯片一样按下暂停键，厂商要配合做发布前测试，还联合亚马逊、微软、谷歌一起制定给「越狱」定级的行业标准。Anthropic 自己这样形容管制更严的 Mythos 5：查找和利用软件漏洞的本事，已超过除极少数顶尖专家外的几乎所有人。</div>
+      <p class="src">来源：Anthropic 官方博客 · 7/1（另见 Ars Technica · 7/1）· <a href="https://www.anthropic.com/news/redeploying-fable-5">anthropic.com/news</a></p>
     </div>
 
     <div class="card">
-      <span class="who oai">OpenAI · GPT-5.6 Sol</span>
-      <h3>OpenAI 最强的新模型能「自己开一个 AI 团队」：把任务拆给多个智能体并行去做</h3>
-      <p>OpenAI 新一代旗舰 GPT-5.6 Sol 带来一个叫「ultra mode（超级模式）」的能力——面对复杂任务，它不再一个人从头做到尾，而是自动把活拆开、指挥多个 AI 智能体并行完成再汇总。在官方测试里，它在「真实命令行里完成任务」这类考核上刷新了业界最好成绩；芯片公司 Cerebras 还将于 7 月起以每秒最高约 750 个词元的速度提供它。（顶配版目前仍按政府要求只对约 20 家获批机构开放，官方称数周内扩大。）</p>
-      <div class="why">看点：我们平时说的「AI」大多是一个助手在跟你对话；而现在最强的那一个，本身就是一个会分派任务、并行协作的「小团队」。当模型能自己派活、同时推进多条线，「一个人带着一群 AI 干活」正从演示变成产品里的默认方式。</div>
-      <p class="src">来源：OpenAI 官方，据 DeepLearning.AI《The Batch》整理 · 7/3 · <a href="https://www.deeplearning.ai/the-batch/gpt-5-6-lands-in-limbo">deeplearning.ai/the-batch</a></p>
+      <span class="who oai">OpenAI · GeneBench-Pro</span>
+      <h3>AI 做科研的「判断力」一年涨了好几倍：从几乎交白卷，到解出近三成专家级难题</h3>
+      <p>6 月 30 日，OpenAI 发布 GeneBench-Pro——一套 129 道、研究级的计算生物学考题，专门考模型的「研究品味」：面对一堆杂乱数据，知不知道该问什么、该换什么假设、什么时候结果才算靠谱，而不是背事实。当初做上一版 GeneBench 时，最强的 GPT-5 只能答对不到 5%；如今 GPT-5.6 Sol 能做到 28.7%（开 Pro 模式 31.5%）。OpenAI 预计这套题今年年底前就会被刷爆。</p>
+      <div class="why">看点：过去我们默认 AI 顶多「查资料、算得快」，真正难的科研判断还得靠人。但连这种说不清、要反复权衡的判断题，模型也在以一年数倍的速度追上来——它擅长的边界，正从「记忆和计算」往「拿主意」扩张。</div>
+      <p class="src">来源：OpenAI 官方 · 6/30 · <a href="https://openai.com/index/introducing-genebench-pro/">openai.com/index</a></p>
     </div>
 
     <div class="card">
-      <span class="who ant">Anthropic · Claude 企业版</span>
-      <h3>AI 干了多少活、值多少钱，公司现在能像看水电费一样按「每次提交多少钱」来算账</h3>
-      <p>7 月 2 日，Anthropic 给 Claude 企业版上线了更细的用量与成本管理：后台能按团队、产品、模型拆分用量，估算「生产力提升、每次代码提交的成本、以及一年带来的价值」，每条公式都可见、可调；还能设花费上限，在到达 75%、90% 时提前预警，免得有人任务做到一半被卡住。这些数据甚至能直接导进公司管云账单的系统（如 Datadog、CloudZero），和其它云支出摆在一起看。</p>
-      <div class="why">看点：值得注意的不是某个仪表盘，而是它背后的默认假设——AI 已经被当成一种要计量、要预算、要核算回报的「生产力」，像电力或云服务一样按量记账。当一家公司开始逐笔核算「AI 这个月产出多少、花了多少」，它在组织里的角色，已经更像一名要考核产出的员工，而不是一个聊天工具。</div>
-      <p class="src">来源：Anthropic（Claude 官方博客）· 7/2 · <a href="https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend">claude.com/blog</a></p>
+      <span class="who ant">Anthropic · Claude Sonnet 5</span>
+      <h3>最便宜的那档 AI，追上了几个月前的旗舰：还能自己写测试、修 bug、再验证一遍</h3>
+      <p>6 月 30 日上线的 Claude Sonnet 5，成了免费版和 Pro 版的默认模型——也就是大多数人现在随手用到的那一个。官方称它的表现已接近上一代旗舰 Opus 4.8，价格却低不少（每百万词元约 2–3 美元）。合作方举的例子很直观：让它查一个 bug，它没被要求就自己写了一个能复现问题的测试、改好、再回滚确认问题重现，一趟做完。</p>
+      <div class="why">看点：几个月前，这种「自己规划、自己动手跑完」的活还得用更大更贵的模型。现在它被塞进人人可用的默认档，还更便宜——AI 的能力正在快速「变白菜价」，你不特意升级，手里的工具也在悄悄变强。</div>
+      <p class="src">来源：Anthropic 官方博客 · 6/30 · <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com/news</a></p>
     </div>
 
     <div class="card key">
       <span class="who mix">一句话小结</span>
-      <h3>这几天的共同信号：AI 正从「能聊的工具」，变成「能上手干活的基础设施」</h3>
-      <p>把上面几条并到一起看，方向很一致：它能独立跑完一整段科学研究，能自己开一个智能体团队分工协作，还开始像水电一样被公司按量计费、逐笔核算产出。这些不是同一件事，却都指向同一步——AI 的重心，正从「你问它答」，挪到「你把事交给它去做完」。</p>
+      <h3>这几天的共同信号：AI 从「产品」升格成了「要被治理的力量」</h3>
+      <p>把三条放一起看：最强的模型强到政府要像管战略物资一样按下暂停键；它在真刀真枪的科研判断上一年追上好几倍；而这份能力还在快速变便宜、变成人人默认能用的东西。既被当成风险来严管，又便宜到人人可得——AI 正同时朝「更受约束」和「更普及」两个方向走。</p>
       <p class="src">综合上述公开报道整理 · 观点归原作者</p>
     </div>
 
