@@ -41,7 +41,7 @@
 
 - **[AGENTS.md](AGENTS.md)** 告诉 AI 怎么写报告。
 - **[.claude/skills/mp-html-page/SKILL.md](.claude/skills/mp-html-page/SKILL.md)** 是让 HTML 留在小程序 [mp-html](https://github.com/jin-yufeng/mp-html) 组件 `style` 插件能力范围内的技能，保证浏览器和小程序里都能正确显示。它是项目级技能，所以这个仓库里的 Claude / Copilot 助手会自动加载。
-- **`reports/`** 存放生成的页面。[reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html) 是一个示例。
+- **`reports/`** 存放生成的页面。[reports/gallery.html](reports/gallery.html) 是一个**案例合集**（东京行程、天津攻略、AI 速览、世界杯战报等，都可以在小程序里点开）；单看一个示例可参考 [reports/tokyo-3-day-trip.html](reports/tokyo-3-day-trip.html)。
 
 ## 作为个人知识库（LLM Wiki）
 
