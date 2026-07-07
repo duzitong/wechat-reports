@@ -6,7 +6,7 @@
 
 当用户要一份报告时（例如「帮我规划 3 天东京行程」）：
 
-1. 写成**一个自包含的 `.html` 文件**，放在 `reports/` 下，用简短的英文 slug 命名——例如 `reports/tokyo-3-day-trip.html`。
+1. 写成**一个自包含的 `.html` 文件**，放在 `reports/` 下，用简短的英文 slug 命名——例如 `reports/tianjin-travel-guide.html`。
 2. 遵循 **[`mp-html-page` 技能](.claude/skills/mp-html-page/SKILL.md)**，确保它能在小程序里正常渲染。要点：
    - 所有 CSS 写在 `<head>` 的 `<style>` 里，且放在被它修饰的内容**之前**。
    - **只用字面值**——不要 `var()`、`@media`、`@keyframes`、`@font-face`、`@import`、`*`、`[attr]`、`:hover` 等伪类。
@@ -15,7 +15,7 @@
    - 图片：用 `<img>` 配 `https://` 链接或同仓库相对路径——**不要**用 `background-image: url()`。用系统字体栈。
 3. **commit 并 push** 到 GitHub，这样小程序才能打开它。
 
-`reports/tokyo-3-day-trip.html` 是一个可用的示例——照着它的结构写。
+`reports/tianjin-travel-guide.html` 是一个可用的示例——照着它的结构写。
 
 ## 在小程序里查看
 
