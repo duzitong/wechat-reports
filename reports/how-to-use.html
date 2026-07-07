@@ -3,57 +3,92 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>使用流程图 · wechat-reports</title>
+<title>上手指南 · wechat-reports</title>
 <style>
   body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
   .page { max-width: 680px; margin: 0 auto; background: #f4f1ea; color: #26231d; padding: 30px 20px 48px; line-height: 1.7; }
   .title { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 27px; font-weight: 700; letter-spacing: 0.01em; margin: 0 0 5px; text-align: center; color: #201d17; }
-  .subtitle { color: #8b8578; margin: 0 0 28px; text-align: center; font-size: 14px; }
+  .subtitle { color: #8b8578; margin: 0 0 30px; text-align: center; font-size: 14px; }
 
-  .card { background: #fbfaf5; border: 1px solid #e4ddcc; border-left: 3px solid #cc785c; border-radius: 6px; padding: 18px 18px 16px; margin: 0 auto; max-width: 460px; color: #26231d; }
-  .card .ico { font-size: 34px; line-height: 1; }
-  .card .h { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 19px; font-weight: 700; margin: 8px 0 4px; color: #26231d; }
+  .sec-h { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 17px; font-weight: 700; color: #201d17; max-width: 460px; margin: 34px auto 14px; padding-bottom: 7px; border-bottom: 1px solid #e4ddcc; }
+  .sec-n { color: #bf5b3e; }
+  .sec-hint { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 400; font-size: 12px; color: #8b8578; margin-left: 8px; }
+
+  .step { background: #fbfaf5; border: 1px solid #e4ddcc; border-left: 3px solid #cc785c; border-radius: 6px; padding: 14px 16px; margin: 0 auto 12px; max-width: 460px; color: #26231d; }
+  .step-h { font-size: 15px; font-weight: 700; color: #26231d; margin: 0 0 4px; }
+  .step-d { font-size: 13px; line-height: 1.65; color: #3d392f; }
+  .badge { display: inline-block; background: #bf5b3e; color: #f4f1ea; font-size: 12px; font-weight: 700; border-radius: 20px; width: 22px; height: 22px; line-height: 22px; text-align: center; margin-right: 8px; vertical-align: middle; }
+  .cmd { display: block; background: #efe7d6; border: 1px solid #e0d6c2; border-radius: 5px; padding: 8px 10px; font-size: 12px; color: #3d392f; margin: 8px 0 0; word-break: break-all; font-family: "SF Mono", Consolas, Menlo, monospace; }
+  .shot-wrap { max-width: 460px; margin: 10px auto 0; }
+  .shot { width: 100%; border: 1px solid #e4ddcc; border-radius: 6px; }
+  .shot-cap { font-size: 12px; color: #8b8578; line-height: 1.6; margin: 8px 2px 0; }
+  .shot-cap b { color: #a8482c; }
+
+  .card { background: #fbfaf5; border: 1px solid #e4ddcc; border-left: 3px solid #bf5b3e; border-radius: 6px; padding: 16px 18px; margin: 0 auto; max-width: 460px; color: #26231d; }
+  .card .ico { font-size: 30px; line-height: 1; }
+  .card .h { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 18px; font-weight: 700; margin: 6px 0 4px; color: #26231d; }
   .card .d { font-size: 13px; line-height: 1.65; color: #3d392f; }
-  .c1 { border-left-color: #bf5b3e; }
-  .c2 { border-left-color: #cc785c; }
-  .c3 { border-left-color: #bf5b3e; }
-  .c4 { border-left-color: #cc785c; }
 
   .arrow { text-align: center; color: #a89f8c; font-size: 13px; line-height: 1.3; margin: 12px 0; }
 
-  .badge { display: inline-block; background: #bf5b3e; color: #f4f1ea; font-size: 12px; font-weight: 700; border-radius: 20px; width: 24px; height: 24px; line-height: 24px; text-align: center; margin-bottom: 6px; }
   .jump { color: #a8482c; text-decoration: underline; font-weight: 700; }
-  .jump2 { color: #a8482c; text-decoration: underline; font-weight: 700; }
-  .hint { color: #8b8578; font-weight: 400; font-size: 12px; }
-
-  .note { background: #f3e7dd; border-left: 4px solid #bf5b3e; border-radius: 6px; padding: 12px 14px; margin: 30px auto 0; max-width: 460px; font-size: 13px; line-height: 1.7; color: #5a4436; }
-  .note b { color: #8a4327; }
   code { background: #efe7d6; border: 1px solid #e0d6c2; border-radius: 4px; padding: 1px 5px; font-size: 12px; color: #3d392f; }
-  .ideas { max-width: 460px; margin: 26px auto 0; }
-  .ideas-h { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 16px; font-weight: 700; margin: 0 0 10px; color: #26231d; }
+
+  .ideas { max-width: 460px; margin: 0 auto; }
   .chip { display: inline-block; background: #f0e2d8; color: #8a4327; border: 1px solid #e4d3c4; border-radius: 16px; padding: 6px 12px; font-size: 13px; margin: 0 6px 8px 0; }
+  .tip { color: #8b8578; font-size: 12px; margin: 8px 0 0; }
+
   .foot { color: #9a9484; font-size: 12px; margin: 26px 0 0; text-align: center; }
   .foot-link { color: #bf5b3e; text-decoration: underline; font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="card c1">
+  <h1 class="title">上手指南</h1>
+  <p class="subtitle">跟 AI 说一句，报告就出现在你微信里</p>
+
+  <div class="sec-h"><span class="sec-n">①</span> 第一次准备<span class="sec-hint">只做一次 · 可直接发给 AI 帮你做</span></div>
+
+  <div class="step">
+    <div class="step-h"><span class="badge">1</span>把仓库变成你自己的</div>
+    <div class="step-d">Clone <a class="jump" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己账号下并设为 private。</div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="badge">2</span>把微信连到本机 agent</div>
+    <div class="step-d">用 <a class="jump" href="https://github.com/formulahendry/wechat-acp">wechat-acp</a> 起一个桥，把微信消息接到你电脑上的 AI（<code>--agent</code> 换成你喜欢的）：
+      <span class="cmd">npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="badge">3</span>给小程序一个只读 token</div>
+    <div class="step-d">在「GH HTML 查看器」小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存在你本机。</div>
+  </div>
+
+  <div class="shot-wrap">
+    <img class="shot" src="pat-setup.png" alt="创建 Fine-grained PAT 的设置示例">
+    <p class="shot-cap">按图设置：Resource owner 选你自己，Repository access 选「Only select repositories」，<b>添加所有想要访问的私有仓库</b>；Permissions 里把 Contents 设为 Read-only（Metadata 会自动带上）。</p>
+  </div>
+
+  <div class="sec-h"><span class="sec-n">②</span> 之后怎么用<span class="sec-hint">每次就这两步</span></div>
+
+  <div class="card">
     <div class="ico">💬</div>
-    <div class="h">说：跟 Clawbot 说话</div>
-    <div class="d">发一句「帮我规划 3 天东京行程」就行。<a class="jump" href="#prep">👉 需要先做一次准备</a></div>
+    <div class="h">说：跟 AI 说话</div>
+    <div class="d">在微信里发一句「帮我规划 3 天东京行程」就行。AI 会写成一篇 HTML 报告，自动 push 到你的 repo。</div>
   </div>
 
   <div class="arrow">⬇ AI 写好 HTML 自动推送 ⬇</div>
 
-  <div class="card c3">
+  <div class="card">
     <div class="ico">📱</div>
     <div class="h">看：打开你的报告</div>
-    <div class="d">「GH HTML 查看器」指向你自己的 repo，点开 AI 刚写的那篇报告。</div>
+    <div class="d">打开「GH HTML 查看器」指向你的 repo，点开 AI 刚写的那篇报告，就能在微信里读了。</div>
   </div>
 
+  <div class="sec-h"><span class="sec-n">③</span> 能让它写点啥</div>
   <div class="ideas">
-    <div class="ideas-h">💡 可以让它写点啥</div>
     <div class="chip">规划旅游</div>
     <div class="chip">记录游记</div>
     <div class="chip">学习笔记</div>
@@ -62,17 +97,10 @@
     <div class="chip">赛事预测</div>
     <div class="chip">选购对比</div>
     <div class="chip">健身计划</div>
+    <p class="tip">其实不限这些 —— 想要什么报告，直接开口就好。</p>
   </div>
 
-  <div class="note" id="prep">
-    <b>第一次要做的准备</b><span class="hint">（可以直接发给你的 AI 帮你做）</span>：<br>
-    ① Clone <a class="jump2" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己的账号下并设为 private。<br>
-    ② 用 <a class="jump2" href="https://github.com/formulahendry/wechat-acp">wechat-acp</a> 把微信连到本机 agent（<code>--agent</code> 换成你喜欢的）：<br>
-    <code>npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</code><br>
-    ③ 小程序里填一个 GitHub Fine-grained PAT（Contents 只读），token 只存本机。
-  </div>
-
-  <p class="foot">想加入「快速访问」？在 <a class="foot-link" href="https://github.com/duzitong/wechat-reports/issues">repo 里开个 issue</a> 告诉我们。</p>
+  <p class="foot">想加入「精选内容」？在 <a class="foot-link" href="https://github.com/duzitong/wechat-reports/issues">repo 里开个 issue</a> 告诉我们。</p>
   <p class="foot">⭐ 觉得好用就给 <a class="foot-link" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a> 点个 Star ✨</p>
 </div>
 </body>
