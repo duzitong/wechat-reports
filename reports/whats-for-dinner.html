@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今晚吃什么 · 冰箱有啥就做啥</title>
+<style>
+  body { margin: 0; background: #f0e7d8; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 720px; margin: 0 auto; background: #fffdf8; color: #332a1e; line-height: 1.75; padding: 0 0 44px; }
+  .hero { background: #bd4230; color: #fff3ea; padding: 28px 20px 24px; }
+  .hero .title { font-size: 25px; font-weight: 700; margin: 0; color: #ffffff; }
+  .hero .sub { margin: 10px 0 0; color: #ffd9c9; font-size: 14px; }
+  .body { padding: 0 18px; }
+
+  .lab { font-size: 12px; font-weight: 700; letter-spacing: 0.03em; margin: 0 0 6px; }
+  .have { margin: 18px 0 0; }
+  .have .lab { color: #a8802f; }
+  .chip { display: inline-block; background: #f4ecdb; color: #7a5b2e; border: 1px solid #e6d8bf; border-radius: 16px; padding: 4px 12px; font-size: 13px; margin: 0 7px 8px 0; }
+  .hint { color: #6b7a72; font-size: 12.5px; margin: 6px 0 0; }
+
+  .prompt { background: #eef3f6; border: 1px solid #d6e1e8; border-radius: 12px; padding: 13px 15px; margin: 14px 0 0; }
+  .prompt .lab { color: #5b6b74; }
+  .prompt .u { color: #2b3a42; font-size: 15px; margin: 0; }
+
+  .board { background: #fff6ee; border: 1px solid #f0dccb; border-radius: 14px; padding: 15px 16px 6px; margin: 22px 0 0; }
+  .board .bh { font-weight: 700; color: #bd4230; font-size: 18px; margin: 0; }
+  .board .bsub { color: #8a7c68; font-size: 12.5px; margin: 4px 0 8px; }
+  .mrow { padding: 10px 0; border-top: 1px solid #f2e6d6; }
+  .mrow .mn { font-weight: 700; font-size: 15.5px; color: #33291d; }
+
+  .pill { display: inline-block; border-radius: 10px; padding: 1px 9px; font-size: 12px; font-weight: 600; margin: 0 0 0 6px; }
+  .p-egg { background: #fdf0d8; color: #a9781f; }
+  .p-meat { background: #f7ded7; color: #b23a26; }
+  .p-veg { background: #e5f0da; color: #567a34; }
+  .p-soup { background: #e0edf3; color: #3a6b86; }
+  .p-time { background: #efe9dd; color: #7d6f57; }
+
+  .flow { background: #fbf5ec; border-left: 4px solid #d98a2b; border-radius: 10px; padding: 13px 15px 6px; margin: 20px 0 0; }
+  .flow .fh { font-weight: 700; color: #b5701a; margin: 0 0 2px; }
+  .flow .fsub { color: #9a8869; font-size: 12.5px; margin: 0; }
+  .flow ol { margin: 8px 0 10px; padding-left: 20px; }
+  .flow li { margin: 5px 0 0; }
+
+  h3 { font-size: 18px; color: #bd4230; margin: 30px 0 6px; padding-left: 10px; border-left: 4px solid #d98a2b; }
+
+  .dish { background: #fffaf2; border: 1px solid #ecdfcc; border-radius: 14px; padding: 15px 16px 18px; margin: 18px 0 0; }
+  .d-egg { border-left: 5px solid #e0a52e; }
+  .d-meat { border-left: 5px solid #c0432e; }
+  .d-veg { border-left: 5px solid #6d9440; }
+  .d-soup { border-left: 5px solid #4a86a6; }
+  .dname { font-size: 20px; font-weight: 700; color: #33291d; margin: 0; }
+  .dmeta { margin: 8px 0 0; }
+  .use { background: #f7f1e6; border-radius: 8px; padding: 9px 12px; margin: 13px 0 0; font-size: 13.5px; color: #5c5240; }
+  .use b { color: #8a5a2b; }
+  .label { display: block; font-weight: 700; color: #bd4230; margin: 13px 0 3px; }
+  ol { margin: 4px 0 0; padding-left: 21px; }
+  li { margin: 5px 0 0; }
+  .tip { background: #fff5e2; border-left: 4px solid #e0a52e; border-radius: 8px; padding: 10px 13px; margin: 13px 0 0; font-size: 13.5px; }
+  .tip b { color: #9a6a12; }
+  .swap { color: #6b7a72; font-size: 13px; margin: 10px 0 0; }
+  .swap b { color: #567a34; }
+
+  .buy { background: #eef3f6; border: 1px solid #d6e1e8; border-radius: 12px; padding: 14px 15px; margin: 24px 0 0; }
+  .buy .bh { font-weight: 700; color: #3a6b86; margin: 0 0 5px; }
+  .buy .bd { color: #47555c; font-size: 13.5px; margin: 0; }
+
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  .sec ul li { margin: 6px 0 0; }
+  .sec b { color: #a3321f; }
+
+  .cta { background: #fbeee9; border: 1px solid #f0d8ce; border-left: 4px solid #bd4230; border-radius: 10px; padding: 16px 17px; margin: 26px 0 0; }
+  .cta .h { font-weight: 700; color: #a3321f; font-size: 16px; margin: 0 0 5px; }
+  .cta .d { color: #4a3f30; font-size: 13.5px; line-height: 1.66; margin: 0; }
+  .cta-link { color: #bd4230; text-decoration: underline; font-weight: 700; }
+
+  .foot { color: #9a9078; font-size: 12px; margin: 26px 18px 0; padding-top: 14px; border-top: 1px solid #efe7d8; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="title">今晚吃什么？🍳</div>
+    <div class="sub">打开冰箱就这些 → 让 AI 配出一桌 · 3 菜 1 汤 · 约 30 分钟 · 2 人份</div>
+  </div>
+
+  <div class="body">
+    <div class="have">
+      <p class="lab">🧊 冰箱现有</p>
+      <span class="chip">鸡蛋 4 个</span><span class="chip">番茄 2 个</span><span class="chip">五花肉一小块</span><span class="chip">土豆 1 个</span><span class="chip">青椒 2 个</span><span class="chip">嫩豆腐 1 盒</span><span class="chip">胡萝卜半根</span><span class="chip">葱姜蒜</span><span class="chip">米 / 挂面</span>
+      <p class="hint">油盐、生抽、老抽、糖、醋、淀粉这些常备调料默认都有。</p>
+    </div>
+
+    <div class="prompt">
+      <p class="lab">💬 你对 AI 说的一句话</p>
+      <p class="u">「冰箱就这些，帮我配今晚的饭。两三个菜配米饭，30 分钟能上桌，尽量别浪费食材。」</p>
+    </div>
+
+    <div class="board">
+      <p class="bh">🍽️ 今晚这一桌</p>
+      <p class="bsub">荤素搭配、边角料也用上，一盒豆腐 + 几个蛋分进两道菜，冰箱清得干干净净。</p>
+      <div class="mrow"><span class="mn">🍅 番茄炒蛋</span><span class="pill p-egg">蛋</span><span class="pill p-time">5 分钟</span><span class="pill p-time">最下饭</span></div>
+      <div class="mrow"><span class="mn">🥓 青椒炒肉片</span><span class="pill p-meat">荤</span><span class="pill p-time">8 分钟</span><span class="pill p-time">够味</span></div>
+      <div class="mrow"><span class="mn">🥔 醋溜土豆丝</span><span class="pill p-veg">素</span><span class="pill p-time">8 分钟</span><span class="pill p-time">爽脆</span></div>
+      <div class="mrow"><span class="mn">🍲 豆腐胡萝卜蛋花汤</span><span class="pill p-soup">汤</span><span class="pill p-time">6 分钟</span><span class="pill p-time">清口</span></div>
+    </div>
+
+    <div class="flow">
+      <p class="fh">⏱️ 上桌顺序 · 让菜都热乎</p>
+      <p class="fsub">先切好再开火、耐凉的先炒、汤留到最后——一个人也不手忙脚乱。</p>
+      <ol>
+        <li><b>先按下电饭煲焖饭</b>（约 20 分钟，第一件事先做）。</li>
+        <li><b>一次性切配好</b>：土豆丝泡水、肉片腌上、番茄豆腐切块、葱姜蒜备齐。</li>
+        <li><b>醋溜土豆丝</b>（凉了也脆）→ 装盘。</li>
+        <li><b>青椒炒肉片</b>（大火快炒）→ 装盘。</li>
+        <li><b>番茄炒蛋</b>（趁热最香）→ 装盘。</li>
+        <li><b>豆腐蛋花汤</b>（5 分钟一锅）→ 起锅，米饭也刚好焖好。</li>
+      </ol>
+    </div>
+
+    <h3>🍳 四道菜 · 做法</h3>
+
+    <div class="dish d-egg">
+      <p class="dname">🍅 番茄炒蛋</p>
+      <div class="dmeta"><span class="pill p-egg">蛋</span><span class="pill p-time">5 分钟</span><span class="pill p-time">新手友好</span></div>
+      <div class="use"><b>用料：</b>番茄 2 个、鸡蛋 2 个、小葱 1 根、糖 1 小勺、盐少许</div>
+      <span class="label">做法</span>
+      <ol>
+        <li>鸡蛋打散、加一丁点盐；番茄切块（想去皮就先用开水烫十几秒，皮一撕就掉）。</li>
+        <li>热油倒蛋液，稍一凝固就快速划散、盛出备用。</li>
+        <li>底油下番茄，中火炒到出红汤，加 1 小勺糖、少许盐。</li>
+        <li>倒回鸡蛋翻匀，撒葱花出锅。</li>
+      </ol>
+      <div class="tip"><b>诀窍：</b>加一小勺糖平衡番茄的酸，红汤别收太干——拌米饭一绝。</div>
+      <div class="swap"><b>换：</b>没有小葱可省；想更浓郁挤一点番茄酱。</div>
+    </div>
+
+    <div class="dish d-meat">
+      <p class="dname">🥓 青椒炒肉片</p>
+      <div class="dmeta"><span class="pill p-meat">荤</span><span class="pill p-time">8 分钟</span><span class="pill p-time">够味下饭</span></div>
+      <div class="use"><b>用料：</b>五花肉一小块（切薄片）、青椒 2 个、蒜 2 瓣、生抽、老抽几滴、淀粉少许</div>
+      <span class="label">做法</span>
+      <ol>
+        <li>五花肉切薄片，加半勺生抽、半勺淀粉抓匀腌 5 分钟；青椒切块，蒜切片。</li>
+        <li>热锅少油，下肉片煸到边缘微焦、逼出油脂、变色，盛出。</li>
+        <li>用锅里的底油爆香蒜片，下青椒大火炒到断生。</li>
+        <li>倒回肉片，1 勺生抽、几滴老抽、少许盐，大火翻匀出锅。</li>
+      </ol>
+      <div class="tip"><b>诀窍：</b>五花肉先煸出油，青椒才香而不腻；全程大火才有「镬气」。</div>
+      <div class="swap"><b>换：</b>五花肉换鸡腿肉 / 里脊都行；青椒换尖椒更辣、换杭椒更温和。</div>
+    </div>
+
+    <div class="dish d-veg">
+      <p class="dname">🥔 醋溜土豆丝</p>
+      <div class="dmeta"><span class="pill p-veg">素</span><span class="pill p-time">8 分钟</span><span class="pill p-time">爽脆解腻</span></div>
+      <div class="use"><b>用料：</b>土豆 1 个、蒜 2 瓣、干辣椒（可选）、青椒丝（可选）、醋、盐</div>
+      <span class="label">做法</span>
+      <ol>
+        <li>土豆切细丝，泡清水冲掉表面淀粉（这是脆的关键），沥干。</li>
+        <li>热油爆香蒜片、干辣椒。</li>
+        <li>下土豆丝，大火快炒 1–2 分钟。</li>
+        <li>沿锅边淋 1 勺醋、加盐，再翻几下立刻出锅（别久炒，保持脆）。</li>
+      </ol>
+      <div class="tip"><b>诀窍：</b>泡水去淀粉 + 全程大火快炒 = 爽脆不粘锅；醋最后沿锅边淋才够香。</div>
+      <div class="swap"><b>换：</b>不吃辣就去掉干辣椒；加一把青椒丝配色更好看。</div>
+    </div>
+
+    <div class="dish d-soup">
+      <p class="dname">🍲 豆腐胡萝卜蛋花汤</p>
+      <div class="dmeta"><span class="pill p-soup">汤</span><span class="pill p-time">6 分钟</span><span class="pill p-time">清口收尾</span></div>
+      <div class="use"><b>用料：</b>嫩豆腐半盒、胡萝卜半根、鸡蛋 1 个、小葱、盐、香油几滴</div>
+      <span class="label">做法</span>
+      <ol>
+        <li>豆腐切小块、胡萝卜切薄片；鸡蛋打散备用。</li>
+        <li>水（或高汤）烧开，下胡萝卜煮 2 分钟，再下豆腐煮 2 分钟。</li>
+        <li>转小火，把蛋液细细淋入，用筷子轻轻一搅出蛋花。</li>
+        <li>加盐、滴几滴香油、撒葱花即可。</li>
+      </ol>
+      <div class="tip"><b>诀窍：</b>蛋液要在汤「微沸」时细细淋入、别急着搅，蛋花才漂亮不浑。</div>
+      <div class="swap"><b>换：</b>丢一点紫菜 / 番茄更鲜；想要奶白汤就先把豆腐煎一下再煮。</div>
+    </div>
+
+    <div class="buy">
+      <p class="bh">🛒 还差这些 · 顺手买</p>
+      <p class="bd">其实常备调料齐了就能直接开做。要更好吃可以补：<b>小葱 / 香菜、一盒嫩豆腐、香油</b>——都是楼下超市几块钱的东西。</p>
+    </div>
+
+    <div class="sec">
+      <h3>🔁 换个花样</h3>
+      <ul>
+        <li><b>有挂面</b> → 番茄炒蛋直接改成「番茄鸡蛋打卤面」，一锅省事。</li>
+        <li><b>有隔夜米饭</b> → 加蛋和青菜炒个蛋炒饭，更快更清冰箱。</li>
+        <li><b>有虾仁 / 香肠</b> → 青椒炒肉换成青椒炒虾仁 / 香肠，出锅更快。</li>
+        <li><b>只想做两个</b> → 留番茄炒蛋 + 蛋花汤 + 米饭，也是舒服的一餐。</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <h3>📝 少手忙脚乱的小窍门</h3>
+      <ul>
+        <li><b>先按电饭煲、再切配、最后集中炒</b>：菜不会凉，厨房不会乱。</li>
+        <li><b>一料多用</b>：一盒豆腐、几个鸡蛋分进两道菜，冰箱不留边角料。</li>
+        <li><b>不用凑齐所有食材</b>：缺什么就用「换个花样」的思路顶上——家常菜最不挑。</li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      <div class="h">🍳 这份菜单是跟 AI 说一句话配出来的</div>
+      <div class="d">报几样冰箱里的剩菜，AI 就能帮你排出一桌、带做法和上桌顺序，在微信里直接打开、转发给家人。想给自己也做一份？打开 <a class="cta-link" href="how-to-use.html">上手指南</a>，两步搞定。</div>
+    </div>
+  </div>
+
+  <div class="foot">「今晚吃什么」示范 · 家常做法与用量仅供参考，火候和咸淡按自家口味和食材实际情况调整。</div>
+</div>
+</body>
+</html>
