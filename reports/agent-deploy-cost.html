@@ -38,8 +38,8 @@
   .fill { height: 19px; border-radius: 7px; }
   .free { background: #eef4ee; border: 1px dashed #b9d3bd; border-radius: 7px; color: #3f8a5f; font-size: 12.5px; font-weight: 600; padding: 3px 10px; }
 
-  .w7 { width: 7%; } .w13 { width: 13%; } .w33 { width: 33%; } .w59 { width: 59%; }
-  .w67 { width: 67%; } .w96 { width: 96%; } .w100 { width: 100%; }
+  .w7 { width: 7%; } .w20 { width: 20%; } .w33 { width: 33%; } .w59 { width: 59%; }
+  .w89 { width: 89%; } .w92 { width: 92%; } .w96 { width: 96%; }
   .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
   .o { background: #e0754f; } .r { background: #cf4536; }
 
@@ -90,14 +90,14 @@
   <div class="body">
     <div class="tldr">
       <p class="h">🎯 一句话结论</p>
-      <p>生活小事用 AI，<b>按月计费基本够用</b>，不用算 token。真正的分叉只有一个问题——你有没有「海外条件」：<b>现成的 Claude Code / Codex 订阅，或一个梯子</b>？有 → 自己电脑直接跑；没有 → 国内租个小服务器，用 Claude Code <b>桥接国产模型</b>（智谱 GLM、DeepSeek V4）。丰俭由人，<b>一个月 ¥0 到一百出头</b>。</p>
+      <p>生活小事用 AI，<b>按月计费基本够用</b>，不用算 token。真正的分叉只有一个问题——你有没有「海外条件」：<b>现成的 Claude Code / Codex 订阅，或一个梯子</b>？有 → 自己电脑直接跑；没有 → 国内租个小服务器，用 Claude Code <b>桥接国产模型</b>（智谱 GLM、MiniMax、Kimi、DeepSeek 等）。丰俭由人，<b>一个月 ¥0 到一百出头</b>。</p>
     </div>
 
     <h3>🛠️ 这套「随身 AI」怎么搭起来</h3>
     <p class="lead">说白了就三步，花钱的地方只有一处——那个「AI」从哪来。</p>
     <div class="blocks">
       <div class="blk"><span class="bt">1️⃣ 跟 AI 说需求</span> <span class="bd">—「帮我把冰箱这些菜配成今晚的饭」「整理一份天津两日游」。</span></div>
-      <div class="blk"><span class="bt">2️⃣ 它生成 HTML 报告、顺手推到 GitHub</span> <span class="bd">— 一个能自己动手的 AI agent（Claude Code / Codex）干这活。</span></div>
+      <div class="blk"><span class="bt">2️⃣ 它生成 HTML 报告、顺手推到 GitHub</span> <span class="bd">— 一个能自己动手的 AI agent（Claude Code / Copilot）干这活。</span></div>
       <div class="blk"><span class="bt">3️⃣ 手机小程序打开、转发</span> <span class="bd">— 就是你现在看的这个查看器。</span></div>
     </div>
     <p class="lead">三步里只有第 2 步的「AI」要花钱。下面就把这一处的账算清。</p>
@@ -122,9 +122,9 @@
       <div class="cttl">没梯子没订阅 → 国内服务器 + 国产模型桥接</div>
       <div class="cprice">≈ ¥50–90 / 月 <span>一顿饭钱</span></div>
       <ul>
-        <li><b>简版（最省）：</b>本机直接装 Claude Code，把接口地址指向国产 plan——<b>国内直连、不用梯子</b>。¥49/月（GLM Lite）或更少。</li>
-        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥8/月起、标准约 ¥40/月），手机 SSH 一连就能随时随地喊它干活、24 小时在线。</li>
-        <li><b>模型：</b>智谱 <b>GLM Coding Plan</b>（¥49/月起，官方适配 Claude Code）打底，或 <b>DeepSeek V4</b> 按量（白菜价，用不了几个钱）。</li>
+        <li><b>简版（最省）：</b>本机直接装 Claude Code，把接口地址指向国产 plan——<b>国内直连、不用梯子</b>。¥29–49/月或更少。</li>
+        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥7/月起），手机 SSH 一连就能随时随地喊它干活、24 小时在线。</li>
+        <li><b>模型：</b>国产 coding plan 一口价——<b>MiniMax ¥29 / 智谱 GLM ¥49 / Kimi Code</b> 起，都适配 Claude Code；或 <b>DeepSeek V4</b> 按量（白菜价，用不了几个钱）。</li>
       </ul>
       <div class="who"><b>适合：</b>大多数国内用户——不用梯子、按月一口价、还能手机随时连。</div>
     </div>
@@ -135,58 +135,63 @@
       <p class="ct">💰 常见搭法 · 每月花费</p>
       <p class="cu">人民币 / 月 · 生活小事的日常用量</p>
 
-      <div class="brow"><div class="blab">纯免费起步 <b>¥0</b></div><div class="free">✔ Copilot Free / 模型免费档 / DeepSeek 新人额度，先玩起来</div></div>
-      <div class="brow"><div class="blab">DeepSeek V4 按量 <b>≈¥10</b> <span class="who">· 白菜价打底</span></div><div class="track"><div class="fill g w7"></div></div></div>
-      <div class="brow"><div class="blab">智谱 GLM Lite 包月 <b>¥49</b> <span class="who">· 省心·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
-      <div class="brow"><div class="blab">国内服务器 + GLM Lite <b>≈¥89</b> <span class="who">· 随身版·手机随时连</span></div><div class="track"><div class="fill a w59"></div></div></div>
+      <div class="brow"><div class="blab">纯免费起步 <b>¥0</b></div><div class="free">✔ Copilot Free / 模型免费档 / 各家新人额度，先玩起来</div></div>
+      <div class="brow"><div class="blab">DeepSeek 按量 <b>≈¥10</b> <span class="who">· 白菜价打底</span></div><div class="track"><div class="fill g w7"></div></div></div>
+      <div class="brow"><div class="blab">MiniMax / GLM 包月 <b>¥29–49</b> <span class="who">· 一口价·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
+      <div class="brow"><div class="blab">国内服务器 + 国产包月 <b>≈¥89</b> <span class="who">· 随身版·手机随时连</span></div><div class="track"><div class="fill a w59"></div></div></div>
       <div class="brow"><div class="blab">梯子 / 海外订阅 Claude Pro <b>≈¥144</b> <span class="who">· 已有条件就用</span></div><div class="track"><div class="fill o w96"></div></div></div>
     </div>
-    <p class="lead">💡 生活小事（配菜谱、写攻略、整理清单）一次也就几千到几万字，<b>按量的话一个月常常花不到一杯奶茶钱</b>；想省心就包月 GLM Lite，¥49 封顶。</p>
+    <p class="lead">💡 生活小事（配菜谱、写攻略、整理清单）一次也就几千到几万字，<b>按量一个月常常花不到一杯奶茶钱</b>；想省心就买国产包月，¥29–49 封顶。</p>
 
-    <h3>🧠 国产模型怎么选</h3>
-    <p class="lead">桥接国产模型有两种付法：按量（用多少付多少）或包月（一口价）。生活小事用量小，两种都便宜。</p>
-    <table>
-      <tr><th>模型</th><th>怎么付</th><th>生活用量一个月大概</th><th>定位</th></tr>
-      <tr><td><b>DeepSeek V3.2</b></td><td>按量 ¥0.28 / ¥0.42<br>每百万 tokens</td><td><b>¥5–15</b></td><td>白菜价打底，日常够用</td></tr>
-      <tr><td><b>DeepSeek V4-Pro</b></td><td>按量 ¥3 / ¥6<br>每百万 tokens</td><td><b>¥20–50</b></td><td>复杂任务更强</td></tr>
-      <tr><td><b>智谱 GLM Lite</b></td><td>包月一口价</td><td><b>¥49</b> 固定</td><td>配 Claude Code 最顺·省心</td></tr>
-      <tr><td><b>智谱 GLM Pro</b></td><td>包月一口价</td><td><b>¥134</b> 固定</td><td>多项目 / 重度</td></tr>
-    </table>
-    <p class="lead">💡 两列价格分别是「输入 / 输出」每百万 tokens（约几十万到上百万汉字）。DeepSeek 新用户还送几百万 tokens，缓存命中能再便宜一个量级。</p>
-
-    <h3>🖥️ 国内云服务器要多少</h3>
-    <p class="lead">只有走「随身版」才需要。国内轻量服务器很便宜，新人券更是白菜价。</p>
+    <h3>🧠 模型从哪来：包月 or 按量</h3>
+    <p class="lead">国产 coding plan 基本都能配 Claude Code。想省心就买个<b>包月一口价</b>；用量很小就<b>按量</b>，白菜价。</p>
     <div class="chart">
-      <p class="ct">🖥️ 国内轻量服务器 · 月租</p>
-      <p class="cu">2 核 2G 常见档 · 人民币 / 月</p>
+      <p class="ct">💳 国产包月 Coding Plan · 月费对比</p>
+      <p class="cu">最低档 · 人民币 / 月 · 都能接入 Claude Code</p>
 
-      <div class="brow"><div class="blab">自己电脑 / 本地 <b>¥0</b></div><div class="free">✔ 本机直接跑，不用服务器也行</div></div>
-      <div class="brow"><div class="blab">腾讯 / 阿里 新人首年 <b>≈¥8</b> <span class="who">· ¥99/年·拼手速更低</span></div><div class="track"><div class="fill g w13"></div></div></div>
-      <div class="brow"><div class="blab">标准 2核2G <b>≈¥40</b> <span class="who">· 续费常规价</span></div><div class="track"><div class="fill t w67"></div></div></div>
-      <div class="brow"><div class="blab">2核4G 稍宽裕 <b>≈¥60</b> <span class="who">· 想多跑点东西</span></div><div class="track"><div class="fill a w100"></div></div></div>
+      <div class="brow"><div class="blab">MiniMax Coding Plan <b>¥29</b> <span class="who">· 按次计费·最便宜入门</span></div><div class="track"><div class="fill g w20"></div></div></div>
+      <div class="brow"><div class="blab">智谱 GLM Lite <b>¥49</b> <span class="who">· 生态最成熟·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
+      <div class="brow"><div class="blab">智谱 GLM Pro <b>¥134</b> <span class="who">· 多项目 / 重度</span></div><div class="track"><div class="fill a w89"></div></div></div>
+      <div class="brow"><div class="blab">Kimi Code <b>¥138</b> <span class="who">· K2 编程强</span></div><div class="track"><div class="fill o w92"></div></div></div>
     </div>
-    <p class="lead">💡 挂机、手机随时连、环境干净不折腾本地——这些才值得上服务器；只在电脑上偶尔用，本地 ¥0 就够。</p>
-
-    <h3>🧰 客户端工具 & 桥接</h3>
-    <p class="lead">工具本身多半免费，关键是<b>能不能接国产模型</b>。Claude Code 只要改一下接口地址（base_url），就能桥接到智谱 GLM、DeepSeek。</p>
+    <p class="lead">💡 生活小事其实包月最低档就够——<b>MiniMax ¥29、GLM Lite ¥49</b> 都能配 Claude Code，一口价不怕超支。</p>
     <table>
-      <tr><th>工具</th><th>免费</th><th>接国产模型</th><th>一句话</th></tr>
-      <tr><td><b>Claude Code</b></td><td>需订阅或桥接</td><td><span class="ok">✔</span> 改 base_url 接 GLM / DeepSeek</td><td>官方 CLI，国产 plan 官方适配它</td></tr>
-      <tr><td><b>Copilot CLI</b></td><td>免费层可用</td><td>多模型</td><td>有 Copilot 就能在终端干活</td></tr>
-      <tr><td><b>Cline / Roo Code</b></td><td>开源免费</td><td><span class="ok">✔</span> 任意 API（BYOK）</td><td>VS Code 插件，接谁都行</td></tr>
-      <tr><td><b>Aider</b></td><td>开源免费</td><td><span class="ok">✔</span> 任意 API（BYOK）</td><td>终端老牌，跟 git 配合好</td></tr>
+      <tr><th>按量 API（白菜价）</th><th>输入 / 输出<br>每百万 tokens</th><th>生活用量一个月大概</th></tr>
+      <tr><td><b>DeepSeek V3.2</b></td><td>¥0.28 / ¥0.42</td><td><b>¥5–15</b></td></tr>
+      <tr><td><b>MiniMax M2</b></td><td>¥1.87 / ¥7.3</td><td><b>¥10–30</b></td></tr>
+      <tr><td><b>DeepSeek V4-Pro</b></td><td>¥3 / ¥6</td><td><b>¥20–50</b></td></tr>
+    </table>
+    <p class="lead">💡 两列价分别是「输入 / 输出」每百万 tokens。DeepSeek、MiniMax 都送新人额度，缓存命中还能再便宜一个量级。</p>
+
+    <h3>🖥️ 国内云服务器：三家比价</h3>
+    <p class="lead">只有走「随身版」才用得上。三家都主打新人年付白菜价，折合每月都在个位数。</p>
+    <table>
+      <tr><th>厂商</th><th>配置</th><th>新人价</th><th>折合每月</th><th>备注</th></tr>
+      <tr><td><b>火山引擎</b></td><td>2核4G</td><td>¥89/年</td><td><b>≈¥7</b></td><td>字节旗下·年付一次</td></tr>
+      <tr><td><b>腾讯云轻量</b></td><td>2核2G</td><td>¥68–99/年</td><td><b>≈¥6–8</b></td><td>微信生态对接顺</td></tr>
+      <tr><td><b>阿里云轻量</b></td><td>2核2G</td><td>¥68/年起</td><td><b>≈¥6</b></td><td>或 ECS 经济型 ¥99/年长期锁价</td></tr>
+      <tr><td><b>自己电脑</b></td><td>本地</td><td>¥0</td><td><b>¥0</b></td><td>不挂机的话本机就够</td></tr>
+    </table>
+    <p class="lead">💡 新人价多为「年付一次、首年优惠」，续费会涨；想长期锁价，选腾讯 / 阿里的 ECS 经济型 ¥99/年更稳。只在电脑上偶尔用，本地 ¥0 就够。</p>
+
+    <h3>🧰 客户端工具：主流就两个</h3>
+    <p class="lead">工具本身多半免费。国产 coding plan 基本都是<b>对着 Claude Code 做适配</b>，所以国内方案首选它；轻度用 Copilot 也行。</p>
+    <table>
+      <tr><th>工具</th><th>怎么用</th><th>接国产模型</th><th>一句话</th></tr>
+      <tr><td><b>Claude Code</b></td><td>订阅，或改 base_url 桥接</td><td><span class="ok">✔</span> GLM / MiniMax / Kimi 都官方适配</td><td>国内方案的主力，桥接国产 plan 最顺</td></tr>
+      <tr><td><b>GitHub Copilot</b></td><td>免费层可用 / 订阅</td><td>自带多模型</td><td>终端 + IDE 都能用，轻度够使</td></tr>
     </table>
 
     <h3>🧭 一句话决策</h3>
     <div class="guide">
       <div class="grow">有 ChatGPT / Claude 会员，或有梯子 → <b>本机直接用现成的</b>，不额外花钱。</div>
-      <div class="grow">没梯子、想省心 → <b>本机装 Claude Code + 智谱 GLM Lite ¥49/月</b>，国内直连、一口价。</div>
-      <div class="grow">想手机随时连 / 24 小时挂着 → <b>加一台国内轻量服务器（¥8–40/月）</b>，其余照上面。</div>
-      <div class="grow">用量很小、只想试试 → <b>DeepSeek 按量或各家免费额度</b>，一个月几块钱甚至不花钱。</div>
+      <div class="grow">没梯子、想省心 → <b>本机装 Claude Code + 一个国产包月（MiniMax ¥29 / GLM ¥49 起）</b>，国内直连、一口价。</div>
+      <div class="grow">想手机随时连 / 24 小时挂着 → <b>加一台国内轻量服务器（新人 ¥7/月起）</b>，其余照上面。</div>
+      <div class="grow">用量很小、只想试试 → <b>DeepSeek / MiniMax 按量，或各家免费额度</b>，一个月几块钱甚至不花钱。</div>
     </div>
 
     <div class="note">
-      <b>📌 数据说明：</b>以上为 2026 年年中的国内公开参考价（人民币）。云服务器新人券多为首年优惠、需拼抢，续费价更高；智谱 GLM、DeepSeek 常有促销、缓存折扣、新人赠额，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>，不构成消费建议。
+      <b>📌 数据说明：</b>以上为 2026 年年中的国内公开参考价（人民币）。云服务器新人价多为首年优惠、需年付甚至拼抢，续费价更高；智谱 GLM、MiniMax、Kimi、DeepSeek 常有促销、缓存折扣、新人赠额，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>，不构成消费建议。
     </div>
 
     <div class="cta">
