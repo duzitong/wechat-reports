@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跑一个 AI 编程 Agent 要多少钱 · 部署成本对比</title>
+<style>
+  body { margin: 0; background: #e9edf3; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 720px; margin: 0 auto; background: #ffffff; color: #1f2733; line-height: 1.72; padding: 0 0 44px; }
+  .hero { background: #1b2233; color: #eaf0f8; padding: 30px 20px 26px; }
+  .hero .title { font-size: 24px; font-weight: 700; margin: 0; color: #ffffff; }
+  .hero .accent { color: #6ea8e0; }
+  .hero .sub { margin: 11px 0 0; color: #a9b7cc; font-size: 14px; }
+  .hero .stamp { display: inline-block; margin: 14px 0 0; background: #29344c; color: #8fb6e6; border-radius: 20px; padding: 4px 13px; font-size: 12px; }
+  .body { padding: 0 18px; }
+
+  .tldr { background: #f2f6fb; border: 1px solid #d9e3ef; border-left: 4px solid #3f6fd1; border-radius: 12px; padding: 14px 16px; margin: 20px 0 0; }
+  .tldr .h { font-weight: 700; color: #274b96; margin: 0 0 5px; font-size: 15px; }
+  .tldr p { margin: 0; font-size: 14px; color: #33404f; }
+  .tldr b { color: #274b96; }
+
+  h3 { font-size: 18px; color: #1b2233; margin: 30px 0 6px; padding-left: 11px; border-left: 4px solid #3f6fd1; }
+  .lead { color: #4a5666; font-size: 13.5px; margin: 4px 0 0; }
+
+  .blocks { margin: 12px 0 0; }
+  .blk { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 11px; padding: 11px 14px; margin: 9px 0 0; }
+  .blk .bt { font-weight: 700; color: #26303f; font-size: 14.5px; }
+  .blk .bd { color: #5a6675; font-size: 13px; }
+
+  .chart { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 13px; padding: 15px 16px 17px; margin: 14px 0 0; }
+  .chart .ct { font-weight: 700; color: #26303f; margin: 0 0 2px; }
+  .chart .cu { color: #8592a3; font-size: 12px; margin: 0 0 6px; }
+  .brow { margin: 11px 0 0; }
+  .blab { font-size: 13px; color: #33404f; margin: 0 0 4px; }
+  .blab b { color: #1f2733; font-weight: 700; }
+  .blab .who { color: #8592a3; font-size: 12px; }
+  .track { background: #e7ecf3; border-radius: 7px; height: 19px; }
+  .fill { height: 19px; border-radius: 7px; }
+  .free { background: #eef4ee; border: 1px dashed #b9d3bd; border-radius: 7px; color: #3f8a5f; font-size: 12.5px; font-weight: 600; padding: 3px 10px; }
+
+  .w5 { width: 5%; } .w7 { width: 7%; } .w8 { width: 8%; } .w10 { width: 10%; }
+  .w14 { width: 14%; } .w17 { width: 17%; } .w20 { width: 20%; } .w22 { width: 22%; }
+  .w26 { width: 26%; } .w28 { width: 28%; } .w30 { width: 30%; } .w50 { width: 50%; }
+  .w67 { width: 67%; } .w100 { width: 100%; }
+  .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
+  .o { background: #e0754f; } .r { background: #cf4536; }
+
+  .over { color: #b23a26; font-weight: 700; font-size: 12px; }
+
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 0; font-size: 13px; }
+  th, td { border: 1px solid #e2e8f0; padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { background: #eef3f9; color: #1b2233; }
+  td b { color: #274b96; }
+
+  .combo { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 13px; padding: 15px 16px 16px; margin: 14px 0 0; }
+  .c-save { border-left: 5px solid #3f9d6f; }
+  .c-main { border-left: 5px solid #3f6fd1; }
+  .c-heavy { border-left: 5px solid #cf4536; }
+  .combo .tag { display: inline-block; border-radius: 12px; padding: 2px 10px; font-size: 12px; font-weight: 700; }
+  .tag-save { background: #e6f4ec; color: #2f7d52; }
+  .tag-main { background: #e7effb; color: #274b96; }
+  .tag-heavy { background: #fbe7e2; color: #b23a26; }
+  .combo .cttl { font-size: 17px; font-weight: 700; color: #1f2733; margin: 7px 0 0; }
+  .combo .cprice { font-size: 15px; font-weight: 700; color: #1b2233; margin: 3px 0 0; }
+  .combo .cprice span { color: #7a8697; font-weight: 400; font-size: 12.5px; }
+  .combo ul { margin: 9px 0 0; padding-left: 18px; }
+  .combo li { margin: 4px 0 0; font-size: 13.5px; color: #3a4655; }
+  .combo li b { color: #26303f; }
+  .combo .who { margin: 9px 0 0; font-size: 12.5px; color: #6a7688; background: #f5f7fa; border-radius: 8px; padding: 7px 11px; }
+  .combo .who b { color: #3a4655; }
+
+  .guide { margin: 12px 0 0; }
+  .grow { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 10px; padding: 10px 13px; margin: 8px 0 0; font-size: 13.5px; color: #3a4655; }
+  .grow b { color: #274b96; }
+
+  .note { background: #f5f7fa; border-radius: 10px; padding: 12px 14px; margin: 22px 0 0; color: #6a7688; font-size: 12.5px; line-height: 1.6; }
+  .note b { color: #4a5666; }
+
+  .cta { background: #eef3fb; border: 1px solid #d6e2f2; border-left: 4px solid #3f6fd1; border-radius: 10px; padding: 16px 17px; margin: 24px 0 0; }
+  .cta .h { font-weight: 700; color: #274b96; font-size: 16px; margin: 0 0 5px; }
+  .cta .d { color: #3a4655; font-size: 13.5px; line-height: 1.66; margin: 0; }
+  .cta-link { color: #3f6fd1; text-decoration: underline; font-weight: 700; }
+
+  .foot { color: #93a0b0; font-size: 12px; margin: 26px 18px 0; padding-top: 14px; border-top: 1px solid #edf1f5; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="title">跑一个 AI 编程 Agent，<span class="accent">到底要花多少钱？</span></div>
+    <div class="sub">云服务器 · 客户端工具 · 模型 API · 包月方案——四块拼起来的账，一次算清。</div>
+    <span class="stamp">💵 参考价 · 2026 年中 · 美元</span>
+  </div>
+
+  <div class="body">
+    <div class="tldr">
+      <p class="h">🎯 一句话结论</p>
+      <p>大多数人<b>本地电脑就能跑</b>，真正的大头是「模型从哪来」：<b>按量 API</b>（用多少付多少、可挑白菜价模型）还是<b>包月订阅</b>（一口价、心里有底）。云服务器只在你要 <b>24 小时挂机、异地随时连、多人协作</b>时才需要。</p>
+    </div>
+
+    <h3>① 你要凑齐的四样</h3>
+    <p class="lead">一个能自己动手改代码的 Agent，本质是这四块的组合——每块都有从「免费」到「烧钱」的选择。</p>
+    <div class="blocks">
+      <div class="blk"><span class="bt">🖥️ 跑在哪</span> <span class="bd">— 自己电脑（$0）还是云服务器（$4–18/月）。</span></div>
+      <div class="blk"><span class="bt">🧰 客户端工具</span> <span class="bd">— Claude Code / Copilot / Cursor / 开源 CLI，很多是免费的。</span></div>
+      <div class="blk"><span class="bt">🔌 模型从哪来</span> <span class="bd">— 接哪家的 API，或用哪个包月方案。</span></div>
+      <div class="blk"><span class="bt">💳 怎么付费</span> <span class="bd">— API 按量（用多少付多少）vs 包月订阅（固定月费）。</span></div>
+    </div>
+
+    <h3>② 模型 API：按量付费，差价 70 倍</h3>
+    <p class="lead">同样是「每百万 tokens 输出」，从白菜价到旗舰能差 70 倍。Agent 读写量大，选对模型比选对工具更省钱。</p>
+    <div class="chart">
+      <p class="ct">🔌 模型 API · 输出价对比</p>
+      <p class="cu">每百万 output tokens · 美元 · 输入价通常是输出的 ⅕–⅓</p>
+
+      <div class="brow"><div class="blab">DeepSeek V3 <b>$1.1</b> <span class="who">· 白菜价</span></div><div class="track"><div class="fill g w7"></div></div></div>
+      <div class="brow"><div class="blab">Kimi K2 <b>$2.5</b> <span class="who">· 便宜好用</span></div><div class="track"><div class="fill g w17"></div></div></div>
+      <div class="brow"><div class="blab">Gemini 2.5 Flash <b>$2.5</b> <span class="who">· 快而省</span></div><div class="track"><div class="fill t w17"></div></div></div>
+      <div class="brow"><div class="blab">通义千问 Qwen Max <b>$3.9</b> <span class="who">· 国产中档</span></div><div class="track"><div class="fill t w26"></div></div></div>
+      <div class="brow"><div class="blab">GPT-5 <b>$10</b> <span class="who">· 主流均衡</span></div><div class="track"><div class="fill a w67"></div></div></div>
+      <div class="brow"><div class="blab">Claude Sonnet <b>$15</b> <span class="who">· 编码主力</span></div><div class="track"><div class="fill o w100"></div></div></div>
+      <div class="brow"><div class="blab">Claude Opus <b>$75</b> <span class="over">⚠ 冲出图表 · 约 Sonnet 5×</span></div><div class="track"><div class="fill r w100"></div></div></div>
+    </div>
+    <p class="lead">💡 玩法：<b>DeepSeek / Kimi 打底</b>处理日常，遇到硬骨头再切 <b>Sonnet / Opus</b> 攻坚——一半的活用白菜价模型干，账单立刻降一个量级。</p>
+
+    <h3>③ 包月 Coding 方案：一口价、心里有底</h3>
+    <p class="lead">不想算 token、每天稳定写码，就买个包月：固定月费，超量顶多限速，不会突然被账单吓到。</p>
+    <div class="chart">
+      <p class="ct">💳 主流 Coding 订阅 · 月费对比</p>
+      <p class="cu">个人版 · 美元 / 月 · 越贵额度越高</p>
+
+      <div class="brow"><div class="blab">GitHub Copilot Pro <b>$10</b> <span class="who">· 个人入门</span></div><div class="track"><div class="fill g w5"></div></div></div>
+      <div class="brow"><div class="blab">Windsurf <b>$15</b> <span class="who">· 固定不限量</span></div><div class="track"><div class="fill g w8"></div></div></div>
+      <div class="brow"><div class="blab">Claude Pro / Cursor Pro <b>$20</b> <span class="who">· 主力起步</span></div><div class="track"><div class="fill t w10"></div></div></div>
+      <div class="brow"><div class="blab">GitHub Copilot Pro+ <b>$39</b> <span class="who">· 加量+高级模型</span></div><div class="track"><div class="fill a w20"></div></div></div>
+      <div class="brow"><div class="blab">Cursor Pro+ <b>$60</b> <span class="who">· 重度 IDE</span></div><div class="track"><div class="fill a w30"></div></div></div>
+      <div class="brow"><div class="blab">Claude Max 5× <b>$100</b> <span class="who">· 全天写码</span></div><div class="track"><div class="fill o w50"></div></div></div>
+      <div class="brow"><div class="blab">Claude Max 20× / Cursor Ultra <b>$200</b> <span class="who">· 顶格重度</span></div><div class="track"><div class="fill r w100"></div></div></div>
+    </div>
+    <p class="lead">💡 <b>Copilot Pro $10</b> 是最便宜的正经入口；写得多不够用，再升 <b>Copilot Pro+ $39</b> 或 <b>Claude Max $100</b>。包月的好处是——用爆了也就那么多钱。</p>
+
+    <h3>④ 跑在哪：本地够用，挂机才上云</h3>
+    <p class="lead">客户端跑在你自己电脑上完全够。只有要「关了电脑还在跑」「出门用手机连」「团队共用」时，才值得租台云服务器。</p>
+    <div class="chart">
+      <p class="ct">🖥️ 云服务器月租对比</p>
+      <p class="cu">约 2 核 2–4G 常见档位 · 美元 / 月</p>
+
+      <div class="brow"><div class="blab">自己电脑 / 本地 <b>$0</b></div><div class="free">✔ 本地就能跑，最省，绝大多数人够用</div></div>
+      <div class="brow"><div class="blab">Vultr 起步款 <b>$2.5</b> <span class="who">· 入门小机</span></div><div class="track"><div class="fill g w14"></div></div></div>
+      <div class="brow"><div class="blab">Hetzner CX22 <b>$4</b> <span class="who">· 性价比之王</span></div><div class="track"><div class="fill g w22"></div></div></div>
+      <div class="brow"><div class="blab">腾讯 / 阿里 轻量应用 <b>$5</b> <span class="who">· 国内·新人有券</span></div><div class="track"><div class="fill t w28"></div></div></div>
+      <div class="brow"><div class="blab">AWS Lightsail <b>$12</b> <span class="who">· 大厂省心</span></div><div class="track"><div class="fill a w67"></div></div></div>
+      <div class="brow"><div class="blab">DigitalOcean <b>$18</b> <span class="who">· 文档友好</span></div><div class="track"><div class="fill o w100"></div></div></div>
+    </div>
+
+    <h3>⑤ 客户端工具：很多是开源免费的</h3>
+    <p class="lead">工具本身多半不要钱，花钱的是它背后接的模型。核心区别：是「绑自家订阅」还是「你自带 API key（BYOK）想接谁接谁」。</p>
+    <table>
+      <tr><th>工具</th><th>免费 / 开源</th><th>接什么模型</th><th>一句话</th></tr>
+      <tr><td><b>Claude Code</b></td><td>闭源·需订阅或 API</td><td>Claude 自家</td><td>官方 CLI，配 Claude 订阅最顺</td></tr>
+      <tr><td><b>GitHub Copilot CLI</b></td><td>免费层可用</td><td>多模型(GPT/Claude…)</td><td>有 Copilot 就能在终端里干活</td></tr>
+      <tr><td><b>Cursor / Windsurf</b></td><td>闭源·订阅</td><td>多模型(自带额度)</td><td>IDE 一体，新手最友好</td></tr>
+      <tr><td><b>Cline / Roo Code</b></td><td>开源免费</td><td>任意 API(BYOK)</td><td>VS Code 插件，接谁都行</td></tr>
+      <tr><td><b>Aider</b></td><td>开源免费</td><td>任意 API(BYOK)</td><td>终端老牌，跟 git 配合好</td></tr>
+      <tr><td><b>OpenCode / Codex CLI</b></td><td>开源免费</td><td>任意 / OpenAI</td><td>纯 CLI，填自己的 key 就跑</td></tr>
+    </table>
+
+    <h3>🍱 三种典型配置（照抄就行）</h3>
+
+    <div class="combo c-save">
+      <span class="tag tag-save">最省</span>
+      <div class="cttl">零成本起步 · 白嫖党</div>
+      <div class="cprice">≈ $0–5 / 月 <span>先试水、几乎不花钱</span></div>
+      <ul>
+        <li><b>跑在哪：</b>自己电脑（$0）</li>
+        <li><b>客户端：</b>Cline / Aider（开源免费）</li>
+        <li><b>模型：</b>Copilot Free 额度，或 DeepSeek API 充 $5 能用很久</li>
+      </ul>
+      <div class="who"><b>适合：</b>学生、偶尔用、想先摸清楚再说的人。</div>
+    </div>
+
+    <div class="combo c-main">
+      <span class="tag tag-main">主力</span>
+      <div class="cttl">个人主力 · 每天写码</div>
+      <div class="cprice">≈ $10–100 / 月 <span>一口价，超了限速不超支</span></div>
+      <ul>
+        <li><b>跑在哪：</b>自己电脑（$0）</li>
+        <li><b>客户端：</b>官方工具顺手——Claude Code / Copilot</li>
+        <li><b>模型：</b>一个包月订阅省心——Copilot Pro $10 起步，写得多升 Pro+ $39 或 Claude Max 5× $100</li>
+      </ul>
+      <div class="who"><b>适合：</b>绝大多数每天写码的个人开发者。</div>
+    </div>
+
+    <div class="combo c-heavy">
+      <span class="tag tag-heavy">重度</span>
+      <div class="cttl">挂机 / 团队 / 自动化</div>
+      <div class="cprice">≈ $50–300+ / 月 <span>用多少付多少</span></div>
+      <ul>
+        <li><b>跑在哪：</b>一台 Hetzner / 腾讯轻量 $4–15，24 小时在线</li>
+        <li><b>客户端：</b>开源 CLI（Cline / OpenCode）跑在服务器上</li>
+        <li><b>模型：</b>API 按量——DeepSeek 打底省钱，硬骨头再上 Claude Opus</li>
+      </ul>
+      <div class="who"><b>适合：</b>要后台常驻、出门随时连、多人协作、跑批量自动化。</div>
+    </div>
+
+    <h3>🧭 一句话决策</h3>
+    <div class="guide">
+      <div class="grow">只是偶尔问几句 / 学生 → <b>Copilot Free 或 DeepSeek API</b>，几乎不花钱。</div>
+      <div class="grow">每天写码的个人 → <b>先上 Copilot Pro $10 或 Claude Pro $20</b>，不够再升级。一口价最省心。</div>
+      <div class="grow">想混用便宜模型 / 跑自动化 / 用量忽高忽低 → <b>开源 CLI + API 按量（BYOK）</b>，便宜模型打底、贵模型攻坚。</div>
+      <div class="grow">要 24 小时挂机 / 异地连 / 多人 → 再加一台 <b>Hetzner 或腾讯轻量 $4–15/月</b>，其余照上面配。</div>
+    </div>
+
+    <div class="note">
+      <b>📌 数据说明：</b>以上为 2026 年年中的公开参考价（美元），API 按「每百万 tokens · 输出价」排序，输入价通常是输出的 ⅕–⅓。各家常有促销、缓存折扣、新人券、年付优惠，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>。
+    </div>
+
+    <div class="cta">
+      <div class="h">🧮 这份对比是跟 AI 说一句话整理出来的</div>
+      <div class="d">让 AI 帮你查资料、算账、排成对比图，在微信里直接打开、转发。想给自己也做一份？打开 <a class="cta-link" href="how-to-use.html">上手指南</a>，两步搞定。</div>
+    </div>
+  </div>
+
+  <div class="foot">数据截至 2026 年中 · 仅供参考，价格与套餐随时变动，请以各家官方定价页为准，不构成消费建议。</div>
+</div>
+</body>
+</html>
