@@ -5,61 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>把你的 AI Coding 工具接到手机上 · 用它打理生活</title>
 <style>
-  body { margin: 0; background: #e9edf3; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
-  .page { max-width: 720px; margin: 0 auto; background: #ffffff; color: #1f2733; line-height: 1.72; padding: 0 0 44px; }
-  .hero { background: #1b2233; color: #eaf0f8; padding: 30px 20px 26px; }
-  .hero .title { font-size: 23px; font-weight: 700; margin: 0; color: #ffffff; }
-  .hero .accent { color: #6ea8e0; }
-  .hero .sub { margin: 11px 0 0; color: #a9b7cc; font-size: 14px; }
-  .hero .stamp { display: inline-block; margin: 14px 0 0; background: #29344c; color: #8fb6e6; border-radius: 20px; padding: 4px 13px; font-size: 12px; }
+  body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 720px; margin: 0 auto; background: #f4f1ea; color: #26231d; line-height: 1.72; padding: 0 0 44px; }
+  .hero { background: #26231d; color: #f4f1ea; padding: 30px 20px 26px; }
+  .hero .title { font-size: 23px; font-weight: 700; margin: 0; color: #f7f3ea; }
+  .hero .accent { color: #e5915f; }
+  .hero .sub { margin: 11px 0 0; color: #c9bfac; font-size: 14px; }
+  .hero .stamp { display: inline-block; margin: 14px 0 0; background: #38312a; color: #e5915f; border-radius: 20px; padding: 4px 13px; font-size: 12px; }
   .body { padding: 0 18px; }
 
-  .tldr { background: #f2f6fb; border: 1px solid #d9e3ef; border-left: 4px solid #3f6fd1; border-radius: 12px; padding: 14px 16px; margin: 20px 0 0; }
-  .tldr .h { font-weight: 700; color: #274b96; margin: 0 0 5px; font-size: 15px; }
-  .tldr p { margin: 0; font-size: 14px; color: #33404f; }
-  .tldr b { color: #274b96; }
+  .tldr { background: #f7ede4; border: 1px solid #e4d3c4; border-left: 4px solid #bf5b3e; border-radius: 12px; padding: 14px 16px; margin: 20px 0 0; }
+  .tldr .h { font-weight: 700; color: #a8482c; margin: 0 0 5px; font-size: 15px; }
+  .tldr p { margin: 0; font-size: 14px; color: #3d392f; }
+  .tldr b { color: #a8482c; }
 
-  h3 { font-size: 18px; color: #1b2233; margin: 30px 0 6px; padding-left: 11px; border-left: 4px solid #3f6fd1; }
-  .lead { color: #4a5666; font-size: 13.5px; margin: 4px 0 0; }
-  .lead b { color: #2a3a52; }
+  h3 { font-size: 18px; color: #201d17; margin: 30px 0 6px; padding-left: 11px; border-left: 4px solid #bf5b3e; }
+  .lead { color: #5c564a; font-size: 13.5px; margin: 4px 0 0; }
+  .lead b { color: #8a4327; }
 
   .blocks { margin: 12px 0 0; }
-  .blk { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 11px; padding: 11px 14px; margin: 9px 0 0; }
-  .blk .bt { font-weight: 700; color: #26303f; font-size: 14.5px; }
-  .blk .bd { color: #5a6675; font-size: 13px; }
+  .blk { background: #fbfaf5; border: 1px solid #e4ddcc; border-radius: 11px; padding: 11px 14px; margin: 9px 0 0; }
+  .blk .bt { font-weight: 700; color: #26231d; font-size: 14.5px; }
+  .blk .bd { color: #5c564a; font-size: 13px; }
 
-  code { background: #eef1f6; border: 1px solid #dde4ee; border-radius: 4px; padding: 1px 5px; font-size: 12.5px; color: #35507f; font-family: "SF Mono", Consolas, Menlo, monospace; }
-  .cmd { display: block; background: #12182a; color: #cfe0f5; border-radius: 6px; padding: 9px 11px; font-size: 12.5px; margin: 8px 0 0; word-break: break-all; font-family: "SF Mono", Consolas, Menlo, monospace; }
+  code { background: #efe7d6; border: 1px solid #e0d6c2; border-radius: 4px; padding: 1px 5px; font-size: 12.5px; color: #8a4327; font-family: "SF Mono", Consolas, Menlo, monospace; }
+  .cmd { display: block; background: #efe7d6; color: #3d392f; border: 1px solid #e0d6c2; border-radius: 6px; padding: 9px 11px; font-size: 12.5px; margin: 8px 0 0; word-break: break-all; font-family: "SF Mono", Consolas, Menlo, monospace; }
 
-  .chart { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 13px; padding: 15px 16px 17px; margin: 14px 0 0; }
-  .chart .ct { font-weight: 700; color: #26303f; margin: 0 0 2px; }
-  .chart .cu { color: #8592a3; font-size: 12px; margin: 0 0 6px; }
+  .chart { background: #fbfaf5; border: 1px solid #e4ddcc; border-radius: 13px; padding: 15px 16px 17px; margin: 14px 0 0; }
+  .chart .ct { font-weight: 700; color: #26231d; margin: 0 0 2px; }
+  .chart .cu { color: #8b8578; font-size: 12px; margin: 0 0 6px; }
   .brow { margin: 11px 0 0; }
-  .blab { font-size: 13px; color: #33404f; margin: 0 0 4px; }
-  .blab b { color: #1f2733; font-weight: 700; }
-  .blab .who { color: #8592a3; font-size: 12px; }
-  .track { background: #e7ecf3; border-radius: 7px; height: 19px; }
+  .blab { font-size: 13px; color: #3d392f; margin: 0 0 4px; }
+  .blab b { color: #26231d; font-weight: 700; }
+  .blab .who { color: #8b8578; font-size: 12px; }
+  .track { background: #e9dfce; border-radius: 7px; height: 19px; }
   .fill { height: 19px; border-radius: 7px; }
   .w23 { width: 23%; } .w100 { width: 100%; }
-  .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
+  .g { background: #7e934a; } .t { background: #cc785c; } .a { background: #bf5b3e; }
 
   table { border-collapse: collapse; width: 100%; margin: 12px 0 0; font-size: 13px; }
-  th, td { border: 1px solid #e2e8f0; padding: 7px 8px; text-align: left; vertical-align: top; }
-  th { background: #eef3f9; color: #1b2233; }
-  td b { color: #274b96; }
+  th, td { border: 1px solid #e4ddcc; padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0e2d8; color: #201d17; }
+  td b { color: #a8482c; }
 
-  .elec { background: #fff7ec; border: 1px solid #f0dcbf; border-left: 4px solid #d99a2b; border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; font-size: 13px; color: #5a4a2e; line-height: 1.66; }
-  .elec b { color: #a5701a; }
+  .elec { background: #fbf3ea; border: 1px solid #ecdcc9; border-left: 4px solid #cc785c; border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; font-size: 13px; color: #6f5a44; line-height: 1.66; }
+  .elec b { color: #a8482c; }
 
-  .note { background: #f5f7fa; border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; color: #6a7688; font-size: 12.5px; line-height: 1.62; }
-  .note b { color: #4a5666; }
+  .note { background: #f2ece2; border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; color: #6b6456; font-size: 12.5px; line-height: 1.62; }
+  .note b { color: #3d392f; }
 
-  .cta { background: #eef3fb; border: 1px solid #d6e2f2; border-left: 4px solid #3f6fd1; border-radius: 10px; padding: 16px 17px; margin: 24px 0 0; }
-  .cta .h { font-weight: 700; color: #274b96; font-size: 16px; margin: 0 0 5px; }
-  .cta .d { color: #3a4655; font-size: 13.5px; line-height: 1.66; margin: 0; }
-  .cta-link { color: #3f6fd1; text-decoration: underline; font-weight: 700; }
+  .cta { background: #efe7d6; border: 1px solid #e0d6c2; border-left: 4px solid #bf5b3e; border-radius: 10px; padding: 16px 17px; margin: 24px 0 0; }
+  .cta .h { font-weight: 700; color: #a8482c; font-size: 16px; margin: 0 0 5px; }
+  .cta .d { color: #3d392f; font-size: 13.5px; line-height: 1.66; margin: 0; }
+  .cta-link { color: #a8482c; text-decoration: underline; font-weight: 700; }
 
-  .foot { color: #93a0b0; font-size: 12px; margin: 26px 18px 0; padding-top: 14px; border-top: 1px solid #edf1f5; }
+  .foot { color: #9a9484; font-size: 12px; margin: 26px 18px 0; padding-top: 14px; border-top: 1px solid #e4ddcc; }
 </style>
 </head>
 <body>
