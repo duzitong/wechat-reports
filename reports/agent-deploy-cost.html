@@ -71,6 +71,9 @@
   .note { background: #f5f7fa; border-radius: 10px; padding: 12px 14px; margin: 22px 0 0; color: #6a7688; font-size: 12.5px; line-height: 1.6; }
   .note b { color: #4a5666; }
 
+  .elec { background: #fff7ec; border: 1px solid #f0dcbf; border-left: 4px solid #d99a2b; border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; font-size: 13px; color: #5a4a2e; line-height: 1.66; }
+  .elec b { color: #a5701a; }
+
   .cta { background: #eef3fb; border: 1px solid #d6e2f2; border-left: 4px solid #3f6fd1; border-radius: 10px; padding: 16px 17px; margin: 24px 0 0; }
   .cta .h { font-weight: 700; color: #274b96; font-size: 16px; margin: 0 0 5px; }
   .cta .d { color: #3a4655; font-size: 13.5px; line-height: 1.66; margin: 0; }
@@ -123,7 +126,7 @@
       <div class="cprice">≈ ¥50–90 / 月 <span>一顿饭钱</span></div>
       <ul>
         <li><b>简版（最省）：</b>本机直接装 Claude Code，把接口地址指向国产 plan——<b>国内直连、不用梯子</b>。¥29–49/月或更少。</li>
-        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥7/月起），手机 SSH 一连就能随时随地喊它干活、24 小时在线。</li>
+        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥7/月起），手机 SSH 一连就能随时随地喊它干活、24 小时在线，<b>不用把家里电脑一直开着</b>。</li>
         <li><b>模型：</b>国产 coding plan 一口价——<b>MiniMax ¥29 / 智谱 GLM ¥49 / Kimi Code</b> 起，都适配 Claude Code；或 <b>DeepSeek V4</b> 按量（白菜价，用不了几个钱）。</li>
       </ul>
       <div class="who"><b>适合：</b>大多数国内用户——不用梯子、按月一口价、还能手机随时连。</div>
@@ -138,7 +141,7 @@
       <div class="brow"><div class="blab">纯免费起步 <b>¥0</b></div><div class="free">✔ Copilot Free / 模型免费档 / 各家新人额度，先玩起来</div></div>
       <div class="brow"><div class="blab">DeepSeek 按量 <b>≈¥10</b> <span class="who">· 白菜价打底</span></div><div class="track"><div class="fill g w7"></div></div></div>
       <div class="brow"><div class="blab">MiniMax / GLM 包月 <b>¥29–49</b> <span class="who">· 一口价·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
-      <div class="brow"><div class="blab">国内服务器 + 国产包月 <b>≈¥89</b> <span class="who">· 随身版·手机随时连</span></div><div class="track"><div class="fill a w59"></div></div></div>
+      <div class="brow"><div class="blab">国内服务器 + 国产包月 <b>≈¥89</b> <span class="who">· 随身版·家里电脑不用一直开</span></div><div class="track"><div class="fill a w59"></div></div></div>
       <div class="brow"><div class="blab">梯子 / 海外订阅 Claude Pro <b>≈¥144</b> <span class="who">· 已有条件就用</span></div><div class="track"><div class="fill o w96"></div></div></div>
     </div>
     <p class="lead">💡 生活小事（配菜谱、写攻略、整理清单）一次也就几千到几万字，<b>按量一个月常常花不到一杯奶茶钱</b>；想省心就买国产包月，¥29–49 封顶。</p>
@@ -170,9 +173,10 @@
       <tr><td><b>火山引擎</b></td><td>2核4G</td><td>¥89/年</td><td><b>≈¥7</b></td><td>字节旗下·年付一次</td></tr>
       <tr><td><b>腾讯云轻量</b></td><td>2核2G</td><td>¥68–99/年</td><td><b>≈¥6–8</b></td><td>微信生态对接顺</td></tr>
       <tr><td><b>阿里云轻量</b></td><td>2核2G</td><td>¥68/年起</td><td><b>≈¥6</b></td><td>或 ECS 经济型 ¥99/年长期锁价</td></tr>
-      <tr><td><b>自己电脑</b></td><td>本地</td><td>¥0</td><td><b>¥0</b></td><td>不挂机的话本机就够</td></tr>
+      <tr><td><b>自己电脑</b></td><td>本地</td><td>¥0</td><td><b>¥0</b></td><td>偶尔用本机就够；随时连要一直开机（见下）</td></tr>
     </table>
     <p class="lead">💡 新人价多为「年付一次、首年优惠」，续费会涨；想长期锁价，选腾讯 / 阿里的 ECS 经济型 ¥99/年更稳。只在电脑上偶尔用，本地 ¥0 就够。</p>
+    <div class="elec">⚡ <b>别忘了电费这笔账：</b>要「手机随时连」，那台机器就得 <b>24 小时开着</b>。一台台式机常年挂机，一个月电费大约 <b>¥20–40</b>（按 50–100W、¥0.55 一度估）——很可能<b>比一台新人云服务器（≈¥7/月）还贵</b>，还得占着家里的电脑。所以：家里有<b>闲置的低功耗小机器（十几瓦、一个月几块电费）</b>、电费又低，本机挂着最省；<b>否则租台云服务器更划算</b>，也不用让家里电脑一直空转。</div>
 
     <h3>🧰 客户端工具：主流就两个</h3>
     <p class="lead">工具本身多半免费。国产 coding plan 基本都是<b>对着 Claude Code 做适配</b>，所以国内方案首选它；轻度用 Copilot 也行。</p>
