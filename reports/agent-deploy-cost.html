@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>手机上用 AI 打理生活，一个月要多少钱 · 成本对比</title>
+<title>把你的 AI Coding 工具接到手机上 · 用它打理生活</title>
 <style>
   body { margin: 0; background: #e9edf3; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
   .page { max-width: 720px; margin: 0 auto; background: #ffffff; color: #1f2733; line-height: 1.72; padding: 0 0 44px; }
@@ -21,11 +21,15 @@
 
   h3 { font-size: 18px; color: #1b2233; margin: 30px 0 6px; padding-left: 11px; border-left: 4px solid #3f6fd1; }
   .lead { color: #4a5666; font-size: 13.5px; margin: 4px 0 0; }
+  .lead b { color: #2a3a52; }
 
   .blocks { margin: 12px 0 0; }
   .blk { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 11px; padding: 11px 14px; margin: 9px 0 0; }
   .blk .bt { font-weight: 700; color: #26303f; font-size: 14.5px; }
   .blk .bd { color: #5a6675; font-size: 13px; }
+
+  code { background: #eef1f6; border: 1px solid #dde4ee; border-radius: 4px; padding: 1px 5px; font-size: 12.5px; color: #35507f; font-family: "SF Mono", Consolas, Menlo, monospace; }
+  .cmd { display: block; background: #12182a; color: #cfe0f5; border-radius: 6px; padding: 9px 11px; font-size: 12.5px; margin: 8px 0 0; word-break: break-all; font-family: "SF Mono", Consolas, Menlo, monospace; }
 
   .chart { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 13px; padding: 15px 16px 17px; margin: 14px 0 0; }
   .chart .ct { font-weight: 700; color: #26303f; margin: 0 0 2px; }
@@ -36,43 +40,14 @@
   .blab .who { color: #8592a3; font-size: 12px; }
   .track { background: #e7ecf3; border-radius: 7px; height: 19px; }
   .fill { height: 19px; border-radius: 7px; }
-  .free { background: #eef4ee; border: 1px dashed #b9d3bd; border-radius: 7px; color: #3f8a5f; font-size: 12.5px; font-weight: 600; padding: 3px 10px; }
-
-  .w7 { width: 7%; } .w20 { width: 20%; } .w33 { width: 33%; } .w59 { width: 59%; }
-  .w89 { width: 89%; } .w92 { width: 92%; } .w96 { width: 96%; }
+  .w23 { width: 23%; } .w100 { width: 100%; }
   .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
-  .o { background: #e0754f; } .r { background: #cf4536; }
-
-  table { border-collapse: collapse; width: 100%; margin: 12px 0 0; font-size: 13px; }
-  th, td { border: 1px solid #e2e8f0; padding: 7px 8px; text-align: left; vertical-align: top; }
-  th { background: #eef3f9; color: #1b2233; }
-  td b { color: #274b96; }
-  .ok { color: #2f7d52; font-weight: 700; }
-
-  .combo { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 13px; padding: 15px 16px 16px; margin: 14px 0 0; }
-  .c-save { border-left: 5px solid #3f9d6f; }
-  .c-main { border-left: 5px solid #3f6fd1; }
-  .combo .tag { display: inline-block; border-radius: 12px; padding: 2px 10px; font-size: 12px; font-weight: 700; }
-  .tag-save { background: #e6f4ec; color: #2f7d52; }
-  .tag-main { background: #e7effb; color: #274b96; }
-  .combo .cttl { font-size: 17px; font-weight: 700; color: #1f2733; margin: 7px 0 0; }
-  .combo .cprice { font-size: 15px; font-weight: 700; color: #1b2233; margin: 3px 0 0; }
-  .combo .cprice span { color: #7a8697; font-weight: 400; font-size: 12.5px; }
-  .combo ul { margin: 9px 0 0; padding-left: 18px; }
-  .combo li { margin: 4px 0 0; font-size: 13.5px; color: #3a4655; }
-  .combo li b { color: #26303f; }
-  .combo .who { margin: 9px 0 0; font-size: 12.5px; color: #6a7688; background: #f5f7fa; border-radius: 8px; padding: 7px 11px; }
-  .combo .who b { color: #3a4655; }
-
-  .guide { margin: 12px 0 0; }
-  .grow { background: #f7f9fc; border: 1px solid #e4e9f0; border-radius: 10px; padding: 10px 13px; margin: 8px 0 0; font-size: 13.5px; color: #3a4655; }
-  .grow b { color: #274b96; }
-
-  .note { background: #f5f7fa; border-radius: 10px; padding: 12px 14px; margin: 22px 0 0; color: #6a7688; font-size: 12.5px; line-height: 1.6; }
-  .note b { color: #4a5666; }
 
   .elec { background: #fff7ec; border: 1px solid #f0dcbf; border-left: 4px solid #d99a2b; border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; font-size: 13px; color: #5a4a2e; line-height: 1.66; }
   .elec b { color: #a5701a; }
+
+  .note { background: #f5f7fa; border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; color: #6a7688; font-size: 12.5px; line-height: 1.62; }
+  .note b { color: #4a5666; }
 
   .cta { background: #eef3fb; border: 1px solid #d6e2f2; border-left: 4px solid #3f6fd1; border-radius: 10px; padding: 16px 17px; margin: 24px 0 0; }
   .cta .h { font-weight: 700; color: #274b96; font-size: 16px; margin: 0 0 5px; }
@@ -85,126 +60,57 @@
 <body>
 <div class="page">
   <div class="hero">
-    <div class="title">在手机上用 AI 打理生活，<span class="accent">一个月要花多少钱？</span></div>
-    <div class="sub">你在小程序里看到的这些报告——今晚吃什么、赏花图鉴、城市攻略——都是对着一个 AI 说句话生成的。想自己也搭一套「随身 AI」？其实一个月几十块就够。</div>
-    <span class="stamp">🇨🇳 面向国内 · 人民币 · 参考价 2026 年中</span>
+    <div class="title">已经在用 Claude Code / Copilot？<span class="accent">把它接到手机上。</span></div>
+    <div class="sub">你每天用 AI 写代码——同一套工具，也能把「今晚吃什么」「周末去哪玩」整理成一页报告，推到手机上随时看、随手转。不用学新东西，接一下就能玩。</div>
+    <span class="stamp">📱 写给已经在用 AI Coding 的你</span>
   </div>
 
   <div class="body">
     <div class="tldr">
-      <p class="h">🎯 一句话结论</p>
-      <p>生活小事用 AI，<b>按月计费基本够用</b>，不用算 token。真正的分叉只有一个问题——你有没有「海外条件」：<b>现成的 Claude Code / Codex 订阅，或一个梯子</b>？有 → 自己电脑直接跑；没有 → 国内租个小服务器，用 Claude Code <b>桥接国产模型</b>（智谱 GLM、MiniMax、Kimi、DeepSeek 等）。丰俭由人，<b>一个月 ¥0 到一百出头</b>。</p>
+      <p class="h">🎯 一句话</p>
+      <p>你手上那个能自己动手的 AI agent，配个小桥 <code>wechat-acp</code>，就能<b>在微信里直接指挥它</b>——生成一页 HTML 报告、推到 GitHub、手机小程序打开。之后唯一要操心的，只有「想随时随地用，那台机器得一直开着」这一点点成本。</p>
     </div>
 
-    <h3>🛠️ 这套「随身 AI」怎么搭起来</h3>
-    <p class="lead">说白了就三步，花钱的地方只有一处——那个「AI」从哪来。</p>
+    <h3>🔁 同一个工具，换个用法</h3>
+    <p class="lead">你那个平时帮你写代码的 AI agent（Claude Code、Copilot……），换个说法，也能帮你打理生活——</p>
     <div class="blocks">
-      <div class="blk"><span class="bt">1️⃣ 跟 AI 说需求</span> <span class="bd">—「帮我把冰箱这些菜配成今晚的饭」「整理一份天津两日游」。</span></div>
-      <div class="blk"><span class="bt">2️⃣ 它生成 HTML 报告、顺手推到 GitHub</span> <span class="bd">— 一个能自己动手的 AI agent（Claude Code / Copilot）干这活。</span></div>
-      <div class="blk"><span class="bt">3️⃣ 手机小程序打开、转发</span> <span class="bd">— 就是你现在看的这个查看器。</span></div>
+      <div class="blk"><span class="bt">🍳 把冰箱剩的菜</span> <span class="bd">配成今晚一顿饭，连做法和上桌顺序都排好。</span></div>
+      <div class="blk"><span class="bt">🗺️ 把周末去哪、两日怎么走</span> <span class="bd">排成一页清清爽爽的攻略。</span></div>
+      <div class="blk"><span class="bt">🧾 采购清单、赛事战报、赏花图鉴</span> <span class="bd">整理成能转发给家人朋友的报告。</span></div>
     </div>
-    <p class="lead">三步里只有第 2 步的「AI」要花钱。下面就把这一处的账算清。</p>
+    <p class="lead">它生成一页 HTML、自动推到 GitHub，手机小程序一开就能看。就这么点事。</p>
 
-    <h3>🌉 两条路，看你有没有「海外条件」</h3>
-    <p class="lead">有没有现成的海外订阅、或者一个梯子（VPN），决定了你走哪条路——两条都能跑起来。</p>
-
-    <div class="combo c-main">
-      <span class="tag tag-main">有条件</span>
-      <div class="cttl">有订阅 / 有梯子 → 自己电脑直接跑</div>
-      <div class="cprice">≈ ¥0–150 / 月 <span>用你已有的就行</span></div>
-      <ul>
-        <li>有 <b>Claude Code / Codex</b>（ChatGPT Plus）订阅：本机装好直接开跑，<b>不额外花钱</b>。</li>
-        <li>只有梯子没订阅：本机装 Claude Code，充点海外 API，或订一个 Claude Pro（≈ ¥144/月）。</li>
-        <li>轻度使用：Copilot Free 之类的免费额度也够起步。</li>
-      </ul>
-      <div class="who"><b>适合：</b>已经会翻墙、或本来就有 ChatGPT / Claude 会员的人——别折腾，本机最省事。</div>
+    <h3>🔌 怎么接到手机</h3>
+    <p class="lead">靠一个小桥 <code>wechat-acp</code>，把微信直接接到你电脑上的 agent：你在微信里发一句话，它就干活、写报告、推仓库，手机上打开。三步：</p>
+    <div class="blocks">
+      <div class="blk"><span class="bt">1️⃣ 仓库 fork 到自己名下</span> <span class="bd">— 想转发给别人就设公开；自己或家人看，私有库也行。</span></div>
+      <div class="blk"><span class="bt">2️⃣ 起个桥，把微信连到你的 agent</span>
+        <span class="cmd">npx wechat-acp --agent copilot</span></div>
+      <div class="blk"><span class="bt">3️⃣ 小程序填个只读 token、指向你的仓库</span> <span class="bd">—「GH HTML 查看器」里打开、转发。</span></div>
     </div>
+    <p class="lead">详细步骤看 <a class="cta-link" href="how-to-use.html">上手指南</a>。目前 <code>wechat-acp</code> 主流支持的就是 <b>Claude Code / Copilot</b>（走 ACP 协议）——你已经在用的话，几分钟就接好。</p>
 
-    <div class="combo c-save">
-      <span class="tag tag-save">国内直连</span>
-      <div class="cttl">没梯子没订阅 → 国内服务器 + 国产模型桥接</div>
-      <div class="cprice">≈ ¥50–90 / 月 <span>一顿饭钱</span></div>
-      <ul>
-        <li><b>简版（最省）：</b>本机直接装 Claude Code，把接口地址指向国产 plan——<b>国内直连、不用梯子</b>。¥29–49/月或更少。</li>
-        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥7/月起），手机 SSH 一连就能随时随地喊它干活、24 小时在线，<b>不用把家里电脑一直开着</b>。</li>
-        <li><b>模型：</b>国产 coding plan 一口价——<b>MiniMax ¥29 / 智谱 GLM ¥49 / Kimi Code</b> 起，都适配 Claude Code；或 <b>DeepSeek V4</b> 按量（白菜价，用不了几个钱）。</li>
-      </ul>
-      <div class="who"><b>适合：</b>大多数国内用户——不用梯子、按月一口价、还能手机随时连。</div>
-    </div>
-
-    <h3>💰 一个月到底花多少钱</h3>
-    <p class="lead">把常见几种搭法摆一起看月成本——生活小事用量小，其实都不贵。</p>
+    <h3>🔋 想随时随地用：机器得开着</h3>
+    <p class="lead">手机连回的是你电脑上的 agent，所以要随时能用，那台机器就得一直开着。这也是这套玩法里<b>唯一要花点钱的地方</b>——两种选法：</p>
     <div class="chart">
-      <p class="ct">💰 常见搭法 · 每月花费</p>
-      <p class="cu">人民币 / 月 · 生活小事的日常用量</p>
+      <p class="ct">🔋 让 agent 常驻在线 · 怎么最省</p>
+      <p class="cu">人民币 / 月 · 只是让它一直挂着可连</p>
 
-      <div class="brow"><div class="blab">纯免费起步 <b>¥0</b></div><div class="free">✔ Copilot Free / 模型免费档 / 各家新人额度，先玩起来</div></div>
-      <div class="brow"><div class="blab">DeepSeek 按量 <b>≈¥10</b> <span class="who">· 白菜价打底</span></div><div class="track"><div class="fill g w7"></div></div></div>
-      <div class="brow"><div class="blab">MiniMax / GLM 包月 <b>¥29–49</b> <span class="who">· 一口价·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
-      <div class="brow"><div class="blab">国内服务器 + 国产包月 <b>≈¥89</b> <span class="who">· 随身版·家里电脑不用一直开</span></div><div class="track"><div class="fill a w59"></div></div></div>
-      <div class="brow"><div class="blab">梯子 / 海外订阅 Claude Pro <b>≈¥144</b> <span class="who">· 已有条件就用</span></div><div class="track"><div class="fill o w96"></div></div></div>
+      <div class="brow"><div class="blab">本机台式机常开 <b>≈¥30</b> <span class="who">· 电费·还占着电脑</span></div><div class="track"><div class="fill a w100"></div></div></div>
+      <div class="brow"><div class="blab">便宜云服务器 <b>≈¥7</b> <span class="who">· 新人价·不占家里电脑</span></div><div class="track"><div class="fill g w23"></div></div></div>
     </div>
-    <p class="lead">💡 生活小事（配菜谱、写攻略、整理清单）一次也就几千到几万字，<b>按量一个月常常花不到一杯奶茶钱</b>；想省心就买国产包月，¥29–49 封顶。</p>
+    <div class="elec">⚡ <b>有意思的是：</b>一台台式机 24 小时挂着，一个月电费常常 <b>¥20–40</b>（按 50–100W、¥0.55 一度估），<b>比一台新人云服务器（≈¥7/月）还贵</b>，还占着家里的电脑。所以——家里有<b>闲置的低功耗小机器（十几瓦、一个月几块电费）</b>、电费又低，本机挂着最省；否则丢一台便宜云服务器（腾讯 / 阿里 / 火山引擎，新人 ¥7/月起）上，<b>手机随时连、不用开家里电脑</b>，反而更划算。</div>
+    <p class="lead">💡 只在电脑前用、不追求随时连，那就<b>用的时候才开机</b>——一分钱不多花。</p>
 
-    <h3>🧠 模型从哪来：包月 or 按量</h3>
-    <p class="lead">国产 coding plan 基本都能配 Claude Code。想省心就买个<b>包月一口价</b>；用量很小就<b>按量</b>，白菜价。</p>
-    <div class="chart">
-      <p class="ct">💳 国产包月 Coding Plan · 月费对比</p>
-      <p class="cu">最低档 · 人民币 / 月 · 都能接入 Claude Code</p>
-
-      <div class="brow"><div class="blab">MiniMax Coding Plan <b>¥29</b> <span class="who">· 按次计费·最便宜入门</span></div><div class="track"><div class="fill g w20"></div></div></div>
-      <div class="brow"><div class="blab">智谱 GLM Lite <b>¥49</b> <span class="who">· 生态最成熟·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
-      <div class="brow"><div class="blab">智谱 GLM Pro <b>¥134</b> <span class="who">· 多项目 / 重度</span></div><div class="track"><div class="fill a w89"></div></div></div>
-      <div class="brow"><div class="blab">Kimi Code <b>¥138</b> <span class="who">· K2 编程强</span></div><div class="track"><div class="fill o w92"></div></div></div>
-    </div>
-    <p class="lead">💡 生活小事其实包月最低档就够——<b>MiniMax ¥29、GLM Lite ¥49</b> 都能配 Claude Code，一口价不怕超支。</p>
-    <table>
-      <tr><th>按量 API（白菜价）</th><th>输入 / 输出<br>每百万 tokens</th><th>生活用量一个月大概</th></tr>
-      <tr><td><b>DeepSeek V3.2</b></td><td>¥0.28 / ¥0.42</td><td><b>¥5–15</b></td></tr>
-      <tr><td><b>MiniMax M2</b></td><td>¥1.87 / ¥7.3</td><td><b>¥10–30</b></td></tr>
-      <tr><td><b>DeepSeek V4-Pro</b></td><td>¥3 / ¥6</td><td><b>¥20–50</b></td></tr>
-    </table>
-    <p class="lead">💡 两列价分别是「输入 / 输出」每百万 tokens。DeepSeek、MiniMax 都送新人额度，缓存命中还能再便宜一个量级。</p>
-
-    <h3>🖥️ 国内云服务器：三家比价</h3>
-    <p class="lead">只有走「随身版」才用得上。三家都主打新人年付白菜价，折合每月都在个位数。</p>
-    <table>
-      <tr><th>厂商</th><th>配置</th><th>新人价</th><th>折合每月</th><th>备注</th></tr>
-      <tr><td><b>火山引擎</b></td><td>2核4G</td><td>¥89/年</td><td><b>≈¥7</b></td><td>字节旗下·年付一次</td></tr>
-      <tr><td><b>腾讯云轻量</b></td><td>2核2G</td><td>¥68–99/年</td><td><b>≈¥6–8</b></td><td>微信生态对接顺</td></tr>
-      <tr><td><b>阿里云轻量</b></td><td>2核2G</td><td>¥68/年起</td><td><b>≈¥6</b></td><td>或 ECS 经济型 ¥99/年长期锁价</td></tr>
-      <tr><td><b>自己电脑</b></td><td>本地</td><td>¥0</td><td><b>¥0</b></td><td>偶尔用本机就够；随时连要一直开机（见下）</td></tr>
-    </table>
-    <p class="lead">💡 新人价多为「年付一次、首年优惠」，续费会涨；想长期锁价，选腾讯 / 阿里的 ECS 经济型 ¥99/年更稳。只在电脑上偶尔用，本地 ¥0 就够。</p>
-    <div class="elec">⚡ <b>别忘了电费这笔账：</b>要「手机随时连」，那台机器就得 <b>24 小时开着</b>。一台台式机常年挂机，一个月电费大约 <b>¥20–40</b>（按 50–100W、¥0.55 一度估）——很可能<b>比一台新人云服务器（≈¥7/月）还贵</b>，还得占着家里的电脑。所以：家里有<b>闲置的低功耗小机器（十几瓦、一个月几块电费）</b>、电费又低，本机挂着最省；<b>否则租台云服务器更划算</b>，也不用让家里电脑一直空转。</div>
-
-    <h3>🧰 客户端工具：主流就两个</h3>
-    <p class="lead">工具本身多半免费。国产 coding plan 基本都是<b>对着 Claude Code 做适配</b>，所以国内方案首选它；轻度用 Copilot 也行。</p>
-    <table>
-      <tr><th>工具</th><th>怎么用</th><th>接国产模型</th><th>一句话</th></tr>
-      <tr><td><b>Claude Code</b></td><td>订阅，或改 base_url 桥接</td><td><span class="ok">✔</span> GLM / MiniMax / Kimi 都官方适配</td><td>国内方案的主力，桥接国产 plan 最顺</td></tr>
-      <tr><td><b>GitHub Copilot</b></td><td>免费层可用 / 订阅</td><td>自带多模型</td><td>终端 + IDE 都能用，轻度够使</td></tr>
-    </table>
-
-    <h3>🧭 一句话决策</h3>
-    <div class="guide">
-      <div class="grow">有 ChatGPT / Claude 会员，或有梯子 → <b>本机直接用现成的</b>，不额外花钱。</div>
-      <div class="grow">没梯子、想省心 → <b>本机装 Claude Code + 一个国产包月（MiniMax ¥29 / GLM ¥49 起）</b>，国内直连、一口价。</div>
-      <div class="grow">想手机随时连 / 24 小时挂着 → <b>加一台国内轻量服务器（新人 ¥7/月起）</b>，其余照上面。</div>
-      <div class="grow">用量很小、只想试试 → <b>DeepSeek / MiniMax 按量，或各家免费额度</b>，一个月几块钱甚至不花钱。</div>
-    </div>
-
-    <div class="note">
-      <b>📌 数据说明：</b>以上为 2026 年年中的国内公开参考价（人民币）。云服务器新人价多为首年优惠、需年付甚至拼抢，续费价更高；智谱 GLM、MiniMax、Kimi、DeepSeek 常有促销、缓存折扣、新人赠额，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>，不构成消费建议。
-    </div>
+    <div class="note"><b>🇨🇳 没梯子也能玩：</b>如果你的 agent 是 Claude Code，改一下接口地址（<code>base_url</code>）就能接国产模型——智谱 GLM、DeepSeek、MiniMax、Kimi 都行，国内直连、不用梯子，一个月几十块封顶。</div>
 
     <div class="cta">
-      <div class="h">🧮 想自己也搭一套？</div>
-      <div class="d">这份对比、还有小程序里那些报告，都是跟 AI 说句话整理出来的。想上手，打开 <a class="cta-link" href="how-to-use.html">上手指南</a>，两步就能把你的第一份报告发出来。</div>
+      <div class="h">📱 五分钟，把你的 AI 接进手机</div>
+      <div class="d">已经在用 Claude Code / Copilot？照着 <a class="cta-link" href="how-to-use.html">上手指南</a> 接一下，下次在地铁上就能让它帮你把「今晚吃什么」整理好，直接发家庭群。</div>
     </div>
   </div>
 
-  <div class="foot">数据截至 2026 年中 · 面向国内参考 · 价格与套餐随时变动，请以各家官方定价页为准，不构成消费 / 投资建议。</div>
+  <div class="foot">写给已经在用 AI 编程工具的读者 · 文中价格为 2026 年中国内参考，随时变动，以各家官方为准。</div>
 </div>
 </body>
 </html>
