@@ -43,6 +43,11 @@
   .w23 { width: 23%; } .w100 { width: 100%; }
   .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
 
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 0; font-size: 13px; }
+  th, td { border: 1px solid #e2e8f0; padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { background: #eef3f9; color: #1b2233; }
+  td b { color: #274b96; }
+
   .elec { background: #fff7ec; border: 1px solid #f0dcbf; border-left: 4px solid #d99a2b; border-radius: 10px; padding: 12px 14px; margin: 12px 0 0; font-size: 13px; color: #5a4a2e; line-height: 1.66; }
   .elec b { color: #a5701a; }
 
@@ -100,6 +105,14 @@
       <div class="brow"><div class="blab">便宜云服务器 <b>≈¥7</b> <span class="who">· 新人价·不占家里电脑</span></div><div class="track"><div class="fill g w23"></div></div></div>
     </div>
     <div class="elec">⚡ <b>有意思的是：</b>一台台式机 24 小时挂着，一个月电费常常 <b>¥20–40</b>（按 50–100W、¥0.55 一度估），<b>比一台新人云服务器（≈¥7/月）还贵</b>，还占着家里的电脑。所以——家里有<b>闲置的低功耗小机器（十几瓦、一个月几块电费）</b>、电费又低，本机挂着最省；否则丢一台便宜云服务器（腾讯 / 阿里 / 火山引擎，新人 ¥7/月起）上，<b>手机随时连、不用开家里电脑</b>，反而更划算。</div>
+    <p class="lead">三家都主打新人年付白菜价，折合每月都在个位数——随手挑一个：</p>
+    <table>
+      <tr><th>厂商</th><th>配置</th><th>新人价</th><th>折合每月</th></tr>
+      <tr><td><b>火山引擎</b></td><td>2核4G</td><td>¥89/年</td><td><b>≈¥7</b></td></tr>
+      <tr><td><b>腾讯云轻量</b></td><td>2核2G</td><td>¥68–99/年</td><td><b>≈¥6–8</b></td></tr>
+      <tr><td><b>阿里云轻量</b></td><td>2核2G</td><td>¥68/年起</td><td><b>≈¥6</b></td></tr>
+    </table>
+    <p class="lead">💡 新人价多为「年付一次、首年优惠」，续费会涨；想长期锁价，选腾讯 / 阿里的 ECS 经济型 ¥99/年更稳。微信生态选腾讯云对接更顺。</p>
     <p class="lead">💡 只在电脑前用、不追求随时连，那就<b>用的时候才开机</b>——一分钱不多花。</p>
 
     <div class="note"><b>🇨🇳 没梯子也能玩：</b>如果你的 agent 是 Claude Code，改一下接口地址（<code>base_url</code>）就能接国产模型——智谱 GLM、DeepSeek、MiniMax、Kimi 都行，国内直连、不用梯子，一个月几十块封顶。</div>
