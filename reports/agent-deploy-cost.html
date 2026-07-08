@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>跑一个 AI 编程 Agent 要多少钱 · 部署成本对比</title>
+<title>手机上用 AI 打理生活，一个月要多少钱 · 成本对比</title>
 <style>
   body { margin: 0; background: #e9edf3; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
   .page { max-width: 720px; margin: 0 auto; background: #ffffff; color: #1f2733; line-height: 1.72; padding: 0 0 44px; }
   .hero { background: #1b2233; color: #eaf0f8; padding: 30px 20px 26px; }
-  .hero .title { font-size: 24px; font-weight: 700; margin: 0; color: #ffffff; }
+  .hero .title { font-size: 23px; font-weight: 700; margin: 0; color: #ffffff; }
   .hero .accent { color: #6ea8e0; }
   .hero .sub { margin: 11px 0 0; color: #a9b7cc; font-size: 14px; }
   .hero .stamp { display: inline-block; margin: 14px 0 0; background: #29344c; color: #8fb6e6; border-radius: 20px; padding: 4px 13px; font-size: 12px; }
@@ -38,28 +38,23 @@
   .fill { height: 19px; border-radius: 7px; }
   .free { background: #eef4ee; border: 1px dashed #b9d3bd; border-radius: 7px; color: #3f8a5f; font-size: 12.5px; font-weight: 600; padding: 3px 10px; }
 
-  .w5 { width: 5%; } .w7 { width: 7%; } .w8 { width: 8%; } .w10 { width: 10%; }
-  .w14 { width: 14%; } .w17 { width: 17%; } .w20 { width: 20%; } .w22 { width: 22%; }
-  .w26 { width: 26%; } .w28 { width: 28%; } .w30 { width: 30%; } .w50 { width: 50%; }
-  .w67 { width: 67%; } .w100 { width: 100%; }
+  .w7 { width: 7%; } .w13 { width: 13%; } .w33 { width: 33%; } .w59 { width: 59%; }
+  .w67 { width: 67%; } .w96 { width: 96%; } .w100 { width: 100%; }
   .g { background: #3f9d6f; } .t { background: #2f9ab0; } .a { background: #d99a2b; }
   .o { background: #e0754f; } .r { background: #cf4536; }
-
-  .over { color: #b23a26; font-weight: 700; font-size: 12px; }
 
   table { border-collapse: collapse; width: 100%; margin: 12px 0 0; font-size: 13px; }
   th, td { border: 1px solid #e2e8f0; padding: 7px 8px; text-align: left; vertical-align: top; }
   th { background: #eef3f9; color: #1b2233; }
   td b { color: #274b96; }
+  .ok { color: #2f7d52; font-weight: 700; }
 
   .combo { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 13px; padding: 15px 16px 16px; margin: 14px 0 0; }
   .c-save { border-left: 5px solid #3f9d6f; }
   .c-main { border-left: 5px solid #3f6fd1; }
-  .c-heavy { border-left: 5px solid #cf4536; }
   .combo .tag { display: inline-block; border-radius: 12px; padding: 2px 10px; font-size: 12px; font-weight: 700; }
   .tag-save { background: #e6f4ec; color: #2f7d52; }
   .tag-main { background: #e7effb; color: #274b96; }
-  .tag-heavy { background: #fbe7e2; color: #b23a26; }
   .combo .cttl { font-size: 17px; font-weight: 700; color: #1f2733; margin: 7px 0 0; }
   .combo .cprice { font-size: 15px; font-weight: 700; color: #1b2233; margin: 3px 0 0; }
   .combo .cprice span { color: #7a8697; font-weight: 400; font-size: 12.5px; }
@@ -87,141 +82,120 @@
 <body>
 <div class="page">
   <div class="hero">
-    <div class="title">跑一个 AI 编程 Agent，<span class="accent">到底要花多少钱？</span></div>
-    <div class="sub">云服务器 · 客户端工具 · 模型 API · 包月方案——四块拼起来的账，一次算清。</div>
-    <span class="stamp">💵 参考价 · 2026 年中 · 美元</span>
+    <div class="title">在手机上用 AI 打理生活，<span class="accent">一个月要花多少钱？</span></div>
+    <div class="sub">你在小程序里看到的这些报告——今晚吃什么、赏花图鉴、城市攻略——都是对着一个 AI 说句话生成的。想自己也搭一套「随身 AI」？其实一个月几十块就够。</div>
+    <span class="stamp">🇨🇳 面向国内 · 人民币 · 参考价 2026 年中</span>
   </div>
 
   <div class="body">
     <div class="tldr">
       <p class="h">🎯 一句话结论</p>
-      <p>大多数人<b>本地电脑就能跑</b>，真正的大头是「模型从哪来」：<b>按量 API</b>（用多少付多少、可挑白菜价模型）还是<b>包月订阅</b>（一口价、心里有底）。云服务器只在你要 <b>24 小时挂机、异地随时连、多人协作</b>时才需要。</p>
+      <p>生活小事用 AI，<b>按月计费基本够用</b>，不用算 token。真正的分叉只有一个问题——你有没有「海外条件」：<b>现成的 Claude Code / Codex 订阅，或一个梯子</b>？有 → 自己电脑直接跑；没有 → 国内租个小服务器，用 Claude Code <b>桥接国产模型</b>（智谱 GLM、DeepSeek V4）。丰俭由人，<b>一个月 ¥0 到一百出头</b>。</p>
     </div>
 
-    <h3>① 你要凑齐的四样</h3>
-    <p class="lead">一个能自己动手改代码的 Agent，本质是这四块的组合——每块都有从「免费」到「烧钱」的选择。</p>
+    <h3>🛠️ 这套「随身 AI」怎么搭起来</h3>
+    <p class="lead">说白了就三步，花钱的地方只有一处——那个「AI」从哪来。</p>
     <div class="blocks">
-      <div class="blk"><span class="bt">🖥️ 跑在哪</span> <span class="bd">— 自己电脑（$0）还是云服务器（$4–18/月）。</span></div>
-      <div class="blk"><span class="bt">🧰 客户端工具</span> <span class="bd">— Claude Code / Copilot / Cursor / 开源 CLI，很多是免费的。</span></div>
-      <div class="blk"><span class="bt">🔌 模型从哪来</span> <span class="bd">— 接哪家的 API，或用哪个包月方案。</span></div>
-      <div class="blk"><span class="bt">💳 怎么付费</span> <span class="bd">— API 按量（用多少付多少）vs 包月订阅（固定月费）。</span></div>
+      <div class="blk"><span class="bt">1️⃣ 跟 AI 说需求</span> <span class="bd">—「帮我把冰箱这些菜配成今晚的饭」「整理一份天津两日游」。</span></div>
+      <div class="blk"><span class="bt">2️⃣ 它生成 HTML 报告、顺手推到 GitHub</span> <span class="bd">— 一个能自己动手的 AI agent（Claude Code / Codex）干这活。</span></div>
+      <div class="blk"><span class="bt">3️⃣ 手机小程序打开、转发</span> <span class="bd">— 就是你现在看的这个查看器。</span></div>
     </div>
+    <p class="lead">三步里只有第 2 步的「AI」要花钱。下面就把这一处的账算清。</p>
 
-    <h3>② 模型 API：按量付费，差价 70 倍</h3>
-    <p class="lead">同样是「每百万 tokens 输出」，从白菜价到旗舰能差 70 倍。Agent 读写量大，选对模型比选对工具更省钱。</p>
-    <div class="chart">
-      <p class="ct">🔌 模型 API · 输出价对比</p>
-      <p class="cu">每百万 output tokens · 美元 · 输入价通常是输出的 ⅕–⅓</p>
-
-      <div class="brow"><div class="blab">DeepSeek V3 <b>$1.1</b> <span class="who">· 白菜价</span></div><div class="track"><div class="fill g w7"></div></div></div>
-      <div class="brow"><div class="blab">Kimi K2 <b>$2.5</b> <span class="who">· 便宜好用</span></div><div class="track"><div class="fill g w17"></div></div></div>
-      <div class="brow"><div class="blab">Gemini 2.5 Flash <b>$2.5</b> <span class="who">· 快而省</span></div><div class="track"><div class="fill t w17"></div></div></div>
-      <div class="brow"><div class="blab">通义千问 Qwen Max <b>$3.9</b> <span class="who">· 国产中档</span></div><div class="track"><div class="fill t w26"></div></div></div>
-      <div class="brow"><div class="blab">GPT-5 <b>$10</b> <span class="who">· 主流均衡</span></div><div class="track"><div class="fill a w67"></div></div></div>
-      <div class="brow"><div class="blab">Claude Sonnet <b>$15</b> <span class="who">· 编码主力</span></div><div class="track"><div class="fill o w100"></div></div></div>
-      <div class="brow"><div class="blab">Claude Opus <b>$75</b> <span class="over">⚠ 冲出图表 · 约 Sonnet 5×</span></div><div class="track"><div class="fill r w100"></div></div></div>
-    </div>
-    <p class="lead">💡 玩法：<b>DeepSeek / Kimi 打底</b>处理日常，遇到硬骨头再切 <b>Sonnet / Opus</b> 攻坚——一半的活用白菜价模型干，账单立刻降一个量级。</p>
-
-    <h3>③ 包月 Coding 方案：一口价、心里有底</h3>
-    <p class="lead">不想算 token、每天稳定写码，就买个包月：固定月费，超量顶多限速，不会突然被账单吓到。</p>
-    <div class="chart">
-      <p class="ct">💳 主流 Coding 订阅 · 月费对比</p>
-      <p class="cu">个人版 · 美元 / 月 · 越贵额度越高</p>
-
-      <div class="brow"><div class="blab">GitHub Copilot Pro <b>$10</b> <span class="who">· 个人入门</span></div><div class="track"><div class="fill g w5"></div></div></div>
-      <div class="brow"><div class="blab">Windsurf <b>$15</b> <span class="who">· 固定不限量</span></div><div class="track"><div class="fill g w8"></div></div></div>
-      <div class="brow"><div class="blab">Claude Pro / Cursor Pro <b>$20</b> <span class="who">· 主力起步</span></div><div class="track"><div class="fill t w10"></div></div></div>
-      <div class="brow"><div class="blab">GitHub Copilot Pro+ <b>$39</b> <span class="who">· 加量+高级模型</span></div><div class="track"><div class="fill a w20"></div></div></div>
-      <div class="brow"><div class="blab">Cursor Pro+ <b>$60</b> <span class="who">· 重度 IDE</span></div><div class="track"><div class="fill a w30"></div></div></div>
-      <div class="brow"><div class="blab">Claude Max 5× <b>$100</b> <span class="who">· 全天写码</span></div><div class="track"><div class="fill o w50"></div></div></div>
-      <div class="brow"><div class="blab">Claude Max 20× / Cursor Ultra <b>$200</b> <span class="who">· 顶格重度</span></div><div class="track"><div class="fill r w100"></div></div></div>
-    </div>
-    <p class="lead">💡 <b>Copilot Pro $10</b> 是最便宜的正经入口；写得多不够用，再升 <b>Copilot Pro+ $39</b> 或 <b>Claude Max $100</b>。包月的好处是——用爆了也就那么多钱。</p>
-
-    <h3>④ 跑在哪：本地够用，挂机才上云</h3>
-    <p class="lead">客户端跑在你自己电脑上完全够。只有要「关了电脑还在跑」「出门用手机连」「团队共用」时，才值得租台云服务器。</p>
-    <div class="chart">
-      <p class="ct">🖥️ 云服务器月租对比</p>
-      <p class="cu">约 2 核 2–4G 常见档位 · 美元 / 月</p>
-
-      <div class="brow"><div class="blab">自己电脑 / 本地 <b>$0</b></div><div class="free">✔ 本地就能跑，最省，绝大多数人够用</div></div>
-      <div class="brow"><div class="blab">Vultr 起步款 <b>$2.5</b> <span class="who">· 入门小机</span></div><div class="track"><div class="fill g w14"></div></div></div>
-      <div class="brow"><div class="blab">Hetzner CX22 <b>$4</b> <span class="who">· 性价比之王</span></div><div class="track"><div class="fill g w22"></div></div></div>
-      <div class="brow"><div class="blab">腾讯 / 阿里 轻量应用 <b>$5</b> <span class="who">· 国内·新人有券</span></div><div class="track"><div class="fill t w28"></div></div></div>
-      <div class="brow"><div class="blab">AWS Lightsail <b>$12</b> <span class="who">· 大厂省心</span></div><div class="track"><div class="fill a w67"></div></div></div>
-      <div class="brow"><div class="blab">DigitalOcean <b>$18</b> <span class="who">· 文档友好</span></div><div class="track"><div class="fill o w100"></div></div></div>
-    </div>
-
-    <h3>⑤ 客户端工具：很多是开源免费的</h3>
-    <p class="lead">工具本身多半不要钱，花钱的是它背后接的模型。核心区别：是「绑自家订阅」还是「你自带 API key（BYOK）想接谁接谁」。</p>
-    <table>
-      <tr><th>工具</th><th>免费 / 开源</th><th>接什么模型</th><th>一句话</th></tr>
-      <tr><td><b>Claude Code</b></td><td>闭源·需订阅或 API</td><td>Claude 自家</td><td>官方 CLI，配 Claude 订阅最顺</td></tr>
-      <tr><td><b>GitHub Copilot CLI</b></td><td>免费层可用</td><td>多模型(GPT/Claude…)</td><td>有 Copilot 就能在终端里干活</td></tr>
-      <tr><td><b>Cursor / Windsurf</b></td><td>闭源·订阅</td><td>多模型(自带额度)</td><td>IDE 一体，新手最友好</td></tr>
-      <tr><td><b>Cline / Roo Code</b></td><td>开源免费</td><td>任意 API(BYOK)</td><td>VS Code 插件，接谁都行</td></tr>
-      <tr><td><b>Aider</b></td><td>开源免费</td><td>任意 API(BYOK)</td><td>终端老牌，跟 git 配合好</td></tr>
-      <tr><td><b>OpenCode / Codex CLI</b></td><td>开源免费</td><td>任意 / OpenAI</td><td>纯 CLI，填自己的 key 就跑</td></tr>
-    </table>
-
-    <h3>🍱 三种典型配置（照抄就行）</h3>
-
-    <div class="combo c-save">
-      <span class="tag tag-save">最省</span>
-      <div class="cttl">零成本起步 · 白嫖党</div>
-      <div class="cprice">≈ $0–5 / 月 <span>先试水、几乎不花钱</span></div>
-      <ul>
-        <li><b>跑在哪：</b>自己电脑（$0）</li>
-        <li><b>客户端：</b>Cline / Aider（开源免费）</li>
-        <li><b>模型：</b>Copilot Free 额度，或 DeepSeek API 充 $5 能用很久</li>
-      </ul>
-      <div class="who"><b>适合：</b>学生、偶尔用、想先摸清楚再说的人。</div>
-    </div>
+    <h3>🌉 两条路，看你有没有「海外条件」</h3>
+    <p class="lead">有没有现成的海外订阅、或者一个梯子（VPN），决定了你走哪条路——两条都能跑起来。</p>
 
     <div class="combo c-main">
-      <span class="tag tag-main">主力</span>
-      <div class="cttl">个人主力 · 每天写码</div>
-      <div class="cprice">≈ $10–100 / 月 <span>一口价，超了限速不超支</span></div>
+      <span class="tag tag-main">有条件</span>
+      <div class="cttl">有订阅 / 有梯子 → 自己电脑直接跑</div>
+      <div class="cprice">≈ ¥0–150 / 月 <span>用你已有的就行</span></div>
       <ul>
-        <li><b>跑在哪：</b>自己电脑（$0）</li>
-        <li><b>客户端：</b>官方工具顺手——Claude Code / Copilot</li>
-        <li><b>模型：</b>一个包月订阅省心——Copilot Pro $10 起步，写得多升 Pro+ $39 或 Claude Max 5× $100</li>
+        <li>有 <b>Claude Code / Codex</b>（ChatGPT Plus）订阅：本机装好直接开跑，<b>不额外花钱</b>。</li>
+        <li>只有梯子没订阅：本机装 Claude Code，充点海外 API，或订一个 Claude Pro（≈ ¥144/月）。</li>
+        <li>轻度使用：Copilot Free 之类的免费额度也够起步。</li>
       </ul>
-      <div class="who"><b>适合：</b>绝大多数每天写码的个人开发者。</div>
+      <div class="who"><b>适合：</b>已经会翻墙、或本来就有 ChatGPT / Claude 会员的人——别折腾，本机最省事。</div>
     </div>
 
-    <div class="combo c-heavy">
-      <span class="tag tag-heavy">重度</span>
-      <div class="cttl">挂机 / 团队 / 自动化</div>
-      <div class="cprice">≈ $50–300+ / 月 <span>用多少付多少</span></div>
+    <div class="combo c-save">
+      <span class="tag tag-save">国内直连</span>
+      <div class="cttl">没梯子没订阅 → 国内服务器 + 国产模型桥接</div>
+      <div class="cprice">≈ ¥50–90 / 月 <span>一顿饭钱</span></div>
       <ul>
-        <li><b>跑在哪：</b>一台 Hetzner / 腾讯轻量 $4–15，24 小时在线</li>
-        <li><b>客户端：</b>开源 CLI（Cline / OpenCode）跑在服务器上</li>
-        <li><b>模型：</b>API 按量——DeepSeek 打底省钱，硬骨头再上 Claude Opus</li>
+        <li><b>简版（最省）：</b>本机直接装 Claude Code，把接口地址指向国产 plan——<b>国内直连、不用梯子</b>。¥49/月（GLM Lite）或更少。</li>
+        <li><b>随身版（推荐）：</b>再加一台国内轻量服务器（新人 ¥8/月起、标准约 ¥40/月），手机 SSH 一连就能随时随地喊它干活、24 小时在线。</li>
+        <li><b>模型：</b>智谱 <b>GLM Coding Plan</b>（¥49/月起，官方适配 Claude Code）打底，或 <b>DeepSeek V4</b> 按量（白菜价，用不了几个钱）。</li>
       </ul>
-      <div class="who"><b>适合：</b>要后台常驻、出门随时连、多人协作、跑批量自动化。</div>
+      <div class="who"><b>适合：</b>大多数国内用户——不用梯子、按月一口价、还能手机随时连。</div>
     </div>
+
+    <h3>💰 一个月到底花多少钱</h3>
+    <p class="lead">把常见几种搭法摆一起看月成本——生活小事用量小，其实都不贵。</p>
+    <div class="chart">
+      <p class="ct">💰 常见搭法 · 每月花费</p>
+      <p class="cu">人民币 / 月 · 生活小事的日常用量</p>
+
+      <div class="brow"><div class="blab">纯免费起步 <b>¥0</b></div><div class="free">✔ Copilot Free / 模型免费档 / DeepSeek 新人额度，先玩起来</div></div>
+      <div class="brow"><div class="blab">DeepSeek V4 按量 <b>≈¥10</b> <span class="who">· 白菜价打底</span></div><div class="track"><div class="fill g w7"></div></div></div>
+      <div class="brow"><div class="blab">智谱 GLM Lite 包月 <b>¥49</b> <span class="who">· 省心·最推荐</span></div><div class="track"><div class="fill t w33"></div></div></div>
+      <div class="brow"><div class="blab">国内服务器 + GLM Lite <b>≈¥89</b> <span class="who">· 随身版·手机随时连</span></div><div class="track"><div class="fill a w59"></div></div></div>
+      <div class="brow"><div class="blab">梯子 / 海外订阅 Claude Pro <b>≈¥144</b> <span class="who">· 已有条件就用</span></div><div class="track"><div class="fill o w96"></div></div></div>
+    </div>
+    <p class="lead">💡 生活小事（配菜谱、写攻略、整理清单）一次也就几千到几万字，<b>按量的话一个月常常花不到一杯奶茶钱</b>；想省心就包月 GLM Lite，¥49 封顶。</p>
+
+    <h3>🧠 国产模型怎么选</h3>
+    <p class="lead">桥接国产模型有两种付法：按量（用多少付多少）或包月（一口价）。生活小事用量小，两种都便宜。</p>
+    <table>
+      <tr><th>模型</th><th>怎么付</th><th>生活用量一个月大概</th><th>定位</th></tr>
+      <tr><td><b>DeepSeek V3.2</b></td><td>按量 ¥0.28 / ¥0.42<br>每百万 tokens</td><td><b>¥5–15</b></td><td>白菜价打底，日常够用</td></tr>
+      <tr><td><b>DeepSeek V4-Pro</b></td><td>按量 ¥3 / ¥6<br>每百万 tokens</td><td><b>¥20–50</b></td><td>复杂任务更强</td></tr>
+      <tr><td><b>智谱 GLM Lite</b></td><td>包月一口价</td><td><b>¥49</b> 固定</td><td>配 Claude Code 最顺·省心</td></tr>
+      <tr><td><b>智谱 GLM Pro</b></td><td>包月一口价</td><td><b>¥134</b> 固定</td><td>多项目 / 重度</td></tr>
+    </table>
+    <p class="lead">💡 两列价格分别是「输入 / 输出」每百万 tokens（约几十万到上百万汉字）。DeepSeek 新用户还送几百万 tokens，缓存命中能再便宜一个量级。</p>
+
+    <h3>🖥️ 国内云服务器要多少</h3>
+    <p class="lead">只有走「随身版」才需要。国内轻量服务器很便宜，新人券更是白菜价。</p>
+    <div class="chart">
+      <p class="ct">🖥️ 国内轻量服务器 · 月租</p>
+      <p class="cu">2 核 2G 常见档 · 人民币 / 月</p>
+
+      <div class="brow"><div class="blab">自己电脑 / 本地 <b>¥0</b></div><div class="free">✔ 本机直接跑，不用服务器也行</div></div>
+      <div class="brow"><div class="blab">腾讯 / 阿里 新人首年 <b>≈¥8</b> <span class="who">· ¥99/年·拼手速更低</span></div><div class="track"><div class="fill g w13"></div></div></div>
+      <div class="brow"><div class="blab">标准 2核2G <b>≈¥40</b> <span class="who">· 续费常规价</span></div><div class="track"><div class="fill t w67"></div></div></div>
+      <div class="brow"><div class="blab">2核4G 稍宽裕 <b>≈¥60</b> <span class="who">· 想多跑点东西</span></div><div class="track"><div class="fill a w100"></div></div></div>
+    </div>
+    <p class="lead">💡 挂机、手机随时连、环境干净不折腾本地——这些才值得上服务器；只在电脑上偶尔用，本地 ¥0 就够。</p>
+
+    <h3>🧰 客户端工具 & 桥接</h3>
+    <p class="lead">工具本身多半免费，关键是<b>能不能接国产模型</b>。Claude Code 只要改一下接口地址（base_url），就能桥接到智谱 GLM、DeepSeek。</p>
+    <table>
+      <tr><th>工具</th><th>免费</th><th>接国产模型</th><th>一句话</th></tr>
+      <tr><td><b>Claude Code</b></td><td>需订阅或桥接</td><td><span class="ok">✔</span> 改 base_url 接 GLM / DeepSeek</td><td>官方 CLI，国产 plan 官方适配它</td></tr>
+      <tr><td><b>Copilot CLI</b></td><td>免费层可用</td><td>多模型</td><td>有 Copilot 就能在终端干活</td></tr>
+      <tr><td><b>Cline / Roo Code</b></td><td>开源免费</td><td><span class="ok">✔</span> 任意 API（BYOK）</td><td>VS Code 插件，接谁都行</td></tr>
+      <tr><td><b>Aider</b></td><td>开源免费</td><td><span class="ok">✔</span> 任意 API（BYOK）</td><td>终端老牌，跟 git 配合好</td></tr>
+    </table>
 
     <h3>🧭 一句话决策</h3>
     <div class="guide">
-      <div class="grow">只是偶尔问几句 / 学生 → <b>Copilot Free 或 DeepSeek API</b>，几乎不花钱。</div>
-      <div class="grow">每天写码的个人 → <b>先上 Copilot Pro $10 或 Claude Pro $20</b>，不够再升级。一口价最省心。</div>
-      <div class="grow">想混用便宜模型 / 跑自动化 / 用量忽高忽低 → <b>开源 CLI + API 按量（BYOK）</b>，便宜模型打底、贵模型攻坚。</div>
-      <div class="grow">要 24 小时挂机 / 异地连 / 多人 → 再加一台 <b>Hetzner 或腾讯轻量 $4–15/月</b>，其余照上面配。</div>
+      <div class="grow">有 ChatGPT / Claude 会员，或有梯子 → <b>本机直接用现成的</b>，不额外花钱。</div>
+      <div class="grow">没梯子、想省心 → <b>本机装 Claude Code + 智谱 GLM Lite ¥49/月</b>，国内直连、一口价。</div>
+      <div class="grow">想手机随时连 / 24 小时挂着 → <b>加一台国内轻量服务器（¥8–40/月）</b>，其余照上面。</div>
+      <div class="grow">用量很小、只想试试 → <b>DeepSeek 按量或各家免费额度</b>，一个月几块钱甚至不花钱。</div>
     </div>
 
     <div class="note">
-      <b>📌 数据说明：</b>以上为 2026 年年中的公开参考价（美元），API 按「每百万 tokens · 输出价」排序，输入价通常是输出的 ⅕–⅓。各家常有促销、缓存折扣、新人券、年付优惠，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>。
+      <b>📌 数据说明：</b>以上为 2026 年年中的国内公开参考价（人民币）。云服务器新人券多为首年优惠、需拼抢，续费价更高；智谱 GLM、DeepSeek 常有促销、缓存折扣、新人赠额，模型版本与套餐也在快速变动——<b>实际请以各家官方定价页为准</b>，不构成消费建议。
     </div>
 
     <div class="cta">
-      <div class="h">🧮 这份对比是跟 AI 说一句话整理出来的</div>
-      <div class="d">让 AI 帮你查资料、算账、排成对比图，在微信里直接打开、转发。想给自己也做一份？打开 <a class="cta-link" href="how-to-use.html">上手指南</a>，两步搞定。</div>
+      <div class="h">🧮 想自己也搭一套？</div>
+      <div class="d">这份对比、还有小程序里那些报告，都是跟 AI 说句话整理出来的。想上手，打开 <a class="cta-link" href="how-to-use.html">上手指南</a>，两步就能把你的第一份报告发出来。</div>
     </div>
   </div>
 
-  <div class="foot">数据截至 2026 年中 · 仅供参考，价格与套餐随时变动，请以各家官方定价页为准，不构成消费建议。</div>
+  <div class="foot">数据截至 2026 年中 · 面向国内参考 · 价格与套餐随时变动，请以各家官方定价页为准，不构成消费 / 投资建议。</div>
 </div>
 </body>
 </html>
