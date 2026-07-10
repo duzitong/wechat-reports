@@ -44,6 +44,12 @@
 
   .foot { color: #9a9484; font-size: 12px; margin: 26px 0 0; text-align: center; }
   .foot-link { color: #bf5b3e; text-decoration: underline; font-weight: 600; }
+
+  .branch { font-size: 12.5px; color: #5c574a; line-height: 1.62; background: #efe7d6; border: 1px dashed #d5c4a8; border-radius: 6px; padding: 9px 13px; margin: 0 auto 14px; max-width: 460px; }
+  .branch b { color: #a8482c; }
+  .why { font-size: 12px; color: #6f6a5b; line-height: 1.62; margin: 9px 0 0; padding: 8px 11px; background: #f2ebdd; border-radius: 5px; }
+  .why b { color: #a8482c; }
+  .skip { display: inline-block; background: #e4d3c4; color: #8a4327; font-size: 11px; font-weight: 700; border-radius: 11px; padding: 1px 9px; margin-left: 8px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -53,21 +59,26 @@
 
   <div class="sec-h"><span class="sec-n">①</span> 第一次准备<span class="sec-hint">只做一次 · 可直接发给 AI 帮你做</span></div>
 
+  <div class="branch">👤 <b>已经配过 AI agent 了？</b>（在微信或任意平台都接好了）那第 <b>②</b> 步跳过，只做 ① 和 ③ 就行。第一次用的，三步都走一遍。</div>
+
   <div class="step">
     <div class="step-h"><span class="badge">1</span>把仓库变成你自己的</div>
     <div class="step-d">Clone <a class="jump" href="https://github.com/duzitong/wechat-reports">duzitong/wechat-reports</a>，push 到自己账号下。自己或家人看，用 <b>private</b> 就行（家人共享见第 ③ 步）；想转发给任何人（群里、朋友圈），设为 <b>public</b>（私有库的报告，没 token 的人打不开）。</div>
+    <div class="why"><b>为什么要 clone 这个仓库？</b>它里面带了给 AI 的写页面规则（<code>AGENTS.md</code> + mp-html 技能），AI 照着它才能生成在小程序里能正常显示的报告；而且报告只有 push 到你这个仓库，小程序才读得到 —— 「AI 写好 → 推上来 → 你能看」这套就靠它跑通。</div>
   </div>
 
   <div class="step">
-    <div class="step-h"><span class="badge">2</span>把微信连到本机 agent</div>
+    <div class="step-h"><span class="badge">2</span>把微信连到本机 agent<span class="skip">已配过可跳过</span></div>
     <div class="step-d">用 <a class="jump" href="https://github.com/formulahendry/wechat-acp">wechat-acp</a> 起一个桥，把微信消息接到你电脑上的 AI（<code>--agent</code> 换成你喜欢的）：
       <span class="cmd">npx -y wechat-acp@latest --agent copilot --cwd &lt;仓库路径&gt;</span>
     </div>
+    <div class="why"><b>已经在微信 / 其他平台配好 agent 连接的，这步直接跳过。</b>它只是起一座「桥」，把你发的消息接到电脑上的 AI，让它能在你的仓库里干活、写报告。</div>
   </div>
 
   <div class="step">
     <div class="step-h"><span class="badge">3</span>给小程序一个只读 token</div>
     <div class="step-d">在「GH HTML 查看器」小程序里填一个 GitHub Fine-grained PAT（Contents 只读，<a class="jump" href="https://github.com/settings/personal-access-tokens/new">点此创建 →</a>），token 只存在填入它的设备上。<b>家人一起看</b>：把这个只读 token 也发给家人，各自填进小程序，就能看你的私有库 —— 不必公开。</div>
+    <div class="why"><b>为什么要给 token？</b>小程序是纯前端应用，自己不存你的代码，只是<b>连上你的 GitHub 仓库、把里面的 HTML 报告渲染出来</b>给你看。所以只需要一把「只读」钥匙（Contents 只读），token 也只留在你自己的设备上。</div>
   </div>
 
   <div class="shot-wrap">
