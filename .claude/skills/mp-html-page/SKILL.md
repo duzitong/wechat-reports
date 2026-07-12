@@ -14,7 +14,7 @@ Author a single self-contained `.html` file that renders in the miniapp's `mp-ht
 - **Supported selectors:** tag, `.class`, `#id`, intersection (`.a.b`), descendant (`.a .b`), child (`.a > b`), grouping (`a, b`), `:before` / `:after`. Dropped: `*`, `[attr]`, `:hover` / `:nth-child` / other pseudo-classes, `~`, `+`.
 - **Set `background` + `color` on a wrapper** that holds all content — otherwise it falls back to the device default (white bg / black text).
 - **No interactivity** — `<script>`, `<canvas>`, `<iframe>`, forms, animations and transitions don't work.
-- **Images:** use `<img>` with a same-repo relative path (the viewer inlines it) or an absolute `https://` URL — not CSS `background-image:url()`. Use a system font stack (no web fonts). mp-html caps images at `max-width:100%`.
+- **Images:** use `<img>` (not CSS `background-image:url()`) with a system font stack (no web fonts); mp-html caps images at `max-width:100%`. **Choose the `src` by repo visibility: a private repo → a same-repo relative path (the viewer downloads it with the user's token); a public repo → an absolute `raw.githubusercontent.com` URL (lazy-loads, doesn't block first paint).** See runtime limits below.
 
 ## Viewer runtime limits (from the miniapp's code)
 
@@ -25,6 +25,8 @@ The viewer resolves a page via the viewer mini-program's `config/index.js`. For 
 - **Images are cached on-device, not held in memory.** Each downloaded image is written to a local cache file and the `<img>` points at that path; the cache **persists across restarts** and only refreshes via the viewer's **“清缓存”** button. With lazy-loading on, image-heavy pages are far lighter than the old base64-inline approach — but every image must still clear the per-image cap above on its first download.
 - **≤ 8 relative stylesheets per page.** Only the first `css.maxStylesheets` (currently **8**) same-repo `<link rel="stylesheet">` files are fetched and inlined. Inline `<style>` blocks have **no** cap and are always parsed — **prefer inline `<style>`**.
 - **`raw` mode (no caps) is public-repo only.** It rewrites images to `raw.githubusercontent.com` with no API calls or caps, but only works for public repos. A private repo must use `dataUri`, so the caps above apply.
+- **In a public repo, write the absolute `https://raw.githubusercontent.com/<owner>/<repo>/<branch>/<path>` URL directly** (don't rely on a relative `src`). Absolute images take the native `<img>` **lazy-load** path: they stream in on scroll, don't block first paint, and a slow image renders progressively. A relative `src` in a public repo still works (raw mode rewrites it), but until the viewer resolves it the image can render as a **collapsed thin line / blank** and is more likely to stall the first paint on an image-heavy page. So for public pages, **always emit absolute raw URLs**. (The file must already be committed+pushed to that branch for the raw URL to resolve.)
+- **In a private repo, do the opposite — use relative same-repo paths, not raw URLs.** A `raw.githubusercontent.com` URL **won't resolve for a private repo** (it needs auth). The viewer fetches each relative asset through the GitHub Contents API with the user's token and caches it on-device — that's exactly why the **≤ 120-image / < 1 MB (≤ 250 KB target)** caps above apply. So: **private → relative, public → absolute raw.**
 
 ## Recompressing photos (≤ 250 KB, keep quality)
 
