@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>雅可比猜想被推翻了？一个能手算验证的反例</title>
+<style>
+  body { margin: 0; background: #e9e3d5; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  .page { max-width: 760px; margin: 0 auto; background: #f4f1ea; color: #26231d; padding: 26px 22px 52px; line-height: 1.75; }
+  .title { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 26px; font-weight: 700; margin: 0 0 6px; color: #201d17; }
+  .subtitle { color: #bf5b3e; font-weight: 700; margin: 0 0 4px; }
+  .meta { color: #8b8578; font-size: 13px; margin: 0 0 22px; }
+
+  p { margin: 0 0 12px; }
+  b.k { color: #8a4327; }
+  b.g { color: #4e7a27; }
+  b.a { color: #bf5b3e; }
+
+  .tldr { background: #efe7d6; border: 1px solid #e0d6c2; border-left: 5px solid #bf5b3e; border-radius: 8px; padding: 14px 16px; margin: 0 0 24px; }
+  .tldr h3 { font-family: Georgia, "Songti SC", "Noto Serif SC", serif; margin: 0 0 8px; font-size: 16px; color: #a8482c; }
+  .tldr p { margin: 6px 0 0; }
+  .tldr p.last { margin-bottom: 0; }
+
+  h3.sec { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", STSong, serif; font-size: 18px; color: #201d17; margin: 30px 0 12px; border-bottom: 2px solid #e4ddcc; padding-bottom: 6px; }
+
+  .note { background: #fbf6ec; border: 1px solid #e6dcc9; border-radius: 8px; padding: 12px 15px; margin: 0 0 14px; font-size: 14px; }
+  .note .h { font-weight: 700; color: #8a4327; margin: 0 0 4px; }
+
+  .formula { background: #f7f1e5; border: 1px solid #e0d6c2; border-radius: 8px; padding: 14px 16px; margin: 0 0 14px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; color: #33291d; line-height: 1.9; overflow-wrap: break-word; word-break: break-word; }
+  .formula .lbl { display: block; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #8b8578; font-size: 12px; margin: 0 0 6px; }
+  .formula .det { color: #4e7a27; font-weight: 700; }
+
+  .check { border: 1px solid #e4ddcc; border-radius: 10px; padding: 14px 16px 6px; margin: 0 0 16px; }
+  .check .cnum { display: inline-block; font-size: 12px; font-weight: 700; color: #ffffff; background: #bf5b3e; border-radius: 20px; padding: 2px 11px; margin: 0 8px 0 0; }
+  .check .ctitle { font-size: 16px; font-weight: 700; }
+  .check .conc { margin: 6px 0 12px; padding: 8px 12px; background: #f7f1e5; border-left: 3px solid #4e7a27; border-radius: 6px; }
+
+  .collide { border: 1px dashed #d9b79c; background: #fbf6ec; border-radius: 10px; padding: 14px 14px 6px; margin: 4px 0 12px; text-align: center; }
+  .collide .pt { display: inline-block; background: #ffffff; border: 1px solid #e4ddcc; border-radius: 8px; padding: 7px 12px; margin: 0 5px 8px; font-family: Consolas, Menlo, monospace; font-size: 13.5px; color: #33291d; }
+  .collide .arrow { color: #8b8578; font-size: 13px; margin: 2px 0 8px; }
+  .collide .cout { display: inline-block; background: #eef3e2; border: 1px solid #cfe0a8; border-radius: 8px; padding: 8px 14px; font-family: Consolas, Menlo, monospace; font-size: 15px; font-weight: 700; color: #4e7a27; }
+
+  .points { margin: 0 0 12px; padding: 0 0 0 20px; }
+  .points li { margin: 0 0 8px; }
+
+  table { border-collapse: collapse; width: 100%; margin: 0 0 8px; font-size: 13.5px; }
+  th, td { border: 1px solid #e0d6c2; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f0e7d6; color: #201d17; }
+  td.term { font-weight: 700; color: #8a4327; white-space: nowrap; }
+
+  .tip { background: #fbf3ea; border-left: 4px solid #bf5b3e; border-radius: 6px; padding: 12px 15px; margin: 18px 0 0; }
+  .tip strong { color: #a8482c; }
+  .tip p { margin: 0 0 8px; }
+  .tip p.last { margin: 0; }
+
+  .foot { color: #9a9484; font-size: 12px; margin: 26px 0 0; border-top: 1px solid #e4ddcc; padding-top: 14px; line-height: 1.7; }
+  .foot b { color: #26231d; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="title">雅可比猜想被推翻了？📐</div>
+  <div class="subtitle">1939 年的老猜想 · 2026 年 7 月的 ℂ³ 反例 · 一个能手算验证的例子</div>
+  <div class="meta">整理于 2026-07-20 · 面向非专业读者 · 文中的行列式与碰撞点均由本文作者用计算机代数从零独立重算核对</div>
+
+  <div class="tldr">
+    <h3>30 秒看懂</h3>
+    <p>数学界有个开了 <b class="k">86 年</b>的著名猜想——<b>雅可比猜想</b>：只要一个「多项式映射」的雅可比行列式是个非零常数，它就一定可逆。</p>
+    <p>2026 年 7 月，有人给出了一个具体的三维反例：一个映射 ℂ³→ℂ³，雅可比行列式<b class="g">恒等于 −2</b>（满足条件），却把<b class="a">三个不同的点映到了同一个点</b>（因此不可逆）。条件成立、结论失败 = 反例。</p>
+    <p class="last">妙处在于：验证它<b>不需要读懂上百页证明</b>——算一个行列式、代入几个点就行，中学生都能核对。本文就带你把这两步走一遍。</p>
+  </div>
+
+  <h3 class="sec">一、先认识「雅可比猜想」</h3>
+  <p><b>多项式映射</b>是什么？就是一组用多项式写出来的坐标变换。比如三维里 (x, y, z) 各自被三个多项式送到新的三个数——记作 F : ℂ³ → ℂ³。（这里用复数 ℂ，因为多项式在复数上最「干净」。）</p>
+  <p><b>雅可比行列式</b>是什么？把每个输出对每个输入求偏导，排成一张 3×3 的表（雅可比矩阵），它的行列式记作 det(JF)。它衡量这个映射在每一点上「局部拉伸/翻转」了多少。</p>
+
+  <div class="note">
+    <p class="h">一个关键事实（必要条件）</p>
+    <p style="margin:0;">如果 F 真的可逆、而且逆映射也是多项式，那么用链式法则一推，det(JF) <b>必然是一个非零常数</b>（不含 x,y,z）。这一半是早就证明了的。</p>
+  </div>
+
+  <p>1939 年，<b>Ott-Heinrich Keller</b> 反过来问：这个必要条件<b>够不够充分</b>？也就是——</p>
+  <div class="formula">
+    <span class="lbl">雅可比猜想（Keller, 1939）</span>
+    若多项式映射 F : ℂⁿ → ℂⁿ 满足 <span class="det">det(JF) = 非零常数</span>，<br>
+    则 F 一定是可逆的（而且逆也是多项式）。
+  </div>
+  <p>它看着「显然」，却是数学里出了名的硬骨头，开放了 <b>86 年</b>，期间倒下过无数个错误证明和错误反例。它还和一大堆其它问题等价，被认为是理解「多项式自同构」的核心关卡之一。</p>
+
+  <div class="note">
+    <p class="h">小背景：实数版早就被推翻了</p>
+    <p style="margin:0;">如果把条件放宽成「雅可比行列式处处非零、但不必是常数」，并在实数上讨论，Pinchuk 在 1994 年就给过二维反例。但那是<b>更弱的实数版</b>；这次针对的是「雅可比为<b>非零常数</b>、在<b>复数</b>上」的<b>原版猜想</b>——难度不是一回事。</p>
+  </div>
+
+  <h3 class="sec">二、2026 年 7 月发生了什么</h3>
+  <p>据多家报道：哈佛数学家 <b>Levent Alpöge</b> 在 Anthropic 的 AI 模型 <b>Claude Fable 5</b> 协助下，于 7 月 19–20 日（世界杯决赛期间）在推特上<b>非正式地</b>公布了一个针对雅可比猜想的显式反例，随后被 New Scientist 等转载、并被不少人用 Wolfram Alpha 等工具当场复算。</p>
+  <div class="tip">
+    <p><strong>先把话说清楚（重要）：</strong>这则消息目前是<b>推特上的非正式公布，尚未经过正式发表和同行评审</b>。历史上「推翻雅可比猜想」的乌龙不止一次，所以「新闻本身」值得谨慎。</p>
+    <p class="last">但——反例和「证明」不同：一个反例是不是对的，<b>不取决于你信不信作者</b>，只取决于那个具体的映射<b>算出来对不对</b>。而这恰恰是几分钟就能核对的事。下面我们不谈八卦，只看数学。</p>
+  </div>
+
+  <h3 class="sec">三、反例长什么样</h3>
+  <p>公开流传的映射（把 (x, y, z) 送到三个多项式）是这样的：</p>
+  <div class="formula">
+    <span class="lbl">F : ℂ³ → ℂ³，(x, y, z) ↦ (f₁, f₂, f₃)</span>
+    f₁ = (1 + xy)³ · z + y²(1 + xy)(4 + 3xy)<br>
+    f₂ = y + 3x(1 + xy)² · z + 3x · y²(4 + 3xy)<br>
+    f₃ = 2x − 3x²y − x³ · z
+  </div>
+  <p>它看起来有点吓人，但别怕——我们不需要「理解」它，只需要对它做两项<b>机械的检查</b>。</p>
+
+  <h3 class="sec">四、为什么它就是反例（两步验证）</h3>
+  <p>「反例」的逻辑很简单：雅可比猜想说「<b class="k">满足条件</b> ⟹ <b class="g">一定可逆</b>」。要推翻它，只要找到一个映射<b>既满足条件、又偏偏不可逆</b>。于是只需验两件事：</p>
+
+  <div class="check">
+    <p><span class="cnum">验证 ①</span><span class="ctitle">雅可比行列式是非零常数吗？</span></p>
+    <p>把上面三个多项式对 x, y, z 求偏导、排成 3×3 矩阵、算行列式。这是一步<b>纯机械</b>的多项式运算，用手（或任何符号计算工具）都能做。结果是：</p>
+    <div class="formula"><span class="det">det(JF) = −2</span>　（一个非零常数，里面没有 x、y、z）</div>
+    <p class="conc"><b class="g">✓ 条件满足。</b>本文作者用计算机代数把行列式完全展开，确认它处处恒等于常数 −2。</p>
+  </div>
+
+  <div class="check">
+    <p><span class="cnum">验证 ②</span><span class="ctitle">它可逆吗？——不，它是「三对一」</span></p>
+    <p>可逆（单射）意味着「不同的输入必给不同的输出」。可这个 F 偏偏把<b>三个不同的点</b>送到了<b>同一个点</b> (0, 1, 0)：</p>
+    <div class="collide">
+      <div class="pt">P₁ = (−2, 1, 2)</div>
+      <div class="pt">P₂ = (0, 1, −4)</div>
+      <div class="pt">P₃ = (2, −1/2, 5/4)</div>
+      <div class="arrow">三个不同的点 ⟶ 同一个 F ⟶ 落到同一处</div>
+      <div class="cout">F(P₁) = F(P₂) = F(P₃) = (0, 1, 0)</div>
+    </div>
+    <p>既然不同输入给了相同输出，F 就<b>不是单射</b>，自然<b>没有逆映射</b>。（事实上它对几乎每个目标点都有 3 个原像，是个「3 对 1」的映射。）</p>
+    <p class="conc"><b class="a">✗ 结论失败：F 不可逆。</b></p>
+  </div>
+
+  <p><b>条件成立（①）+ 结论失败（②）= 一个货真价实的反例</b>，把 n ≥ 3 的雅可比猜想推翻了。（注：二维 n = 2 的情形仍然悬而未决。）</p>
+
+  <h3 class="sec">五、你可以亲手验证</h3>
+  <p>不信？挑最简单的 P₂ = (0, 1, −4) 代进去，x = 0 会消掉一大半项：</p>
+  <table>
+    <tr><th>分量</th><th>代入 x=0, y=1, z=−4（注意 1+xy = 1）</th><th>结果</th></tr>
+    <tr><td class="term">f₁</td><td>1³·(−4) + 1²·1·(4+0) = −4 + 4</td><td><b class="g">0</b></td></tr>
+    <tr><td class="term">f₂</td><td>1 + 3·0·(…) + 3·0·(…) = 1</td><td><b class="g">1</b></td></tr>
+    <tr><td class="term">f₃</td><td>2·0 − 3·0²·1 − 0³·(−4) = 0</td><td><b class="g">0</b></td></tr>
+  </table>
+  <p>得到 (0, 1, 0)。再花两分钟把整数点 P₁ = (−2, 1, 2)（此时 1+xy = −1）代进去，同样得到 (0, 1, 0)。两个不同的点、同一个像——非单射，实锤。</p>
+
+  <div class="note">
+    <p class="h">这正是「反例 vs 证明」的差别</p>
+    <p style="margin:0;">一个<b>证明</b>可能长达上百页，同行评审要花几个月去挑逻辑漏洞；而一个<b>反例</b>是「自证的」——你不必读懂作者怎么想到它，只要把这个具体对象拿来算：行列式是不是非零常数、点是不是真撞在一起。两步都是有限步的算术，谁都能重算。这也是为什么它能在公布几小时内就被大量独立复核。</p>
+  </div>
+
+  <h3 class="sec">六、该信到什么程度</h3>
+  <div class="tip">
+    <p><strong>数学层面：</strong>就上面这个具体映射而言，两项检查都成立（本文已独立重算）。作为一个「满足假设却不可逆」的对象，它是自洽的。</p>
+    <p><strong>新闻层面：</strong>公布方式是非正式的推特帖、<b>尚无正式论文与同行评审</b>；「AI 主导发现」的叙事也属于还在发酵的元故事。谨慎的说法是：<b>「如果流传的映射就是最终版本，那这个反例站得住」</b>，但正式定稿仍值得等。</p>
+    <p class="last"><strong>别急着改教材：</strong>二维情形仍然开放，整套理论的后续影响也要时间消化。把它当成「一个漂亮、可复核的数学事件」来学习，而不是「已尘埃落定的定论」。</p>
+  </div>
+
+  <h3 class="sec">名词小抄</h3>
+  <table>
+    <tr><th>词</th><th>大白话</th></tr>
+    <tr><td class="term">多项式映射</td><td>用多项式写成的坐标变换 F，把一组数变成另一组数。</td></tr>
+    <tr><td class="term">雅可比矩阵</td><td>把「每个输出对每个输入的偏导数」排成的方阵。</td></tr>
+    <tr><td class="term">雅可比行列式</td><td>那个方阵的行列式；衡量映射在每点的局部拉伸/翻转。</td></tr>
+    <tr><td class="term">单射 / 可逆</td><td>不同输入 → 不同输出，就能「原路返回」。三对一就做不到。</td></tr>
+    <tr><td class="term">原像 / 纤维</td><td>被映到同一个目标点的所有输入点的集合。</td></tr>
+    <tr><td class="term">反例</td><td>满足猜想的前提、却违反猜想结论的一个具体例子——一个就够。</td></tr>
+  </table>
+
+  <div class="foot">
+    <b>信息来源：</b>New Scientist、Wikipedia「Jacobian conjecture」词条、officechai 及多家中文聚合报道（截至 2026-07-20，均为对推特非正式公布的转载）。<br>
+    <b>计算复核：</b>文中「det(JF) ≡ −2」与「F(−2,1,2)=F(0,1,−4)=(2,−1/2,5/4)↦(0,1,0)」两处，由本文作者用计算机代数（SymPy）独立重算确认。<br>
+    <b>免责声明：</b>该反例尚未正式发表 / 同行评审，本文为科普学习用途，不构成对结果最终性的断言；二维（n=2）雅可比猜想仍为开放问题。
+  </div>
+</div>
+</body>
+</html>
