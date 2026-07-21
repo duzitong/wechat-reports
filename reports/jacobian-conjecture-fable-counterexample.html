@@ -30,6 +30,20 @@
   .formula .lbl { display: block; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #8b8578; font-size: 12px; margin: 0 0 6px; }
   .formula .det { color: #4e7a27; font-weight: 700; }
 
+  .fan { border: 1px solid #e4ddcc; background: #fbf6ec; border-radius: 10px; padding: 12px 14px 8px; margin: 0 0 10px; }
+  .fan .src { display: inline-block; background: #efe7d6; border: 1px solid #e0d6c2; border-radius: 8px; padding: 5px 12px; font-family: Consolas, Menlo, monospace; font-weight: 700; color: #8a4327; margin: 0 0 9px; }
+  .fan .row { padding: 4px 0 4px 13px; border-left: 3px solid #d9b79c; margin: 0 0 6px; font-family: Consolas, Menlo, monospace; font-size: 13px; color: #33291d; line-height: 1.55; }
+  .fan .row .col { color: #bf5b3e; font-weight: 700; }
+
+  table.jmat { border-collapse: collapse; width: 100%; margin: 0 0 6px; font-family: Consolas, Menlo, monospace; font-size: 12.5px; text-align: center; }
+  table.jmat th, table.jmat td { border: 1px solid #e0d6c2; padding: 8px 5px; }
+  table.jmat th { background: #efe7d6; color: #8a4327; }
+  .jcorner { background: #f4f1ea; color: #8b8578; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 11px; line-height: 1.3; }
+  .jc { background: #fbfaf5; color: #6b6355; }
+  .jfill { background: #eef3e2; color: #33291d; font-weight: 700; }
+
+  .cap { font-size: 13px; color: #8b8578; margin: 0 0 12px; line-height: 1.6; }
+
   .check { border: 1px solid #e4ddcc; border-radius: 10px; padding: 14px 16px 6px; margin: 0 0 16px; }
   .check .cnum { display: inline-block; font-size: 12px; font-weight: 700; color: #ffffff; background: #bf5b3e; border-radius: 20px; padding: 2px 11px; margin: 0 8px 0 0; }
   .check .ctitle { font-size: 16px; font-weight: 700; }
@@ -67,12 +81,37 @@
     <h3>30 秒看懂</h3>
     <p>数学界有个开了 <b class="k">86 年</b>的著名猜想——<b>雅可比猜想</b>：只要一个「多项式映射」的雅可比行列式是个非零常数，它就一定可逆。</p>
     <p>2026 年 7 月，有人给出了一个具体的三维反例：一个映射 ℂ³→ℂ³，雅可比行列式<b class="g">恒等于 −2</b>（满足条件），却把<b class="a">三个不同的点映到了同一个点</b>（因此不可逆）。条件成立、结论失败 = 反例。</p>
-    <p class="last">妙处在于：验证它<b>不需要读懂上百页证明</b>——算一个行列式、代入几个点就行，中学生都能核对。本文就带你把这两步走一遍。</p>
+    <p class="last">妙处在于：验证它<b>不需要读懂上百页证明</b>——算一个行列式、代入几个点就行。只要会「代入」和「把其它字母当常数、求一次导」这一步（下面第一节就把它教给你），你就能自己核对。</p>
   </div>
 
   <h3 class="sec">一、先认识「雅可比猜想」</h3>
   <p><b>多项式映射</b>是什么？就是一组用多项式写出来的坐标变换。比如三维里 (x, y, z) 各自被三个多项式送到新的三个数——记作 F : ℂ³ → ℂ³。（这里用复数 ℂ，因为多项式在复数上最「干净」。）</p>
-  <p><b>雅可比行列式</b>是什么？把每个输出对每个输入求偏导，排成一张 3×3 的表（雅可比矩阵），它的行列式记作 det(JF)。它衡量这个映射在每一点上「局部拉伸/翻转」了多少。</p>
+  <p><b>雅可比行列式</b>是把「每个输出对每个输入求偏导」排成一张 3×3 的表（<b>雅可比矩阵</b>）、再压成一个数，用来衡量映射在每一点「局部拉伸/翻转」了多少。听着绕，其实拆成三步就能自己搭出来 👇</p>
+
+  <p><b class="k">第 1 步 · 偏导数是什么</b>——一句话：<b>盯住一个字母求导，其它字母暂时当成不动的常数</b>；求导本身就是「x² 变 2x」那套。拿最简单的第三个输出 f₃ = 2x − 3x²y − x³z 各求一次：</p>
+  <div class="formula">
+    <span class="lbl">对每个字母各求一次（把另外两个字母当常数）</span>
+    只盯 x：2x→2，−3x²y→−6xy，−x³z→−3x²z　⟹　<b class="g">∂f₃/∂x = 2 − 6xy − 3x²z</b><br>
+    只盯 y：只有 −3x²y 含 y，其余都当常数　⟹　<b class="g">∂f₃/∂y = −3x²</b><br>
+    只盯 z：只有 −x³z 含 z，其余都当常数　⟹　<b class="g">∂f₃/∂z = −x³</b>
+  </div>
+
+  <p><b class="k">第 2 步 · 摆成矩阵（这就是「谁生成谁」）</b>——每个输出都求出对 x、对 y、对 z 三个偏导。规则很死板：<b>一个输出占一行，一个输入占一列</b>，第 i 行第 j 列就填「第 i 个输出对第 j 个输入的偏导」。f₃ 刚算的三个，正好铺进最后一行：</p>
+  <div class="fan">
+    <div class="src">输出 f₃</div>
+    <div class="row">对 x 求导 → ∂f₃/∂x = 2 − 6xy − 3x²z <span class="col">→ 进「对 x」列</span></div>
+    <div class="row">对 y 求导 → ∂f₃/∂y = −3x² <span class="col">→ 进「对 y」列</span></div>
+    <div class="row">对 z 求导 → ∂f₃/∂z = −x³ <span class="col">→ 进「对 z」列</span></div>
+  </div>
+  <table class="jmat">
+    <tr><td class="jcorner">行＝哪个输出　列＝对谁求导</td><th>对 x</th><th>对 y</th><th>对 z</th></tr>
+    <tr><th>f₁</th><td class="jc">∂f₁/∂x</td><td class="jc">∂f₁/∂y</td><td class="jc">∂f₁/∂z</td></tr>
+    <tr><th>f₂</th><td class="jc">∂f₂/∂x</td><td class="jc">∂f₂/∂y</td><td class="jc">∂f₂/∂z</td></tr>
+    <tr><th>f₃</th><td class="jfill">2 − 6xy − 3x²z</td><td class="jfill">−3x²</td><td class="jfill">−x³</td></tr>
+  </table>
+  <p class="cap">f₁、f₂ 两行同样是各求 3 个偏导，只是式子更长，这里用记号 ∂f₁/∂x… 占位；<b class="g">绿色那行</b>就是我们上面亲手填出来的。这张 3×3 表就是雅可比矩阵。</p>
+
+  <p><b class="k">第 3 步 · 压成一个数 = 行列式</b>——行列式是把方阵算成一个数的<b>固定口诀</b>，照套即可：最简单的 2×2，[[a, b], [c, d]] 的行列式就是 ad − bc；3×3 稍长，但同样是死步骤。把上面 9 个格子按口诀展开、化简后，对这个精心构造的 F，<b>带 x、y、z 的项会全部两两抵消，只剩一个常数</b>——这个常数就是 det(JF)（具体等于几，第四节亲手验）。</p>
 
   <div class="note">
     <p class="h">一个关键事实（必要条件）</p>
@@ -114,7 +153,7 @@
 
   <div class="check">
     <p><span class="cnum">验证 ①</span><span class="ctitle">雅可比行列式是非零常数吗？</span></p>
-    <p>把上面三个多项式对 x, y, z 求偏导、排成 3×3 矩阵、算行列式。这是一步<b>纯机械</b>的多项式运算，用手（或任何符号计算工具）都能做。结果是：</p>
+    <p>把上面三个多项式对 x, y, z 求偏导、排成 3×3 矩阵、算行列式（矩阵怎么由映射生成、偏导怎么求，见<b>第一节第 2 步的图</b>）。这是一步<b>纯机械</b>的多项式运算，用手（或任何符号计算工具）都能做。结果是：</p>
     <div class="formula"><span class="det">det(JF) = −2</span>　（一个非零常数，里面没有 x、y、z）</div>
     <p class="conc"><b class="g">✓ 条件满足。</b>本文作者用计算机代数把行列式完全展开，确认它处处恒等于常数 −2。</p>
   </div>
